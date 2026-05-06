@@ -38,7 +38,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-AR">
-      <body>{children}</body>
+      <body>
+        <div className="sticky top-0 z-50 bg-yellow-400 py-2 text-center text-sm font-bold uppercase tracking-widest text-black">
+          🚧 Pagina web en construccion 🚧
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
