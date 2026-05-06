@@ -73,7 +73,7 @@ export default function ProductCard({ product }: { product: Product }) {
       {/* Contenido */}
       <div className="flex flex-1 flex-col pt-3">
         <h3
-          className="mb-1 text-sm font-semibold uppercase leading-tight tracking-wide"
+          className="mb-1 text-base font-semibold uppercase leading-tight tracking-wide"
           style={{ color: "#5C0A14" }}
         >
           {product.name}
