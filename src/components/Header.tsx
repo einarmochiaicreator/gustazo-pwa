@@ -53,23 +53,15 @@ export default function Header() {
         style={{ backgroundColor: "#5C0A14" }}
       >
         {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-3">
-          <div className="relative h-10 w-10">
+        <Link href="/" className="shrink-0">
+          <div className="relative h-12 w-12">
             <Image
               src="/logo-gustazo.png"
-              alt=""
+              alt="Gustazo Gluten Free"
               fill
               className="object-contain"
               priority
             />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-lg font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-              Gustazo
-            </span>
-            <span className="text-[10px] font-medium uppercase tracking-widest" style={{ color: "rgba(201,162,39,0.65)" }}>
-              Gluten Free
-            </span>
           </div>
         </Link>
 
