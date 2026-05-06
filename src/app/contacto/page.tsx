@@ -3,21 +3,30 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
+import Footer from "@/components/Footer";
 import { MapPinIcon, PhoneIcon, MailIcon, CameraIcon, ClockIcon } from "@/components/Icons";
 
 const WA_NUMBER = "5493516632462";
 
 export default function ContactoPage() {
-  const [form, setForm] = useState({ nombre: "", email: "", interes: "", mensaje: "" });
+  const [form, setForm] = useState({
+    nombre: "",
+    apellidos: "",
+    email: "",
+    interes: "",
+    asunto: "",
+    mensaje: "",
+    privacidad: false,
+  });
 
-  function update(k: keyof typeof form, v: string) {
+  function update(k: keyof typeof form, v: string | boolean) {
     setForm((f) => ({ ...f, [k]: v }));
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const text = encodeURIComponent(
-      `Hola Gustazo!\n\nNombre: ${form.nombre}\nEmail: ${form.email}\nInterés: ${form.interes}\n\nMensaje:\n${form.mensaje}`
+      `Hola Gustazo!\n\nNombre: ${form.nombre} ${form.apellidos}\nEmail: ${form.email}\nInterés: ${form.interes}\nAsunto: ${form.asunto}\n\nMensaje:\n${form.mensaje}`
     );
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, "_blank");
   }
@@ -45,13 +54,12 @@ export default function ContactoPage() {
             style={{ background: "#fff", clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }} />
         </section>
 
-        {/* CONTENIDO — 2 columnas (info izq / form der) */}
+        {/* CONTENIDO — 2 columnas */}
         <section className="mx-auto max-w-6xl px-6 py-16">
           <div className="grid grid-cols-1 gap-14 md:grid-cols-2">
 
             {/* Columna izquierda — mapa + info */}
             <div className="space-y-8">
-              {/* Mapa embed */}
               <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
                 <iframe
                   src="https://maps.google.com/maps?q=Lavalleja+1550,+Alta+Córdoba,+Córdoba,+Argentina&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -65,7 +73,6 @@ export default function ContactoPage() {
                 />
               </div>
 
-              {/* Datos de contacto */}
               <div className="space-y-5">
                 <InfoRow Icon={MapPinIcon} label="Dirección" value="Lavalleja 1550, Alta Córdoba, Córdoba" />
                 <InfoRow
@@ -106,15 +113,24 @@ export default function ContactoPage() {
                       className="contact-input"
                     />
                   </Field>
-                  <Field label="Email *">
+                  <Field label="Apellidos">
                     <input
-                      type="email" required value={form.email}
-                      onChange={(e) => update("email", e.target.value)}
-                      placeholder="tu@email.com"
+                      type="text" value={form.apellidos}
+                      onChange={(e) => update("apellidos", e.target.value)}
+                      placeholder="Tus apellidos"
                       className="contact-input"
                     />
                   </Field>
                 </div>
+
+                <Field label="Email *">
+                  <input
+                    type="email" required value={form.email}
+                    onChange={(e) => update("email", e.target.value)}
+                    placeholder="tu@email.com"
+                    className="contact-input"
+                  />
+                </Field>
 
                 <Field label="¿Qué te interesa?">
                   <select
@@ -132,14 +148,40 @@ export default function ContactoPage() {
                   </select>
                 </Field>
 
+                <Field label="Asunto *">
+                  <input
+                    type="text" required value={form.asunto}
+                    onChange={(e) => update("asunto", e.target.value)}
+                    placeholder="¿De qué se trata tu consulta?"
+                    className="contact-input"
+                  />
+                </Field>
+
                 <Field label="Mensaje *">
                   <textarea
-                    required rows={6} value={form.mensaje}
+                    required rows={5} value={form.mensaje}
                     onChange={(e) => update("mensaje", e.target.value)}
                     placeholder="Contanos en qué podemos ayudarte..."
                     className="contact-input resize-none"
                   />
                 </Field>
+
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={form.privacidad}
+                    onChange={(e) => update("privacidad", e.target.checked)}
+                    className="mt-0.5 h-4 w-4 shrink-0 accent-[#5C0A14]"
+                  />
+                  <span className="text-xs leading-relaxed" style={{ color: "#7a5a5e" }}>
+                    He leído y acepto la{" "}
+                    <a href="/politica-privacidad" className="underline" style={{ color: "#5C0A14" }}>
+                      política de privacidad
+                    </a>
+                    . *
+                  </span>
+                </label>
 
                 <button
                   type="submit"
@@ -157,12 +199,7 @@ export default function ContactoPage() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-10 text-center text-xs" style={{ backgroundColor: "#5C0A14", color: "#e8d4b0" }}>
-          <p className="font-semibold uppercase tracking-widest" style={{ color: "#C9A227" }}>Gustazo</p>
-          <p className="mt-2 opacity-70">R.N.E.: 04006318 · Elaboración bajo BPM · Sin contaminación cruzada</p>
-          <p className="mt-1 opacity-70">Hecho con cariño en Córdoba · © {new Date().getFullYear()}</p>
-        </footer>
+        <Footer />
       </main>
 
       <style jsx global>{`

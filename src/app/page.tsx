@@ -1,11 +1,37 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import CartDrawer from "@/components/CartDrawer";
-import { PRODUCTS, CATEGORIES } from "@/lib/products";
+import CategoryFilter from "@/components/CategoryFilter";
+import Footer from "@/components/Footer";
+import { PRODUCTS, CATEGORIES, type Category } from "@/lib/products";
+
+type SortKey = "default" | "price-asc" | "price-desc" | "name-asc";
 
 export default function StorePage() {
+  const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
+  const [sortKey, setSortKey] = useState<SortKey>("default");
+
+  const filtered = useMemo(() => {
+    let list = activeCategory === "all"
+      ? PRODUCTS
+      : PRODUCTS.filter((p) => p.category === activeCategory);
+    if (sortKey === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
+    if (sortKey === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
+    if (sortKey === "name-asc") list = [...list].sort((a, b) => a.name.localeCompare(b.name, "es"));
+    return list;
+  }, [activeCategory, sortKey]);
+
+  const grouped = useMemo(() => {
+    if (activeCategory !== "all" || sortKey !== "default") return null;
+    return CATEGORIES.map((cat) => ({
+      ...cat,
+      products: PRODUCTS.filter((p) => p.category === cat.id),
+    })).filter((g) => g.products.length > 0);
+  }, [activeCategory, sortKey]);
+
   return (
     <>
       <Header />
@@ -13,7 +39,7 @@ export default function StorePage() {
 
       <main style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
 
-        {/* HERO — fondo foto (o bordo si no hay imagen), corte diagonal abajo */}
+        {/* HERO */}
         <section
           className="relative overflow-hidden"
           style={{
@@ -24,13 +50,7 @@ export default function StorePage() {
             minHeight: "340px",
           }}
         >
-          {/* Overlay oscuro para que el texto se lea */}
-          <div
-            className="absolute inset-0"
-            style={{ backgroundColor: "rgba(60,4,14,0.72)" }}
-          />
-
-          {/* Contenido */}
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(60,4,14,0.72)" }} />
           <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 pb-24">
             <h2
               className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-wide md:text-5xl"
@@ -48,57 +68,66 @@ export default function StorePage() {
               </p>
             </div>
           </div>
-
-          {/* Corte diagonal en el borde inferior */}
           <div
             className="absolute bottom-0 left-0 right-0 h-12"
-            style={{
-              background: "#fff",
-              clipPath: "polygon(0 100%, 100% 0, 100% 100%)",
-            }}
+            style={{ background: "#fff", clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }}
           />
         </section>
 
-        {/* Secciones por categoría */}
-        <div className="mx-auto max-w-6xl px-6 py-12 space-y-16">
-          {CATEGORIES.map((cat) => {
-            const products = PRODUCTS.filter((p) => p.category === cat.id);
-            if (products.length === 0) return null;
-            return (
+        {/* Filtros + Sort */}
+        <div className="mx-auto max-w-6xl px-6 pt-10 pb-2">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
+            <select
+              value={sortKey}
+              onChange={(e) => setSortKey(e.target.value as SortKey)}
+              className="shrink-0 border py-2 pl-3 pr-8 text-sm font-medium appearance-none"
+              style={{
+                borderColor: "#d0c4b0",
+                color: "#5C0A14",
+                backgroundColor: "#fff",
+                borderRadius: "3px",
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235C0A14' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E\")",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right 10px center",
+              }}
+            >
+              <option value="default">Orden: por defecto</option>
+              <option value="price-asc">Precio: menor a mayor</option>
+              <option value="price-desc">Precio: mayor a menor</option>
+              <option value="name-asc">Nombre: A–Z</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Productos */}
+        <div className="mx-auto max-w-6xl px-6 py-8 space-y-16">
+          {grouped ? (
+            grouped.map((cat) => (
               <section key={cat.id}>
                 <h2
                   className="mb-8 text-2xl font-semibold uppercase tracking-widest"
-                  style={{
-                    color: "#5C0A14",
-                    borderBottom: "2px solid #C9A227",
-                    paddingBottom: "0.5rem",
-                  }}
+                  style={{ color: "#5C0A14", borderBottom: "2px solid #C9A227", paddingBottom: "0.5rem" }}
                 >
                   {cat.label} sin gluten
                 </h2>
                 <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
-                  {products.map((product) => (
+                  {cat.products.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
                 </div>
               </section>
-            );
-          })}
+            ))
+          ) : (
+            <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+              {filtered.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Footer */}
-        <footer
-          className="mt-8 py-10 text-center text-xs"
-          style={{ backgroundColor: "#5C0A14", color: "#e8d4b0" }}
-        >
-          <p className="font-semibold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-            Gustazo
-          </p>
-          <p className="mt-2 opacity-70">
-            R.N.E.: 04006318 · Elaboración bajo BPM · Sin contaminación cruzada
-          </p>
-          <p className="mt-1 opacity-70">Hecho con cariño en Córdoba · © {new Date().getFullYear()}</p>
-        </footer>
+        <Footer />
       </main>
     </>
   );

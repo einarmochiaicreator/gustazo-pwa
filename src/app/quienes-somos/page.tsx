@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
+import Footer from "@/components/Footer";
 import { CertificateIcon, ChefHatIcon, HeartIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
@@ -159,12 +160,7 @@ export default function QuienesSomosPage() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-10 text-center text-xs" style={{ backgroundColor: "#5C0A14", color: "#e8d4b0" }}>
-          <p className="font-semibold uppercase tracking-widest" style={{ color: "#C9A227" }}>Gustazo</p>
-          <p className="mt-2 opacity-70">R.N.E.: 04006318 · Elaboración bajo BPM · Sin contaminación cruzada</p>
-          <p className="mt-1 opacity-70">Hecho con cariño en Córdoba · © {new Date().getFullYear()}</p>
-        </footer>
+        <Footer />
       </main>
     </>
   );
