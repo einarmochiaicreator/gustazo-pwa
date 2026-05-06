@@ -40,6 +40,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-AR">
       <body>
+        <div
+          className="sticky top-0 z-50 py-2 text-center text-xs font-bold uppercase tracking-widest"
+          style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
+        >
+          🚧 Sitio web en construcción 🚧
+        </div>
         <CartProvider>
           {children}
         </CartProvider>

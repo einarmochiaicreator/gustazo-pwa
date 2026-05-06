@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
 
 const NAV_ITEMS = [
   { label: "Quiénes somos", href: "/quienes-somos", soon: false },
-  { label: "Tienda", href: "/", soon: false, active: true },
+  { label: "Tienda", href: "/", soon: false },
   { label: "Cursos", href: "/cursos", soon: true },
   { label: "Talleres", href: "/talleres", soon: true },
   { label: "Contacto", href: "/contacto", soon: false },
@@ -16,6 +17,8 @@ const NAV_ITEMS = [
 export default function Header() {
   const { totalItems, openCart } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header>
@@ -25,7 +28,7 @@ export default function Header() {
         style={{ backgroundColor: "#3e0009" }}
       >
         <a
-          href="https://instagram.com/gustazoglutenfree"
+          href="https://www.instagram.com/gustazo.glutenfree"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
@@ -78,8 +81,8 @@ export default function Header() {
                 href={item.soon ? "#" : item.href}
                 className="flex items-center gap-1 text-sm transition"
                 style={{
-                  color: item.active ? "#C9A227" : "rgba(250,246,238,0.85)",
-                  fontWeight: item.active ? 600 : 400,
+                  color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)",
+                  fontWeight: isActive(item.href) ? 600 : 400,
                 }}
               >
                 {item.label}
@@ -139,7 +142,7 @@ export default function Header() {
                 <Link
                   href={item.soon ? "#" : item.href}
                   className="flex items-center justify-between px-6 py-3 text-sm"
-                  style={{ color: item.active ? "#C9A227" : "rgba(250,246,238,0.85)" }}
+                  style={{ color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)" }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
