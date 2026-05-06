@@ -5,17 +5,19 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
+import { useSession } from "next-auth/react";
 
 const NAV_ITEMS = [
   { label: "Quiénes somos", href: "/quienes-somos", soon: false },
   { label: "Tienda", href: "/", soon: false },
-  { label: "Cursos", href: "/cursos", soon: true },
-  { label: "Talleres", href: "/talleres", soon: true },
+  { label: "Cursos", href: "/cursos", soon: false },
+  { label: "Talleres", href: "/talleres", soon: false },
   { label: "Contacto", href: "/contacto", soon: false },
 ];
 
 export default function Header() {
   const { totalItems, openCart } = useCart();
+  const { data: session } = useSession();
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -57,7 +59,7 @@ export default function Header() {
           <div className="relative h-12 w-12">
             <Image
               src="/logo-gustazo.png"
-              alt="Gustazo Gluten Free"
+              alt="Gustazo"
               fill
               className="object-contain"
               priority
@@ -92,8 +94,19 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* Carrito + hamburguesa */}
+        {/* Carrito + cuenta + hamburguesa */}
         <div className="flex items-center gap-3">
+          {/* Icono usuario */}
+          <Link
+            href={session ? "/perfil" : "/auth/signin"}
+            aria-label={session ? "Mi cuenta" : "Iniciar sesión"}
+            className="hidden md:flex items-center gap-1.5 text-sm transition opacity-80 hover:opacity-100"
+            style={{ color: "rgba(250,246,238,0.85)" }}
+          >
+            <UserIcon className="h-5 w-5" />
+            <span className="text-xs">{session ? session.user?.name?.split(" ")[0] : "Acceder"}</span>
+          </Link>
+
           <button
             onClick={openCart}
             className="relative flex items-center gap-1.5 rounded px-3 py-2 text-sm font-semibold transition active:scale-95"
@@ -153,6 +166,15 @@ export default function Header() {
         </div>
       )}
     </header>
+  );
+}
+
+function UserIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+    </svg>
   );
 }
 

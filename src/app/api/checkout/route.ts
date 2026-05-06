@@ -54,7 +54,7 @@ export async function POST(req: Request) {
           pending: `${baseUrl}/checkout/pending`,
         },
         auto_return: "approved",
-        statement_descriptor: "Gustazo Gluten Free",
+        statement_descriptor: "Gustazo",
         additional_info: [
           `Modalidad: ${delivery === "retiro" ? "Retiro en local" : `Delivery a: ${address}`}`,
           notes ? `Notas: ${notes}` : "",

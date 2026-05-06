@@ -33,16 +33,18 @@ export default function StorePage() {
           {/* Contenido */}
           <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 pb-24">
             <h2
-              className="mb-5 text-3xl font-semibold uppercase leading-tight tracking-wide md:text-4xl"
+              className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-wide md:text-5xl"
               style={{ color: "#fff" }}
             >
-              Realizá tu pedido
+              Comé tranquilo.<br />Acá es seguro de verdad.
             </h2>
-            <div className="space-y-1 text-sm leading-relaxed md:text-base" style={{ color: "rgba(255,255,255,0.88)" }}>
-              <p>Pedidos abiertos · Retiro en local o envío a todo el país</p>
-              <p>Te confirmamos por WhatsApp cuando tu pedido esté listo</p>
-              <p className="mt-3 text-xs opacity-60">
-                R.N.E.: 04006318 · 100% sin gluten · Sin contaminación cruzada · Córdoba, Argentina
+            <p className="mb-5 text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
+              Panadería y pastelería 100% sin gluten. Sin contaminación cruzada, sin excepciones.
+            </p>
+            <div className="space-y-1 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
+              <p>Pedidos abiertos · Retiro en Alta Córdoba o envío a todo el país</p>
+              <p className="mt-2 text-xs opacity-70">
+                Elaborador Certificado · R.N.E.: 04006318 · 9 productos con RNPA · Córdoba, Argentina
               </p>
             </div>
           </div>
@@ -90,7 +92,7 @@ export default function StorePage() {
           style={{ backgroundColor: "#5C0A14", color: "#e8d4b0" }}
         >
           <p className="font-semibold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-            Gustazo Gluten Free
+            Gustazo
           </p>
           <p className="mt-2 opacity-70">
             R.N.E.: 04006318 · Elaboración bajo BPM · Sin contaminación cruzada

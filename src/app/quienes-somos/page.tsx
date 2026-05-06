@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
 
 export const metadata: Metadata = {
-  title: "Quiénes Somos | Gustazo Gluten Free",
+  title: "Quiénes Somos | Gustazo",
   description:
-    "Conocé la historia de Gustazo: una panadería y pastelería 100% sin gluten nacida en Córdoba desde la experiencia personal con la celiaquía.",
+    "Conocé la historia de Gustazo: panadería y pastelería 100% sin gluten nacida en Córdoba desde la experiencia personal con la celiaquía.",
 };
 
 export default function QuienesSomosPage() {
@@ -17,7 +17,7 @@ export default function QuienesSomosPage() {
 
       <main style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
 
-        {/* HERO — bordo + corte diagonal */}
+        {/* HERO */}
         <section
           className="relative overflow-hidden"
           style={{ backgroundColor: "#5C0A14", minHeight: "260px" }}
@@ -31,7 +31,7 @@ export default function QuienesSomosPage() {
               Quiénes somos
             </h1>
             <p className="mt-3 text-lg font-medium uppercase tracking-widest" style={{ color: "#C9A227" }}>
-              Gustazo Gluten Free
+              Gustazo · Córdoba, Argentina
             </p>
           </div>
           <div
@@ -40,72 +40,65 @@ export default function QuienesSomosPage() {
           />
         </section>
 
-        {/* SECCIÓN 1 — intro + misión (texto izq / imagen der) */}
+        {/* SECCIÓN 1 — intro + foto pan */}
         <section className="mx-auto max-w-6xl px-6 py-16">
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-            {/* Texto */}
             <div>
               <p className="mb-6 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-                En <strong>Gustazo</strong> creemos que <strong>comer rico, saludable y sin gluten</strong> no debería ser un privilegio, sino un derecho. Somos un establecimiento <strong>elaborador certificado libre de gluten</strong> ubicado en Córdoba, Argentina, dedicado a transformar las limitaciones alimentarias en oportunidades para disfrutar y conectar con los demás.
+                En <strong>Gustazo</strong> creemos que <strong>comer rico y seguro sin gluten</strong> no debería ser un privilegio. Somos un <strong>establecimiento elaborador certificado libre de gluten</strong>, con 9 productos registrados ante el RNPA, ubicados en Alta Córdoba.
               </p>
               <p className="mb-8 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-                Desde 2020 elaboramos panificados y dulces congelados bajo estrictas <strong>Buenas Prácticas de Manufactura (BPM)</strong>, con trazabilidad controlada y cero contaminación cruzada. R.N.E.: 04006318.
+                Elaboramos panificados y dulces bajo estrictas <strong>Buenas Prácticas de Manufactura</strong>, con trazabilidad lote a lote y cero contaminación cruzada. No entra trigo a nuestro obrador. Nunca. R.N.E.: 04006318.
               </p>
               <blockquote
                 className="border-l-4 pl-6 py-2 italic text-xl"
                 style={{ borderColor: "#C9A227", color: "#5C0A14" }}
               >
-                "Que todos puedan disfrutar de una comida rica, segura y hecha con amor."
+                "Que nadie se quede afuera de la mesa."
               </blockquote>
             </div>
 
-            {/* Imagen / placeholder */}
-            <div
-              className="relative flex aspect-square w-full items-center justify-center overflow-hidden"
-              style={{ backgroundColor: "#5C0A14" }}
-            >
+            <div className="relative aspect-square w-full overflow-hidden">
               <Image
-                src="/logo-gustazo.png"
-                alt="Gustazo Gluten Free"
+                src="/foto-pan.jpg"
+                alt="Pan recién horneado en el obrador de Gustazo"
                 fill
-                className="object-contain p-12 opacity-30"
+                className="object-cover"
               />
-              {/* Swap por una foto real: <Image src="/foto-gustazo.jpg" fill className="object-cover" /> */}
             </div>
           </div>
         </section>
 
         <hr style={{ borderColor: "#e8dcc8", margin: "0 1.5rem" }} />
 
-        {/* SECCIÓN 2 — historia (imagen izq / texto der) */}
+        {/* SECCIÓN 2 — historia con foto del obrador */}
         <section className="mx-auto max-w-6xl px-6 py-16">
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-            {/* Imagen */}
-            <div
-              className="relative flex aspect-video w-full items-center justify-center overflow-hidden order-last md:order-first"
-              style={{ backgroundColor: "#faf6ee" }}
-            >
-              <span className="text-8xl opacity-60">🍞</span>
-              {/* Swap por una foto real: <Image src="/foto-obrador.jpg" fill className="object-cover" /> */}
+            <div className="relative aspect-video w-full overflow-hidden order-last md:order-first">
+              <Image
+                src="/foto-obrador.jpg"
+                alt="Dardo en el obrador de Gustazo"
+                fill
+                className="object-cover"
+              />
             </div>
 
-            {/* Texto */}
             <div>
               <h2
                 className="mb-6 text-3xl font-semibold uppercase tracking-wide"
                 style={{ color: "#5C0A14" }}
               >
-                Gustazo como proyecto
+                Una historia personal
               </h2>
               <div className="space-y-4 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
                 <p>
-                  Gustazo nació desde la <strong>experiencia personal de uno de sus fundadores</strong>, diagnosticado con celiaquía a los 2 años. Esa vivencia marcó el camino: convertir la frustración de no poder comer "como todos" en una oportunidad para crear productos que <strong>devuelvan el placer de comer sin miedo</strong>.
+                  Gustazo nació desde la <strong>experiencia de vida de uno de sus fundadores</strong>, diagnosticado con celiaquía a los 2 años. Esa vivencia marcó el camino: convertir la frustración de no poder comer "como todos" en una oportunidad para crear productos que <strong>devuelvan el placer de comer sin miedo</strong>.
                 </p>
                 <p>
-                  Después de años de investigación, formación y viajes en busca de las mejores técnicas de panadería sin gluten, nació un proyecto con alma: una panadería y pastelería <strong>100% libre de contaminación cruzada</strong>, que une <strong>ciencia, arte y empatía</strong> en cada receta.
+                  Después de años de investigación, formación internacional —incluyendo un máster en España— y miles de horas en el obrador, Gustazo es hoy una panadería y pastelería <strong>100% libre de contaminación cruzada</strong>, que une <strong>ciencia, técnica y empatía</strong> en cada receta.
                 </p>
                 <p>
-                  Porque <strong>sabemos lo que significa sentirse limitado</strong> y queremos ser parte del cambio. Que cada persona, celíaca o no, diga <em>"¡Qué gustazo comer así!"</em>
+                  Sabemos lo que significa sentirse el diferente en la mesa. Y trabajamos todos los días para que eso cambie.
                 </p>
               </div>
             </div>
@@ -114,19 +107,31 @@ export default function QuienesSomosPage() {
 
         <hr style={{ borderColor: "#e8dcc8", margin: "0 1.5rem" }} />
 
-        {/* SECCIÓN 3 — Pilares */}
+        {/* SECCIÓN 3 — Por qué Gustazo */}
         <section className="mx-auto max-w-6xl px-6 py-16">
           <h2
             className="mb-10 text-2xl font-semibold uppercase tracking-widest"
             style={{ color: "#5C0A14", borderBottom: "2px solid #C9A227", paddingBottom: "0.5rem" }}
           >
-            Nuestros pilares
+            Por qué Gustazo
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {[
-              { icon: "🌾", title: "100% sin gluten", text: "Establecimiento elaborador certificado. R.N.E.: 04006318. Cero contaminación cruzada." },
-              { icon: "🍞", title: "Artesanal", text: "Elaboramos bajo Buenas Prácticas de Manufactura con trazabilidad controlada en cada lote." },
-              { icon: "🚚", title: "Para todos", text: "Retiro en local en Alta Córdoba y envíos a todo el país. Atención por WhatsApp todos los días." },
+              {
+                icon: "🏛️",
+                title: "Certificación real",
+                text: "Elaborador nacional certificado libre de gluten. 9 productos con RNPA. R.N.E.: 04006318. No es un cartel: es una garantía formal.",
+              },
+              {
+                icon: "🧑‍🍳",
+                title: "Saber hacer de nivel europeo",
+                text: "Formación internacional en panadería sin gluten. No copiamos recetas: entendemos la formulación desde la química.",
+              },
+              {
+                icon: "❤️",
+                title: "Lo vivimos de adentro",
+                text: "Nuestros fundadores son celíacos. Sabemos lo que sentís. Por eso no hacemos concesiones con la seguridad ni con el sabor.",
+              },
             ].map((p) => (
               <div key={p.title} className="p-6" style={{ backgroundColor: "#faf6ee" }}>
                 <span className="mb-3 block text-4xl">{p.icon}</span>
@@ -149,7 +154,7 @@ export default function QuienesSomosPage() {
 
         {/* Footer */}
         <footer className="py-10 text-center text-xs" style={{ backgroundColor: "#5C0A14", color: "#e8d4b0" }}>
-          <p className="font-semibold uppercase tracking-widest" style={{ color: "#C9A227" }}>Gustazo Gluten Free</p>
+          <p className="font-semibold uppercase tracking-widest" style={{ color: "#C9A227" }}>Gustazo</p>
           <p className="mt-2 opacity-70">R.N.E.: 04006318 · Elaboración bajo BPM · Sin contaminación cruzada</p>
           <p className="mt-1 opacity-70">Hecho con cariño en Córdoba · © {new Date().getFullYear()}</p>
         </footer>

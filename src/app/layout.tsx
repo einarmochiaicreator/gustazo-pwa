@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
-  title: "Gustazo Gluten Free",
+  title: "Gustazo",
   description:
     "Productos artesanales sin gluten elaborados con amor en Córdoba, Argentina.",
-  applicationName: "Gustazo Gluten Free",
+  applicationName: "Gustazo",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/icon-192.png", sizes: "192x192" }],
   },
   openGraph: {
-    title: "Gustazo Gluten Free",
+    title: "Gustazo",
     description:
       "Productos artesanales sin gluten elaborados con amor en Córdoba, Argentina.",
     type: "website",
@@ -46,9 +47,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           🚧 Sitio web en construcción 🚧
         </div>
-        <CartProvider>
-          {children}
-        </CartProvider>
+        <Providers>
+          <CartProvider>
+            {children}
+          </CartProvider>
+        </Providers>
       </body>
     </html>
   );
