@@ -5,28 +5,21 @@
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
-    background: #ffffff;
   }
   body {
-    @apply bg-white text-ink antialiased;
+    @apply antialiased;
+    background-color: #faf6ee;
+    color: #1a0a0c;
     font-feature-settings: "ss01", "cv11";
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-verde-400 px-5 py-3 text-base font-semibold text-white shadow-sm transition active:scale-[0.98] hover:bg-verde-500 disabled:cursor-not-allowed disabled:bg-ink-muted disabled:opacity-60;
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-verde-200 bg-white px-5 py-3 text-base font-semibold text-verde-500 shadow-sm transition active:scale-[0.98] hover:bg-verde-50;
-  }
-  .card {
-    @apply rounded-2xl border border-cream-dark bg-white shadow-sm;
-  }
-  .input {
-    @apply w-full rounded-xl border border-cream-dark bg-white px-4 py-3 text-base text-ink outline-none transition placeholder:text-ink-muted focus:border-verde-300 focus:ring-2 focus:ring-verde-100;
-  }
-  .badge {
-    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold;
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
