@@ -5,21 +5,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: {
-          DEFAULT: "#f7f3eb",
-          dark: "#ede5d4",
+        // Colores de marca Gustazo
+        bordo: {
+          DEFAULT: "#5C0A14",
+          light: "#7a1020",
+          dark: "#3e0009",
         },
-        verde: {
-          50: "#eaf5ef",
-          100: "#d2ead9",
-          200: "#a8d5ba",
-          300: "#85c4a0",
-          400: "#5b9279",
-          500: "#3f7359",
+        dorado: {
+          DEFAULT: "#C9A227",
+          light: "#d9b84a",
+          dark: "#a07d0f",
+          50: "#fdf8e8",
+          100: "#f7ecbf",
+        },
+        crema: {
+          DEFAULT: "#faf6ee",
+          dark: "#f0e8d6",
         },
         ink: {
-          DEFAULT: "#2d3a35",
-          muted: "#6b7570",
+          DEFAULT: "#1a0a0c",
+          muted: "#7a5a5e",
         },
       },
       fontFamily: {

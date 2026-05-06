@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-AR">
       <body>
-        <div className="sticky top-0 z-50 bg-yellow-400 py-2 text-center text-sm font-bold uppercase tracking-widest text-black">
+        <div className="sticky top-0 z-50 py-2 text-center text-sm font-bold uppercase tracking-widest" style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}>
           🚧 Pagina web en construccion 🚧
         </div>
         {children}
