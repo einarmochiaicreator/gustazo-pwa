@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
+import { PastaIcon, LeafIcon, FlaskIcon, WheatIcon, GearIcon, ChartIcon, CpuIcon, TimerIcon } from "@/components/Icons";
+
+type IconComponent = React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
 
 export const metadata: Metadata = {
   title: "Talleres | Gustazo",
@@ -10,18 +13,18 @@ export const metadata: Metadata = {
 
 const WA_NUMBER = "5493516632462";
 
-const TALLERES = [
+const TALLERES: { id: string; Icon: IconComponent; titulo: string; descripcion: string; duracion: string }[] = [
   {
     id: "pastas",
-    icon: "🍝",
+    Icon: PastaIcon,
     titulo: "Taller de pastas sin gluten",
     descripcion:
-      "Domiciliá la elaboración de pastas frescas sin gluten: fideos, ravioles, ñoquis y más. Técnica, textura y sabor sin TACC.",
+      "Dominá la elaboración de pastas frescas sin gluten: fideos, ravioles, ñoquis y más. Técnica, textura y sabor sin TACC.",
     duracion: "4 hs",
   },
   {
     id: "psyllium",
-    icon: "🌿",
+    Icon: LeafIcon,
     titulo: "Taller: Uso de psyllium",
     descripcion:
       "Entendé el rol del psyllium husk en las masas sin gluten: cómo dosificarlo, sus efectos en la textura y cómo reemplazarlo cuando hace falta.",
@@ -29,7 +32,7 @@ const TALLERES = [
   },
   {
     id: "goma-xantica",
-    icon: "🧪",
+    Icon: FlaskIcon,
     titulo: "Taller: Uso de goma xántica",
     descripcion:
       "Conocé en profundidad la goma xántica: sus propiedades como agente ligante, sus límites y cómo combinarla con otras gomas.",
@@ -37,7 +40,7 @@ const TALLERES = [
   },
   {
     id: "almidones",
-    icon: "🌾",
+    Icon: WheatIcon,
     titulo: "Taller: Uso de almidones",
     descripcion:
       "Explorá los distintos almidones (mandioca, maíz, arroz, papa) y sus diferencias en panificación, pastelería y pastas. Cuál usar y cuándo.",
@@ -45,7 +48,7 @@ const TALLERES = [
   },
   {
     id: "maquinaria",
-    icon: "⚙️",
+    Icon: GearIcon,
     titulo: "Taller: Uso de maquinaria",
     descripcion:
       "Operación y mantenimiento de las máquinas más usadas en la producción sin gluten: amasadoras, divisoras, laminadoras y más.",
@@ -53,7 +56,7 @@ const TALLERES = [
   },
   {
     id: "administracion",
-    icon: "📊",
+    Icon: ChartIcon,
     titulo: "Taller: Administración del negocio",
     descripcion:
       "Costos, fijación de precios, gestión de stock y rentabilidad aplicados al emprendimiento de alimentos sin gluten.",
@@ -61,7 +64,7 @@ const TALLERES = [
   },
   {
     id: "inteligencia-artificial",
-    icon: "🤖",
+    Icon: CpuIcon,
     titulo: "Taller: IA aplicada al negocio",
     descripcion:
       "Cómo usar herramientas de inteligencia artificial para mejorar tu negocio: redacción, diseño, atención al cliente, marketing y automatización.",
@@ -97,7 +100,7 @@ export default function TalleresPage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {TALLERES.map((taller) => {
               const waText = encodeURIComponent(
-                `Hola Gustazo! 👋\nMe interesa el taller: ${taller.titulo}\n¿Cuándo es la próxima fecha disponible?`
+                `Hola Gustazo!\nMe interesa el taller: ${taller.titulo}\n¿Cuándo es la próxima fecha disponible?`
               );
               return (
                 <div
@@ -106,11 +109,13 @@ export default function TalleresPage() {
                   style={{ border: "1px solid #e8dcc8" }}
                 >
                   <div className="px-6 py-5" style={{ backgroundColor: "#faf6ee", borderBottom: "1px solid #e8dcc8" }}>
-                    <span className="mb-2 block text-3xl">{taller.icon}</span>
+                    <taller.Icon className="mb-3 h-7 w-7" style={{ color: "#5C0A14" } as React.CSSProperties} />
                     <h2 className="text-base font-semibold uppercase tracking-wide leading-snug" style={{ color: "#5C0A14" }}>
                       {taller.titulo}
                     </h2>
-                    <p className="mt-1 text-xs" style={{ color: "#7a5a5e" }}>⏱ {taller.duracion}</p>
+                    <p className="mt-1 flex items-center gap-1 text-xs" style={{ color: "#7a5a5e" }}>
+                      <TimerIcon className="h-3.5 w-3.5 shrink-0" />{taller.duracion}
+                    </p>
                   </div>
                   <div className="flex flex-1 flex-col gap-5 px-6 py-5">
                     <p className="flex-1 text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>

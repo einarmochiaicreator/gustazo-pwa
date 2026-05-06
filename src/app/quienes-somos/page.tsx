@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
+import { CertificateIcon, ChefHatIcon, HeartIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Quiénes Somos | Gustazo",
@@ -58,12 +59,15 @@ export default function QuienesSomosPage() {
               </blockquote>
             </div>
 
-            <div className="relative aspect-square w-full overflow-hidden">
+            <div
+              className="relative flex aspect-square w-full items-center justify-center overflow-hidden"
+              style={{ backgroundColor: "#5C0A14" }}
+            >
               <Image
-                src="/foto-pan.jpg"
-                alt="Pan recién horneado en el obrador de Gustazo"
+                src="/logo-gustazo.png"
+                alt="Gustazo"
                 fill
-                className="object-cover"
+                className="object-contain p-14 opacity-20"
               />
             </div>
           </div>
@@ -74,12 +78,15 @@ export default function QuienesSomosPage() {
         {/* SECCIÓN 2 — historia con foto del obrador */}
         <section className="mx-auto max-w-6xl px-6 py-16">
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-            <div className="relative aspect-video w-full overflow-hidden order-last md:order-first">
+            <div
+              className="relative flex aspect-video w-full items-center justify-center overflow-hidden order-last md:order-first"
+              style={{ backgroundColor: "#faf6ee" }}
+            >
               <Image
-                src="/foto-obrador.jpg"
-                alt="Dardo en el obrador de Gustazo"
+                src="/logo-gustazo.png"
+                alt="Gustazo"
                 fill
-                className="object-cover"
+                className="object-contain p-12 opacity-10"
               />
             </div>
 
@@ -118,23 +125,23 @@ export default function QuienesSomosPage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {[
               {
-                icon: "🏛️",
+                Icon: CertificateIcon,
                 title: "Certificación real",
                 text: "Elaborador nacional certificado libre de gluten. 9 productos con RNPA. R.N.E.: 04006318. No es un cartel: es una garantía formal.",
               },
               {
-                icon: "🧑‍🍳",
+                Icon: ChefHatIcon,
                 title: "Saber hacer de nivel europeo",
                 text: "Formación internacional en panadería sin gluten. No copiamos recetas: entendemos la formulación desde la química.",
               },
               {
-                icon: "❤️",
+                Icon: HeartIcon,
                 title: "Lo vivimos de adentro",
                 text: "Nuestros fundadores son celíacos. Sabemos lo que sentís. Por eso no hacemos concesiones con la seguridad ni con el sabor.",
               },
             ].map((p) => (
               <div key={p.title} className="p-6" style={{ backgroundColor: "#faf6ee" }}>
-                <span className="mb-3 block text-4xl">{p.icon}</span>
+                <p.Icon className="mb-3 h-8 w-8" style={{ color: "#5C0A14" } as React.CSSProperties} />
                 <p className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>{p.title}</p>
                 <p className="text-sm leading-relaxed" style={{ color: "#7a5a5e" }}>{p.text}</p>
               </div>

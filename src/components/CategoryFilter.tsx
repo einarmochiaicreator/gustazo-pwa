@@ -1,6 +1,13 @@
 "use client";
 
 import { CATEGORIES, type Category } from "@/lib/products";
+import { SparkleIcon, BreadIcon, CakeIcon, PastaIcon } from "@/components/Icons";
+
+const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  panaderia: BreadIcon,
+  dulces: CakeIcon,
+  pastas: PastaIcon,
+};
 
 interface Props {
   active: Category | "all";
@@ -10,12 +17,17 @@ interface Props {
 export default function CategoryFilter({ active, onChange }: Props) {
   return (
     <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-      <FilterChip label="Todo" emoji="✨" active={active === "all"} onClick={() => onChange("all")} />
+      <FilterChip
+        label="Todo"
+        Icon={SparkleIcon}
+        active={active === "all"}
+        onClick={() => onChange("all")}
+      />
       {CATEGORIES.map((cat) => (
         <FilterChip
           key={cat.id}
           label={cat.label}
-          emoji={cat.emoji}
+          Icon={CATEGORY_ICONS[cat.id]}
           active={active === cat.id}
           onClick={() => onChange(cat.id)}
         />
@@ -26,12 +38,12 @@ export default function CategoryFilter({ active, onChange }: Props) {
 
 function FilterChip({
   label,
-  emoji,
+  Icon,
   active,
   onClick,
 }: {
   label: string;
-  emoji: string;
+  Icon: React.ComponentType<{ className?: string }>;
   active: boolean;
   onClick: () => void;
 }) {
@@ -45,7 +57,7 @@ function FilterChip({
           : { backgroundColor: "#f0e8d6", color: "#5C0A14" }
       }
     >
-      <span>{emoji}</span>
+      <Icon className="h-4 w-4" />
       <span>{label}</span>
     </button>
   );

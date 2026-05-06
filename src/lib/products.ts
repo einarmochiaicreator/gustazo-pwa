@@ -12,10 +12,10 @@ export interface Product {
   unit?: string;
 }
 
-export const CATEGORIES: { id: Category; label: string; emoji: string }[] = [
-  { id: "panaderia", label: "Panadería", emoji: "🍞" },
-  { id: "dulces", label: "Dulces & Repostería", emoji: "🍪" },
-  { id: "pastas", label: "Pastas", emoji: "🍝" },
+export const CATEGORIES: { id: Category; label: string }[] = [
+  { id: "panaderia", label: "Panadería" },
+  { id: "dulces", label: "Dulces & Repostería" },
+  { id: "pastas", label: "Pastas" },
 ];
 
 export const PRODUCTS: Product[] = [

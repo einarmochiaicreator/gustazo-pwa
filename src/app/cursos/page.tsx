@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
 import Link from "next/link";
+import { TimerIcon, TargetIcon, CheckIcon, CalendarIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Cursos | Gustazo",
@@ -122,7 +123,7 @@ export default function CursosPage() {
             {CURSOS.map((curso) => {
               const style = MODALIDAD_STYLE[curso.modalidad];
               const waText = encodeURIComponent(
-                `Hola Gustazo! 👋\nMe interesa anotarme al curso: ${curso.titulo} (${curso.modalidad})\n¿Cuándo es la próxima fecha disponible?`
+                `Hola Gustazo!\nMe interesa anotarme al curso: ${curso.titulo} (${curso.modalidad})\n¿Cuándo es la próxima fecha disponible?`
               );
               return (
                 <div key={curso.id} className="flex flex-col" style={{ border: "1px solid #e8dcc8" }}>
@@ -139,8 +140,8 @@ export default function CursosPage() {
                       </span>
                     </div>
                     <div className="mt-2 flex gap-4 text-xs" style={{ color: "#7a5a5e" }}>
-                      <span>⏱ {curso.duracion}</span>
-                      <span>🎯 {curso.nivel}</span>
+                      <span className="flex items-center gap-1"><TimerIcon className="h-3.5 w-3.5" />{curso.duracion}</span>
+                      <span className="flex items-center gap-1"><TargetIcon className="h-3.5 w-3.5" />{curso.nivel}</span>
                     </div>
                   </div>
 
@@ -152,14 +153,14 @@ export default function CursosPage() {
                       <ul className="space-y-1">
                         {curso.incluye.map((item) => (
                           <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "#1a0a0c" }}>
-                            <span style={{ color: "#C9A227" }}>✓</span> {item}
+                            <CheckIcon className="h-3.5 w-3.5 shrink-0" style={{ color: "#C9A227" } as React.CSSProperties} /> {item}
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     <div className="mt-auto pt-2">
-                      <p className="mb-3 text-xs" style={{ color: "#7a5a5e" }}>📅 {curso.proximaFecha}</p>
+                      <p className="mb-3 flex items-center gap-1 text-xs" style={{ color: "#7a5a5e" }}><CalendarIcon className="h-3.5 w-3.5 shrink-0" />{curso.proximaFecha}</p>
                       <a
                         href={`https://wa.me/${WA_NUMBER}?text=${waText}`}
                         target="_blank"

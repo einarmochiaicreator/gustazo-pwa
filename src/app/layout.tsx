@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import Providers from "@/components/Providers";
+import { ConstructionIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Gustazo",
@@ -42,10 +43,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es-AR">
       <body>
         <div
-          className="sticky top-0 z-50 py-2 text-center text-xs font-bold uppercase tracking-widest"
+          className="sticky top-0 z-50 flex items-center justify-center gap-2 py-2 text-xs font-bold uppercase tracking-widest"
           style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
         >
-          🚧 Sitio web en construcción 🚧
+          <ConstructionIcon className="h-3.5 w-3.5" />
+          Sitio web en construcción
+          <ConstructionIcon className="h-3.5 w-3.5" />
         </div>
         <Providers>
           <CartProvider>

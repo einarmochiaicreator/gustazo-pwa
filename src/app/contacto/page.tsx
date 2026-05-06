@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
+import { MapPinIcon, PhoneIcon, MailIcon, CameraIcon, ClockIcon } from "@/components/Icons";
 
 const WA_NUMBER = "5493516632462";
 
@@ -16,7 +17,7 @@ export default function ContactoPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const text = encodeURIComponent(
-      `Hola Gustazo! 👋\n\nNombre: ${form.nombre}\nEmail: ${form.email}\nInterés: ${form.interes}\n\nMensaje:\n${form.mensaje}`
+      `Hola Gustazo!\n\nNombre: ${form.nombre}\nEmail: ${form.email}\nInterés: ${form.interes}\n\nMensaje:\n${form.mensaje}`
     );
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, "_blank");
   }
@@ -66,27 +67,27 @@ export default function ContactoPage() {
 
               {/* Datos de contacto */}
               <div className="space-y-5">
-                <InfoRow icon="📍" label="Dirección" value="Lavalleja 1550, Alta Córdoba, Córdoba" />
+                <InfoRow Icon={MapPinIcon} label="Dirección" value="Lavalleja 1550, Alta Córdoba, Córdoba" />
                 <InfoRow
-                  icon="📱"
+                  Icon={PhoneIcon}
                   label="WhatsApp"
                   value="+54 351 663 2462"
                   href={`https://wa.me/${WA_NUMBER}`}
                 />
                 <InfoRow
-                  icon="✉️"
+                  Icon={MailIcon}
                   label="Email"
                   value="glutenfree.gustazo@gmail.com"
                   href="mailto:glutenfree.gustazo@gmail.com"
                 />
                 <InfoRow
-                  icon="📷"
+                  Icon={CameraIcon}
                   label="Instagram"
                   value="@gustazo.glutenfree"
                   href="https://www.instagram.com/gustazo.glutenfree"
                 />
                 <InfoRow
-                  icon="🕐"
+                  Icon={ClockIcon}
                   label="Horario"
                   value={"Lun–Vie: 08:00–18:00 hs\nSáb: 10:00–14:00 hs"}
                 />
@@ -195,10 +196,10 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-function InfoRow({ icon, label, value, href }: { icon: string; label: string; value: string; href?: string }) {
+function InfoRow({ Icon, label, value, href }: { Icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>; label: string; value: string; href?: string }) {
   return (
     <div className="flex items-start gap-3">
-      <span className="mt-0.5 text-lg">{icon}</span>
+      <Icon className="mt-0.5 h-5 w-5 shrink-0" style={{ color: "#5C0A14" } as React.CSSProperties} />
       <div>
         <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#7a5a5e" }}>{label}</p>
         {href ? (

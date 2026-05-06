@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
 import { type Product, formatPrice } from "@/lib/products";
+import { BreadIcon, CakeIcon, PastaIcon, CheckIcon } from "@/components/Icons";
 
 const CATEGORY_BG: Record<string, string> = {
   panaderia: "#c9882a",
@@ -11,10 +12,10 @@ const CATEGORY_BG: Record<string, string> = {
   pastas:    "#3d5a1a",
 };
 
-const CATEGORY_EMOJI: Record<string, string> = {
-  panaderia: "🍞",
-  dulces:    "🍪",
-  pastas:    "🍝",
+const CATEGORY_ICON: Record<string, React.ComponentType<{ className?: string }>> = {
+  panaderia: BreadIcon,
+  dulces:    CakeIcon,
+  pastas:    PastaIcon,
 };
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -27,6 +28,8 @@ export default function ProductCard({ product }: { product: Product }) {
     openCart();
     setTimeout(() => setAdded(false), 1500);
   }
+
+  const CategoryIcon = CATEGORY_ICON[product.category];
 
   return (
     <article className="flex flex-col">
@@ -42,12 +45,10 @@ export default function ProductCard({ product }: { product: Product }) {
           />
         ) : (
           <div
-            className="flex h-full w-full items-center justify-center text-5xl"
+            className="flex h-full w-full items-center justify-center"
             style={{ backgroundColor: CATEGORY_BG[product.category] }}
           >
-            <span role="img" aria-label={product.category}>
-              {CATEGORY_EMOJI[product.category]}
-            </span>
+            <CategoryIcon className="h-12 w-12 opacity-40 text-white" />
           </div>
         )}
 
@@ -86,14 +87,15 @@ export default function ProductCard({ product }: { product: Product }) {
             </p>
             <button
               onClick={handleAdd}
-              className="w-full py-2.5 text-sm font-bold transition active:scale-[0.98]"
+              className="flex w-full items-center justify-center gap-1.5 py-2.5 text-sm font-bold transition active:scale-[0.98]"
               style={{
                 backgroundColor: added ? "#2e6b0e" : "#5C0A14",
                 color: added ? "#fff" : "#C9A227",
                 borderRadius: "3px",
               }}
             >
-              {added ? "✓ Agregado" : "Agregar al pedido"}
+              {added && <CheckIcon className="h-4 w-4" />}
+              {added ? "Agregado" : "Agregar al pedido"}
             </button>
           </>
         ) : (

@@ -4,6 +4,13 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/products";
+import { CartIcon as CartEmptyIcon, BreadIcon, CakeIcon, PastaIcon } from "@/components/Icons";
+
+const CATEGORY_ICON: Record<string, React.ComponentType<{ className?: string }>> = {
+  panaderia: BreadIcon,
+  dulces:    CakeIcon,
+  pastas:    PastaIcon,
+};
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, setQuantity, totalPrice, totalItems } = useCart();
@@ -46,7 +53,7 @@ export default function CartDrawer() {
         <div className="flex-1 overflow-y-auto px-4 py-4">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
-              <span className="text-5xl">🛒</span>
+              <CartEmptyIcon className="h-12 w-12 opacity-30" style={{ color: "#5C0A14" } as React.CSSProperties} />
               <p className="font-semibold" style={{ color: "#5C0A14" }}>Tu carrito está vacío</p>
               <p className="text-sm" style={{ color: "#7a5a5e" }}>Agregá productos desde la tienda</p>
               <button
@@ -61,10 +68,10 @@ export default function CartDrawer() {
             <ul className="space-y-3">
               {items.map(({ product, quantity }) => (
                 <li key={product.id} className="flex gap-3 rounded-xl p-3" style={{ backgroundColor: "#fff" }}>
-                  {/* Emoji placeholder */}
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg text-2xl"
+                  {/* Category icon placeholder */}
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg"
                     style={{ background: "linear-gradient(135deg, #5C0A14, #a03550)" }}>
-                    {product.category === "panaderia" ? "🍞" : product.category === "dulces" ? "🍪" : "🍝"}
+                    {(() => { const Icon = CATEGORY_ICON[product.category]; return <Icon className="h-7 w-7 text-white opacity-60" />; })()}
                   </div>
 
                   <div className="flex flex-1 flex-col gap-1 min-w-0">
