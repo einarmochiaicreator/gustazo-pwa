@@ -76,8 +76,8 @@ export default function ContactoPage() {
                 <InfoRow
                   icon="✉️"
                   label="Email"
-                  value="gustazoventas@gmail.com"
-                  href="mailto:gustazoventas@gmail.com"
+                  value="glutenfree.gustazo@gmail.com"
+                  href="mailto:glutenfree.gustazo@gmail.com"
                 />
                 <InfoRow
                   icon="📷"
