@@ -8,10 +8,10 @@ import { useCart } from "@/lib/cart-context";
 import { useSession } from "next-auth/react";
 
 const NAV_ITEMS = [
+  { label: "Tienda", href: "/tienda", soon: false },
+  { label: "Capacitaciones", href: "/capacitaciones", soon: false },
+  { label: "Mayoristas", href: "/mayoristas", soon: false },
   { label: "Quiénes somos", href: "/quienes-somos", soon: false },
-  { label: "Tienda", href: "/", soon: false },
-  { label: "Cursos", href: "/cursos", soon: false },
-  { label: "Talleres", href: "/talleres", soon: false },
   { label: "Contacto", href: "/contacto", soon: false },
 ];
 

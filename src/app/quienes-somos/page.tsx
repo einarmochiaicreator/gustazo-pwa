@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
 import Footer from "@/components/Footer";
-import { CertificateIcon, ChefHatIcon, HeartIcon } from "@/components/Icons";
+import ValuesGrid from "@/components/quienes-somos/ValuesGrid";
 
 export const metadata: Metadata = {
   title: "Quiénes Somos | Gustazo",
   description:
-    "Conocé la historia de Gustazo: panadería y pastelería 100% sin gluten nacida en Córdoba desde la experiencia personal con la celiaquía.",
+    "Conocé la historia de Gustazo: especialistas en productos para celíacos, nacidos en Córdoba desde la experiencia personal con la celiaquía.",
 };
 
 export default function QuienesSomosPage() {
@@ -18,22 +18,20 @@ export default function QuienesSomosPage() {
       <CartDrawer />
 
       <main style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
-
         {/* HERO */}
         <section
           className="relative overflow-hidden"
           style={{ backgroundColor: "#5C0A14", minHeight: "260px" }}
         >
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(60,4,14,0.4)" }} />
           <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 pb-24">
             <h1
-              className="text-5xl font-semibold uppercase leading-tight tracking-wide md:text-6xl"
+              className="text-4xl font-semibold uppercase leading-tight tracking-wide md:text-6xl"
               style={{ color: "#fff" }}
             >
               Quiénes somos
             </h1>
-            <p className="mt-3 text-lg font-medium uppercase tracking-widest" style={{ color: "#C9A227" }}>
-              Gustazo · Córdoba, Argentina
+            <p className="mt-3 text-base font-medium uppercase tracking-widest md:text-lg" style={{ color: "#C9A227" }}>
+              Hace más de 30 años que vivimos con celiaquía. Esto es lo que aprendimos.
             </p>
           </div>
           <div
@@ -42,122 +40,163 @@ export default function QuienesSomosPage() {
           />
         </section>
 
-        {/* SECCIÓN 1 — intro + foto pan */}
-        <section className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-            <div>
-              <p className="mb-6 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-                En <strong>Gustazo</strong> creemos que <strong>comer rico y seguro sin gluten</strong> no debería ser un privilegio. Somos un <strong>establecimiento elaborador certificado libre de gluten</strong>, con 9 productos registrados ante el RNPA, ubicados en Alta Córdoba.
-              </p>
-              <p className="mb-8 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-                Elaboramos panificados y dulces bajo estrictas <strong>Buenas Prácticas de Manufactura</strong>, con trazabilidad lote a lote y cero contaminación cruzada. No entra trigo a nuestro obrador. Nunca. R.N.E.: 04006318.
-              </p>
-              <blockquote
-                className="border-l-4 pl-6 py-2 italic text-xl"
-                style={{ borderColor: "#C9A227", color: "#5C0A14" }}
-              >
-                "Que nadie se quede afuera de la mesa."
-              </blockquote>
-            </div>
-
-            <div
-              className="relative flex aspect-square w-full items-center justify-center overflow-hidden"
-              style={{ backgroundColor: "#5C0A14" }}
-            >
-              <Image
-                src="/logo-gustazo.png"
-                alt="Gustazo"
-                fill
-                className="object-contain p-14 opacity-20"
-              />
-            </div>
-          </div>
-        </section>
-
-        <hr style={{ borderColor: "#e8dcc8", margin: "0 1.5rem" }} />
-
-        {/* SECCIÓN 2 — historia con foto del obrador */}
-        <section className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-            <div
-              className="relative flex aspect-video w-full items-center justify-center overflow-hidden order-last md:order-first"
-              style={{ backgroundColor: "#faf6ee" }}
-            >
-              <Image
-                src="/logo-gustazo.png"
-                alt="Gustazo"
-                fill
-                className="object-contain p-12 opacity-10"
-              />
-            </div>
-
-            <div>
-              <h2
-                className="mb-6 text-3xl font-semibold uppercase tracking-wide"
-                style={{ color: "#5C0A14" }}
-              >
-                Una historia personal
-              </h2>
-              <div className="space-y-4 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-                <p>
-                  Gustazo nació desde la <strong>experiencia de vida de uno de sus fundadores</strong>, diagnosticado con celiaquía a los 2 años. Esa vivencia marcó el camino: convertir la frustración de no poder comer "como todos" en una oportunidad para crear productos que <strong>devuelvan el placer de comer sin miedo</strong>.
-                </p>
-                <p>
-                  Después de años de investigación, formación internacional —incluyendo un máster en España— y miles de horas en el obrador, Gustazo es hoy una panadería y pastelería <strong>100% libre de contaminación cruzada</strong>, que une <strong>ciencia, técnica y empatía</strong> en cada receta.
-                </p>
-                <p>
-                  Sabemos lo que significa sentirse el diferente en la mesa. Y trabajamos todos los días para que eso cambie.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <hr style={{ borderColor: "#e8dcc8", margin: "0 1.5rem" }} />
-
-        {/* SECCIÓN 3 — Por qué Gustazo */}
-        <section className="mx-auto max-w-6xl px-6 py-16">
+        {/* HISTORIA */}
+        <section className="mx-auto max-w-3xl px-6 py-20">
           <h2
-            className="mb-10 text-2xl font-semibold uppercase tracking-widest"
+            className="mb-8 text-2xl font-semibold uppercase tracking-widest"
             style={{ color: "#5C0A14", borderBottom: "2px solid #C9A227", paddingBottom: "0.5rem" }}
           >
-            Por qué Gustazo
+            Nuestra historia
           </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {[
-              {
-                Icon: CertificateIcon,
-                title: "Certificación real",
-                text: "Elaborador nacional certificado libre de gluten. 9 productos con RNPA. R.N.E.: 04006318. No es un cartel: es una garantía formal.",
-              },
-              {
-                Icon: ChefHatIcon,
-                title: "Saber hacer de nivel europeo",
-                text: "Formación internacional en panadería sin gluten. No copiamos recetas: entendemos la formulación desde la química.",
-              },
-              {
-                Icon: HeartIcon,
-                title: "Lo vivimos de adentro",
-                text: "Nuestros fundadores son celíacos. Sabemos lo que sentís. Por eso no hacemos concesiones con la seguridad ni con el sabor.",
-              },
-            ].map((p) => (
-              <div key={p.title} className="p-6" style={{ backgroundColor: "#faf6ee" }}>
-                <p.Icon className="mb-3 h-8 w-8" style={{ color: "#5C0A14" } as React.CSSProperties} />
-                <p className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>{p.title}</p>
-                <p className="text-sm leading-relaxed" style={{ color: "#7a5a5e" }}>{p.text}</p>
-              </div>
-            ))}
-          </div>
 
-          <div className="mt-12 text-center">
-            <a
-              href="/"
-              className="inline-block px-10 py-3 text-sm font-bold uppercase tracking-wide transition active:scale-95"
-              style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
-            >
-              Ver productos
-            </a>
+          <div className="space-y-5 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
+            <p>
+              Gustazo es una respuesta a una realidad que conocemos muy de cerca:
+              uno de los creadores ha padecido la enfermedad desde los 2 años.
+              Esta experiencia personal marcó el camino de nuestra misión —
+              transformar las limitaciones alimentarias en oportunidades para
+              disfrutar y conectar con los demás.
+            </p>
+            <p>
+              Durante años vivimos las frustraciones que enfrentan las personas
+              con restricciones alimentarias: la falta de opciones, el aislamiento
+              social, y la dificultad de encontrar alimentos realmente deliciosos
+              y seguros. Fue esa vivencia, combinada con nuestra pasión por la
+              panadería, lo que nos impulsó a crear Gustazo.
+            </p>
+            <p>
+              Desde el principio entendimos que esto no era solo sobre hacer
+              productos ricos: era sobre conectar profundamente con las
+              necesidades de las personas y evolucionar constantemente para
+              satisfacerlas. Nos formamos con los mejores panaderos, viajamos
+              por el mundo investigando, buscando respuestas, capacitándonos
+              en lo último de la panadería internacional sin gluten. Estas
+              experiencias nos han permitido ofrecer productos que no solo son
+              seguros, sino también deliciosos, innovadores y hechos con el
+              propósito de incluir a todos en la mesa.
+            </p>
+            <p>
+              Hoy Gustazo no se detiene en el gluten. Soñamos con un futuro en
+              el que podamos ofrecer productos libres de alérgenos que sean
+              nutritivos y sabrosos para todos, sin excepción.
+            </p>
+            <p>
+              Queremos contribuir a un mundo más saludable e inclusivo, donde
+              cada bocado sea una oportunidad para disfrutar, compartir y ser
+              parte de algo más grande.
+            </p>
           </div>
+        </section>
+
+        {/* MISIÓN + VISIÓN */}
+        <section style={{ backgroundColor: "#faf6ee" }}>
+          <div className="mx-auto max-w-5xl px-6 py-20">
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+              <div>
+                <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
+                  Misión
+                </p>
+                <p className="text-xl leading-relaxed md:text-2xl" style={{ color: "#5C0A14" }}>
+                  Contribuir para que todos puedan disfrutar de experiencias
+                  ricas y saludables.
+                </p>
+              </div>
+              <div>
+                <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
+                  Visión
+                </p>
+                <p className="text-base leading-relaxed md:text-lg" style={{ color: "#1a0a0c" }}>
+                  Transformar las limitaciones alimentarias en oportunidades
+                  para disfrutar y conectar con los demás, elevando la
+                  conciencia de que comer bien es posible y es la base para
+                  vivir plenamente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* VALORES */}
+        <section className="mx-auto max-w-6xl px-6 py-20">
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
+            Lo que nos guía
+          </p>
+          <h2
+            className="mb-12 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
+            style={{ color: "#5C0A14" }}
+          >
+            Nuestros valores
+          </h2>
+
+          <ValuesGrid />
+        </section>
+
+        {/* FILOSOFÍA */}
+        <section style={{ backgroundColor: "#5C0A14", color: "#fff" }}>
+          <div className="mx-auto max-w-6xl px-6 py-20">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
+              Filosofía
+            </p>
+            <h2
+              className="mb-4 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
+              style={{ color: "#fff" }}
+            >
+              Tres pilares.
+            </h2>
+            <p className="mb-12 max-w-2xl text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
+              Creemos que la verdadera innovación no está solo en las recetas,
+              sino en la manera en que conectamos con las personas y entendemos
+              sus necesidades.
+            </p>
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              {[
+                {
+                  num: "01",
+                  title: "Empatía y conexión humana",
+                  text: "Entendemos lo que significa vivir con restricciones alimentarias porque lo hemos vivido en carne propia. Por eso, escuchamos, aprendemos y adaptamos cada aspecto de nuestro trabajo para estar a la altura de las expectativas de quienes confían en nosotros.",
+                },
+                {
+                  num: "02",
+                  title: "Desarrollo personal y profesional",
+                  text: "Creemos que el crecimiento individual de nuestro equipo es esencial para cumplir nuestra misión. Fomentamos el aprendizaje continuo y el desarrollo personal porque sabemos que un equipo sólido y comprometido es la clave para transformar vidas.",
+                },
+                {
+                  num: "03",
+                  title: "Innovación con propósito",
+                  text: "Nuestro objetivo es ir más allá de lo esperado. Innovamos no solo para crear productos deliciosos, sino para aportar valor nutricional y promover una alimentación inclusiva y consciente. Usamos ingredientes de alta calidad, como super alimentos, para contribuir al bienestar y la salud de quienes nos eligen.",
+                },
+              ].map((p) => (
+                <div key={p.num} className="border-t pt-6" style={{ borderColor: "rgba(201,162,39,0.5)" }}>
+                  <p className="mb-3 text-3xl font-bold" style={{ color: "#C9A227" }}>{p.num}</p>
+                  <h3 className="mb-3 text-base font-semibold uppercase tracking-wide" style={{ color: "#fff" }}>
+                    {p.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
+                    {p.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CIERRE + CTA */}
+        <section className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <p className="text-xl leading-relaxed md:text-2xl" style={{ color: "#5C0A14" }}>
+            Estamos acá para hacer la diferencia, no solo en el mercado, sino
+            en las vidas de las personas. Gustazo es más que una marca —
+            es un movimiento hacia un futuro donde la comida sea un puente
+            que une, no una barrera que separa.
+          </p>
+
+          <Link
+            href="/tienda"
+            className="mt-10 inline-block px-10 py-4 text-sm font-bold uppercase tracking-wide transition active:scale-95"
+            style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+          >
+            Ver productos →
+          </Link>
         </section>
 
         <Footer />
