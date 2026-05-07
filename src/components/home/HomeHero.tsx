@@ -13,7 +13,7 @@ export default function HomeHero() {
         minHeight: "480px",
       }}
     >
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(60,4,14,0.55)" }} />
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(60,4,14,0.45)" }} />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 pb-24">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
@@ -58,13 +58,7 @@ export default function HomeHero() {
 
           {/* Derecha — logo Gustazo en mostaza */}
           <div className="hidden md:flex items-center justify-center">
-            <div
-              className="relative aspect-square w-full max-w-sm"
-              style={{
-                filter:
-                  "drop-shadow(0 0 80px rgba(201,162,39,0.55)) brightness(1.35) saturate(1.4) contrast(1.1)",
-              }}
-            >
+            <div className="relative aspect-square w-full max-w-sm">
               <Image
                 src="/assets/logos/gustazo-mostaza.png"
                 alt="Gustazo"
