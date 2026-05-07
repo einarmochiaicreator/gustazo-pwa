@@ -94,11 +94,14 @@ export default function SafetyProof() {
 
           {/* Bloque 5 — CAPALIGLU */}
           <article className="p-6 md:col-span-3 flex flex-col items-start sm:flex-row sm:items-center sm:gap-6" style={{ backgroundColor: "#fff" }}>
-            <div className="mb-4 sm:mb-0 flex h-20 w-32 shrink-0 items-center justify-center" style={{ backgroundColor: "#faf6ee" }}>
-              {/* TODO: logo CAPALIGLU en /assets/logos/ */}
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#5C0A14", opacity: 0.5 }}>
-                CAPALIGLU
-              </span>
+            <div className="mb-4 sm:mb-0 relative h-20 w-32 shrink-0">
+              <Image
+                src="/logo-capaliglu.png"
+                alt="CAPALIGLU — Cámara Argentina de Productores de Alimentos Libres de Gluten"
+                fill
+                className="object-contain"
+                sizes="128px"
+              />
             </div>
             <div className="flex-1">
               <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>

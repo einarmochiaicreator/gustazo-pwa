@@ -21,7 +21,7 @@ export default function HomeHero() {
           <div>
             <h1 className="mb-8 leading-tight">
               <span
-                className="block text-4xl font-bold uppercase tracking-wide md:text-5xl lg:text-6xl"
+                className="block text-3xl font-bold uppercase tracking-wide md:text-4xl lg:text-5xl"
                 style={{ color: "#fff" }}
               >
                 Especialistas
