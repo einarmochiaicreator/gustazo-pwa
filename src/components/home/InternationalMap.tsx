@@ -1,5 +1,10 @@
 // Whiteboard-style sketch of Europe + UK, with Italy as its own peninsula.
-// Marker-like outlines, no chart trappings.
+// Hand-tuned bezier paths to capture the recognizable features:
+//   - Iberian peninsula (square chunk SW)
+//   - Brittany pointing west
+//   - Italian boot (separate piece) with toe and heel
+//   - Greek peninsula sticking south-east
+//   - UK as a separate island
 
 interface Country {
   id: string;
@@ -10,51 +15,60 @@ interface Country {
 }
 
 const COUNTRIES: Country[] = [
-  { id: "en", label: "Inglaterra", cx: 230, cy: 130, align: "right" },
-  { id: "pl", label: "Polonia",    cx: 600, cy: 160, align: "left"  },
-  { id: "de", label: "Alemania",   cx: 470, cy: 175, align: "right" },
-  { id: "fr", label: "Francia",    cx: 285, cy: 215, align: "right" },
-  { id: "it", label: "Italia",     cx: 430, cy: 350, align: "left"  },
-  { id: "es", label: "España",     cx: 215, cy: 380, align: "right" },
+  { id: "en", label: "Inglaterra", cx: 220, cy: 130, align: "right" },
+  { id: "pl", label: "Polonia",    cx: 600, cy: 175, align: "left"  },
+  { id: "de", label: "Alemania",   cx: 460, cy: 200, align: "right" },
+  { id: "fr", label: "Francia",    cx: 295, cy: 240, align: "right" },
+  { id: "it", label: "Italia",     cx: 430, cy: 365, align: "left"  },
+  { id: "es", label: "España",     cx: 165, cy: 360, align: "right" },
 ];
 
 const ROUTE = ["es", "fr", "en", "de", "pl", "it"];
 
+// Mainland Europe (excluding Italy peninsula and UK)
 const MAINLAND_PATH =
-  "M 145 400 " +
-  "Q 130 360, 140 310 " +
-  "Q 150 270, 195 250 " +
-  "Q 235 230, 250 200 " +
-  "Q 280 175, 380 160 " +
-  "Q 480 145, 580 140 " +
-  "Q 670 145, 695 200 " +
-  "Q 700 260, 660 295 " +
-  "Q 605 320, 545 325 " +
-  "Q 500 330, 470 320 " +
-  "Q 440 300, 410 290 " +
-  "Q 385 285, 350 295 " +
-  "Q 310 305, 270 325 " +
-  "Q 230 350, 200 380 " +
-  "Q 175 395, 155 405 " +
-  "Q 145 405, 145 400 Z";
+  "M 110 415 " +
+  "Q 80 370 80 315 " +              // Portugal Atlantic
+  "Q 85 275 130 265 " +             // up to Galicia
+  "Q 175 270 220 285 " +            // Cantabrian coast (north Spain)
+  "Q 230 245 180 220 " +            // up into Bay of Biscay → Brittany W tip
+  "Q 175 198 220 198 " +            // Channel coast going east
+  "Q 290 192 360 180 " +            // North France → Belgium → North Germany
+  "Q 460 160 560 150 " +            // across to Polish Baltic
+  "Q 640 145 690 155 " +            // NE Polish/Baltic coast
+  "Q 725 175 720 220 " +            // NE corner
+  "Q 720 270 700 310 " +            // east frontier going south
+  "Q 670 360 625 400 " +            // approach Greek peninsula
+  "Q 600 430 580 420 " +            // Greek south
+  "Q 555 395 535 375 " +            // up the Greek west / Albania
+  "Q 510 350 485 310 " +            // Adriatic east → Trieste
+  "Q 460 290 425 290 " +            // notch in around Italy entry
+  "Q 390 290 355 300 " +            // Switzerland
+  "Q 315 312 275 325 " +            // S France Mediterranean
+  "Q 230 355 200 385 " +            // N Spain Med → Andalusia
+  "Q 150 410 110 415 Z";            // back to Gibraltar
 
+// Italy boot — separate peninsula
 const ITALY_PATH =
-  "M 405 295 " +
-  "Q 400 320, 410 360 " +
-  "Q 415 395, 420 415 " +
-  "Q 425 430, 445 425 " +
-  "Q 460 415, 460 395 " +
-  "Q 458 360, 445 320 " +
-  "Q 435 295, 420 290 " +
-  "Q 410 285, 405 295 Z";
+  "M 405 290 " +
+  "Q 395 325 410 365 " +            // Tyrrhenian (W) coast going down
+  "Q 420 405 425 425 " +            // toward toe
+  "Q 425 442 437 432 " +            // toe pointing SW
+  "Q 455 432 475 415 " +            // sole going east
+  "Q 478 388 465 360 " +            // east coast going up
+  "Q 450 325 437 290 " +            // Adriatic-side back to top
+  "Q 420 282 405 290 Z";            // close
 
+// UK — Britain
 const UK_PATH =
-  "M 215 90 " +
-  "Q 195 105, 195 140 " +
-  "Q 200 175, 230 185 " +
-  "Q 255 188, 268 165 " +
-  "Q 275 130, 260 105 " +
-  "Q 240 90, 215 90 Z";
+  "M 220 75 " +
+  "Q 188 85 175 120 " +             // West Scotland → west Wales
+  "Q 165 150 180 180 " +            // Wales / SW England
+  "Q 185 200 205 200 " +            // South coast (Cornwall area)
+  "Q 235 205 258 190 " +            // South coast going east (Kent)
+  "Q 275 160 268 128 " +            // East coast (North Sea)
+  "Q 263 92 240 78 " +              // NE Scotland
+  "Q 225 72 220 75 Z";              // close
 
 export default function InternationalMap() {
   const byId = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]));
@@ -75,9 +89,9 @@ export default function InternationalMap() {
         </radialGradient>
       </defs>
 
-      {/* Continent + UK + Italy — whiteboard marker outlines */}
+      {/* Continent + Italy + UK — whiteboard marker outlines */}
       <g
-        fill="rgba(201,162,39,0.07)"
+        fill="rgba(201,162,39,0.08)"
         stroke="#5C0A14"
         strokeWidth="3"
         strokeLinecap="round"
