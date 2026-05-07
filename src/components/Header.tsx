@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
 import { useSession } from "next-auth/react";
@@ -73,31 +73,36 @@ export default function Header() {
         {/* Links desktop */}
         <ul className="hidden items-center lg:flex">
           {NAV_ITEMS.map((item, idx) => (
-            <li
-              key={item.href}
-              className="relative px-3 xl:px-4"
-              style={idx > 0 ? { borderLeft: "1px solid rgba(201,162,39,0.28)" } : {}}
-            >
-              <Link
-                href={item.soon ? "#" : item.href}
-                className="flex items-center gap-1 text-sm transition"
-                style={{
-                  color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)",
-                  fontWeight: isActive(item.href) ? 600 : 400,
-                }}
-              >
-                {item.label}
-                {item.soon && (
-                  <span
-                    aria-hidden="true"
-                    className="rounded px-1 py-0.5 text-[10px] font-bold"
-                    style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
-                  >
-                    pronto
-                  </span>
-                )}
-              </Link>
-            </li>
+            <Fragment key={item.href}>
+              {idx > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="mx-3 inline-block h-3 w-px shrink-0 xl:mx-4"
+                  style={{ backgroundColor: "rgba(201,162,39,0.35)" }}
+                />
+              )}
+              <li className="relative shrink-0">
+                <Link
+                  href={item.soon ? "#" : item.href}
+                  className="flex items-center gap-1 text-sm transition"
+                  style={{
+                    color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)",
+                    fontWeight: isActive(item.href) ? 600 : 400,
+                  }}
+                >
+                  {item.label}
+                  {item.soon && (
+                    <span
+                      aria-hidden="true"
+                      className="rounded px-1 py-0.5 text-[10px] font-bold"
+                      style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
+                    >
+                      pronto
+                    </span>
+                  )}
+                </Link>
+              </li>
+            </Fragment>
           ))}
         </ul>
 
