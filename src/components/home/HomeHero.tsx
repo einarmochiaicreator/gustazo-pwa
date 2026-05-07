@@ -10,46 +10,48 @@ export default function HomeHero() {
         backgroundImage: "url('/hero-gustazo.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "520px",
+        minHeight: "640px",
       }}
     >
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(60,4,14,0.45)" }} />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 pb-24">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-stretch">
-          {/* Izquierda — sello SIN GLUTEN + título arriba, CTAs abajo */}
-          <div className="flex flex-col justify-between gap-10">
-            <div>
-              {/* Sello oficial SIN GLUTEN */}
-              <div className="mb-6 relative h-20 w-20 md:h-24 md:w-24">
-                <Image
-                  src="/assets/logos/sin-gluten-logo.png"
-                  alt="Apto sin gluten"
-                  fill
-                  className="object-contain"
-                  sizes="96px"
-                  priority
-                />
-              </div>
-
-              <h1 className="leading-tight">
-                <span
-                  className="block text-3xl font-bold uppercase tracking-wide md:text-4xl lg:text-5xl"
-                  style={{ color: "#fff" }}
-                >
-                  Especialistas
-                </span>
-                <span
-                  className="block mt-3 text-xl font-light tracking-wide md:text-2xl lg:text-3xl"
-                  style={{ color: "rgba(255,255,255,0.88)" }}
-                >
-                  en productos sin gluten.
-                </span>
-              </h1>
+          {/* Izquierda — sello SIN GLUTEN arriba (3x), texto + CTAs juntos abajo */}
+          <div className="flex flex-col items-center text-center">
+            {/* Sello oficial SIN GLUTEN — grande, centrado */}
+            <div className="relative h-60 w-60 md:h-72 md:w-72">
+              <Image
+                src="/assets/logos/sin-gluten-logo.png"
+                alt="Apto sin gluten"
+                fill
+                priority
+                sizes="(max-width: 768px) 240px, 288px"
+                className="object-contain"
+              />
             </div>
 
-            {/* CTAs alineados al final de la columna — coinciden con la base del logo Gustazo a la derecha */}
-            <div className="flex flex-wrap gap-3">
+            {/* Empuja el bloque inferior hacia el fondo */}
+            <div className="flex-1 min-h-8" />
+
+            {/* Headline cerca de los CTAs, alineado horizontalmente con el sello */}
+            <h1 className="leading-tight">
+              <span
+                className="block text-3xl font-bold uppercase tracking-wide md:text-4xl lg:text-5xl"
+                style={{ color: "#fff" }}
+              >
+                Especialistas
+              </span>
+              <span
+                className="block mt-2 text-xl font-light tracking-wide md:text-2xl lg:text-3xl"
+                style={{ color: "rgba(255,255,255,0.88)" }}
+              >
+                en productos sin gluten.
+              </span>
+            </h1>
+
+            {/* Margen prudente entre texto y CTAs */}
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 href="/tienda"
                 className="px-7 py-3 text-sm font-bold uppercase tracking-wide transition active:scale-95"
@@ -67,8 +69,8 @@ export default function HomeHero() {
             </div>
           </div>
 
-          {/* Derecha — logo Gustazo en mostaza, anclado al fondo para alinear con los CTAs */}
-          <div className="hidden md:flex items-end justify-center">
+          {/* Derecha — logo Gustazo en mostaza, centrado */}
+          <div className="hidden md:flex items-center justify-center">
             <div className="relative aspect-square w-full max-w-sm">
               <Image
                 src="/assets/logos/gustazo-mostaza.png"
