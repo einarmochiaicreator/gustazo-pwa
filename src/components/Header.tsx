@@ -10,11 +10,11 @@ import { useSession } from "next-auth/react";
 const NAV_ITEMS = [
   { label: "Tienda", href: "/tienda", soon: false },
   { label: "Dónde encontrarnos", href: "/donde-encontrarnos", soon: false },
-  { label: "Comunidad celíaca", href: "/comunidad", soon: false },
   { label: "Capacitaciones", href: "/capacitaciones", soon: false },
   { label: "Mayoristas", href: "/mayoristas", soon: false },
   { label: "Quiénes somos", href: "/quienes-somos", soon: false },
   { label: "Buscamos talentos", href: "/talentos", soon: false },
+  { label: "Comunidad celíaca", href: "/comunidad", soon: false },
   { label: "Contacto", href: "/contacto", soon: false },
 ];
 

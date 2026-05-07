@@ -63,7 +63,7 @@ export default function ComunidadPage() {
               Comunidad celíaca
             </h1>
             <p className="mt-3 text-base md:text-lg" style={{ color: "rgba(255,255,255,0.85)" }}>
-              Un espacio donde compartimos lo que vivimos. Sin solos, sin jergas.
+              Un espacio donde compartimos lo que vivimos.
             </p>
           </div>
           <div
@@ -103,8 +103,8 @@ export default function ComunidadPage() {
               },
               {
                 Icon: CheckIcon,
-                title: "Novedades de Gustazo",
-                text: "Productos nuevos, descuentos y avisos antes que en redes.",
+                title: "Novedades del mundo celíaco",
+                text: "Cambios en la legislación, avances científicos, eventos y noticias que benefician a la comunidad.",
               },
             ].map((p) => (
               <div
