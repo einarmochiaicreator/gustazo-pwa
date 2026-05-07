@@ -9,6 +9,8 @@ import { useSession } from "next-auth/react";
 
 const NAV_ITEMS = [
   { label: "Tienda", href: "/tienda", soon: false },
+  { label: "Dónde encontrarnos", href: "/donde-encontrarnos", soon: false },
+  { label: "Comunidad celíaca", href: "/comunidad", soon: false },
   { label: "Capacitaciones", href: "/capacitaciones", soon: false },
   { label: "Mayoristas", href: "/mayoristas", soon: false },
   { label: "Quiénes somos", href: "/quienes-somos", soon: false },
@@ -69,7 +71,7 @@ export default function Header() {
         </Link>
 
         {/* Links desktop */}
-        <ul className="hidden items-center gap-5 lg:gap-6 md:flex">
+        <ul className="hidden items-center gap-3 xl:gap-5 lg:flex">
           {NAV_ITEMS.map((item) => (
             <li key={item.href} className="relative">
               <Link
