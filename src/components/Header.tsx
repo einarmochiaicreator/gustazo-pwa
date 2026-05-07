@@ -58,7 +58,7 @@ export default function Header() {
         <Link href="/" className="shrink-0">
           <div className="relative h-12 w-12">
             <Image
-              src="/logo-gustazo.png"
+              src="/assets/logos/gustazo-blanco.png"
               alt="Gustazo"
               fill
               className="object-contain"

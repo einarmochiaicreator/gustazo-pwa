@@ -61,12 +61,11 @@ export default function HomeHero() {
             <div
               className="relative aspect-square w-full max-w-sm"
               style={{
-                filter:
-                  "drop-shadow(0 0 60px rgba(201,162,39,0.35)) brightness(1.2) saturate(1.2)",
+                filter: "drop-shadow(0 0 60px rgba(201,162,39,0.35))",
               }}
             >
               <Image
-                src="/logo-gustazo.png"
+                src="/assets/logos/gustazo-mostaza.png"
                 alt="Gustazo"
                 fill
                 priority
