@@ -13,19 +13,14 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6">
         {/* Línea 1 — logo + misión a la izquierda, redes a la derecha */}
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-8">
-          <div className="flex flex-col items-center gap-3 text-center md:flex-row md:items-center md:text-left">
-            <div className="relative h-10 w-10 shrink-0">
-              <Image
-                src="/assets/logos/gustazo-blanco.png"
-                alt="Gustazo"
-                fill
-                className="object-contain"
-                sizes="40px"
-              />
-            </div>
-            <p className="max-w-md text-sm leading-relaxed" style={{ color: "#e8d4b0", opacity: 0.85 }}>
-              Contribuir para que todos puedan disfrutar de experiencias ricas y saludables.
-            </p>
+          <div className="relative h-10 w-10 shrink-0">
+            <Image
+              src="/assets/logos/gustazo-blanco.png"
+              alt="Gustazo"
+              fill
+              className="object-contain"
+              sizes="40px"
+            />
           </div>
 
           <div className="flex gap-5">
@@ -89,7 +84,7 @@ export default function Footer() {
               Términos y condiciones
             </Link>
           </div>
-          <p>Hecho con cariño en Córdoba · © {new Date().getFullYear()}</p>
+          <p>Hecho en Córdoba · © {new Date().getFullYear()}</p>
         </div>
       </div>
     </footer>
