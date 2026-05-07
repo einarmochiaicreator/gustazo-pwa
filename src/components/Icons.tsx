@@ -107,6 +107,19 @@ export function SparkleIcon({ className, style }: P) {
   );
 }
 
+export function StarsIcon({ className, style }: P) {
+  return (
+    <svg className={className} style={style} {...base}>
+      {/* destello grande */}
+      <path d="M10 4 L11 9 L16 10 L11 11 L10 16 L9 11 L4 10 L9 9 Z" />
+      {/* destello mediano arriba-derecha */}
+      <path d="M18 5 L18.5 7 L20.5 7.5 L18.5 8 L18 10 L17.5 8 L15.5 7.5 L17.5 7 Z" />
+      {/* destello chico abajo-derecha */}
+      <path d="M19 16 L19.4 17.6 L21 18 L19.4 18.4 L19 20 L18.6 18.4 L17 18 L18.6 17.6 Z" />
+    </svg>
+  );
+}
+
 export function CelebrationIcon({ className, style }: P) {
   return (
     <svg className={className} style={style} {...base}>

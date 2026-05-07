@@ -167,7 +167,7 @@ export default function CursosPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full py-3 text-center text-sm font-bold uppercase tracking-wide transition active:scale-[0.98]"
-                        style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+                        style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
                       >
                         Me interesa — consultar
                       </a>
@@ -191,7 +191,7 @@ export default function CursosPage() {
             <Link
               href="/contacto"
               className="inline-block px-8 py-3 text-sm font-bold uppercase tracking-wide transition active:scale-95"
-              style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+              style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
             >
               Contactarnos
             </Link>

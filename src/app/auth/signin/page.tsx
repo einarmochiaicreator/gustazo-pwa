@@ -98,7 +98,7 @@ function SignInForm() {
           <button
             type="submit" disabled={loading}
             className="w-full py-3 text-sm font-bold uppercase tracking-wide transition active:scale-[0.98] disabled:opacity-60"
-            style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+            style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
           >
             {loading ? "Ingresando..." : "Acceso"}
           </button>

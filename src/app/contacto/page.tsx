@@ -186,7 +186,7 @@ export default function ContactoPage() {
                 <button
                   type="submit"
                   className="w-full py-3 text-sm font-bold uppercase tracking-wide transition active:scale-[0.98]"
-                  style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+                  style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
                 >
                   Enviar por WhatsApp
                 </button>

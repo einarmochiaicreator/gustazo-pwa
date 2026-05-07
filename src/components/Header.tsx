@@ -2,16 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
 import { useSession } from "next-auth/react";
 
 const NAV_ITEMS = [
+  { label: "Tienda", href: "/tienda", soon: false },
+  { label: "Dónde encontrarnos", href: "/donde-encontrarnos", soon: false },
+  { label: "Capacitaciones", href: "/capacitaciones", soon: false },
+  { label: "Mayoristas", href: "/mayoristas", soon: false },
   { label: "Quiénes somos", href: "/quienes-somos", soon: false },
-  { label: "Tienda", href: "/", soon: false },
-  { label: "Cursos", href: "/cursos", soon: false },
-  { label: "Talleres", href: "/talleres", soon: false },
+  { label: "Buscamos talentos", href: "/talentos", soon: false },
+  { label: "Comunidad celíaca", href: "/comunidad", soon: false },
   { label: "Contacto", href: "/contacto", soon: false },
 ];
 
@@ -58,7 +61,7 @@ export default function Header() {
         <Link href="/" className="shrink-0">
           <div className="relative h-12 w-12">
             <Image
-              src="/logo-gustazo.png"
+              src="/assets/logos/gustazo-blanco.png"
               alt="Gustazo"
               fill
               className="object-contain"
@@ -68,29 +71,38 @@ export default function Header() {
         </Link>
 
         {/* Links desktop */}
-        <ul className="hidden items-center gap-7 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href} className="relative">
-              <Link
-                href={item.soon ? "#" : item.href}
-                className="flex items-center gap-1 text-sm transition"
-                style={{
-                  color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)",
-                  fontWeight: isActive(item.href) ? 600 : 400,
-                }}
-              >
-                {item.label}
-                {item.soon && (
-                  <span
-                    aria-hidden="true"
-                    className="rounded px-1 py-0.5 text-[10px] font-bold"
-                    style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
-                  >
-                    pronto
-                  </span>
-                )}
-              </Link>
-            </li>
+        <ul className="hidden items-center lg:flex">
+          {NAV_ITEMS.map((item, idx) => (
+            <Fragment key={item.href}>
+              {idx > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="mx-3 inline-block h-3 w-px shrink-0 xl:mx-4"
+                  style={{ backgroundColor: "rgba(201,162,39,0.35)" }}
+                />
+              )}
+              <li className="relative shrink-0">
+                <Link
+                  href={item.soon ? "#" : item.href}
+                  className="flex items-center gap-1 text-sm transition"
+                  style={{
+                    color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)",
+                    fontWeight: isActive(item.href) ? 600 : 400,
+                  }}
+                >
+                  {item.label}
+                  {item.soon && (
+                    <span
+                      aria-hidden="true"
+                      className="rounded px-1 py-0.5 text-[10px] font-bold"
+                      style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
+                    >
+                      pronto
+                    </span>
+                  )}
+                </Link>
+              </li>
+            </Fragment>
           ))}
         </ul>
 

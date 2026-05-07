@@ -91,7 +91,7 @@ export default function ProductCard({ product }: { product: Product }) {
               style={{
                 backgroundColor: added ? "#2e6b0e" : "#5C0A14",
                 color: added ? "#fff" : "#C9A227",
-                borderRadius: "3px",
+                borderRadius: "8px",
               }}
             >
               {added && <CheckIcon className="h-4 w-4" />}
