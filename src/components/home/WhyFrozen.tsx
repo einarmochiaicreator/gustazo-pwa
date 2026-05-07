@@ -1,4 +1,5 @@
 import { ClockIcon, LeafIcon, CalendarIcon } from "@/components/Icons";
+import HowToReactivate from "./HowToReactivate";
 
 export default function WhyFrozen() {
   return (
@@ -8,7 +9,7 @@ export default function WhyFrozen() {
           className="mb-12 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
           style={{ color: "#5C0A14" }}
         >
-          ¿Por qué te lo mandamos congelado?
+          ¿Por qué te lo entregamos congelado?
         </h2>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -47,65 +48,7 @@ export default function WhyFrozen() {
           </div>
         </div>
 
-        {/* Sub-sección — cómo lo reactivás */}
-        <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-2" style={{ backgroundColor: "#fff", padding: "2.5rem", borderRadius: "3px" }}>
-          <div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-              Cómo lo reactivás
-            </p>
-            <h3 className="mb-6 text-2xl font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-              Dos pasos. Sin trucos raros.
-            </h3>
-
-            <h4 className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-              Paso 1 — Descongelar
-            </h4>
-            <p className="mb-3 text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-              <strong>Si tenés tiempo:</strong> dejalo a temperatura ambiente
-              hasta que la miga se ablande.
-            </p>
-            <p className="mb-6 text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-              <strong>Si estás apurado:</strong> microondas en{" "}
-              <strong style={{ color: "#5C0A14" }}>potencia mínima</strong>. Sí, mínima — no máxima.
-              A potencia máxima la miga se gelifica y el pan se arruina.
-              A potencia mínima las moléculas de agua se mueven despacio,
-              el pan se descongela parejo y mantiene su textura.
-            </p>
-
-            <h4 className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-              Paso 2 — Calor directo
-            </h4>
-            <p className="mb-4 text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-              Horno, sartén, tostadora o parrilla. Lo que tengas a mano.
-              Este paso no se saltea.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div className="p-5" style={{ backgroundColor: "#fdf8e8", borderLeft: "3px solid #C9A227" }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: "#5C0A14" }}>
-                El truco que cambia todo
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-                Antes de meter el pan al horno, rocialo apenas con un poco
-                de agua por fuera. Eso hace que quede prácticamente igual
-                que recién sacado del horno.
-              </p>
-              <p className="mt-2 text-xs italic" style={{ color: "#7a5a5e" }}>
-                Solo para panes. Las cookies y los dulces no llevan agua.
-              </p>
-            </div>
-
-            <div className="p-5" style={{ backgroundColor: "#faf6ee" }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: "#5C0A14" }}>
-                ¿Cuándo está listo?
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-                Cuando la miga está blanda y la corteza está crujiente.
-              </p>
-            </div>
-          </div>
-        </div>
+        <HowToReactivate />
       </div>
     </section>
   );
