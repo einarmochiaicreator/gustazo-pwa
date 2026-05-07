@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: "Capacitaciones", href: "/capacitaciones", soon: false },
   { label: "Mayoristas", href: "/mayoristas", soon: false },
   { label: "Quiénes somos", href: "/quienes-somos", soon: false },
+  { label: "Buscamos talentos", href: "/talentos", soon: false },
   { label: "Contacto", href: "/contacto", soon: false },
 ];
 
@@ -68,7 +69,7 @@ export default function Header() {
         </Link>
 
         {/* Links desktop */}
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-5 lg:gap-6 md:flex">
           {NAV_ITEMS.map((item) => (
             <li key={item.href} className="relative">
               <Link
