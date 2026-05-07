@@ -5,8 +5,10 @@ export default function AboutTeaser() {
     <section className="mx-auto max-w-4xl px-6 py-20">
       <p className="text-xl leading-relaxed md:text-2xl" style={{ color: "#1a0a0c" }}>
         Empezamos Gustazo porque uno de nosotros es celíaco desde los 2 años.
-        Durante años buscamos pan, pizza y dulces que estuvieran a la altura
-        — y como no aparecían, los empezamos a hacer nosotros.
+        Durante años buscamos panes y cositas dulces que no se desmiguen ni
+        sean secos, que tengan sabores y texturas parecidos a los productos
+        con gluten — y como nos costaba tanto encontrarlos, los empezamos a
+        hacer nosotros.
       </p>
 
       <Link
