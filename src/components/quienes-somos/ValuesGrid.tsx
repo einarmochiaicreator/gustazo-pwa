@@ -112,48 +112,57 @@ export default function ValuesGrid() {
               animationPlayState: paused ? "paused" : "running",
             }}
           >
-            <button
-              type="button"
-              onMouseEnter={() => setActive(idx)}
-              onMouseLeave={() => setActive(null)}
-              onFocus={() => setActive(idx)}
-              onBlur={() => setActive(null)}
-              className="absolute flex flex-col items-center justify-center rounded-full transition-all duration-300"
+            {/* Wrapper de posición — estático, ubica el botón en el radio de la órbita */}
+            <div
               style={{
-                width: "20%",
-                height: "20%",
+                position: "absolute",
                 top: "50%",
                 left: "50%",
+                width: "20%",
+                height: "20%",
                 marginTop: "-10%",
                 marginLeft: "-10%",
-                pointerEvents: "auto",
-                animationName: "orbit-ccw",
-                animationDuration: `${ORBIT_DURATION}s`,
-                animationTimingFunction: "linear",
-                animationIterationCount: "infinite",
-                animationDelay: `${delay}s`,
-                animationPlayState: paused ? "paused" : "running",
-                backgroundColor: isActive ? "#5C0A14" : "#faf6ee",
-                border: `2px solid ${isActive ? "#C9A227" : "#e8dcc8"}`,
-                boxShadow: isActive
-                  ? "0 12px 32px rgba(60,4,14,0.3)"
-                  : "0 2px 8px rgba(60,4,14,0.08)",
-                cursor: "pointer",
-                zIndex: isActive ? 2 : 1,
+                transform: "translateY(-200%)",
               }}
-              aria-label={value.name}
             >
-              <value.Icon
-                className="h-6 w-6 md:h-7 md:w-7"
-                style={{ color: isActive ? "#C9A227" : "#5C0A14" }}
-              />
-              <span
-                className="mt-1 px-1 text-[9px] font-bold uppercase leading-tight tracking-wide md:text-[10px]"
-                style={{ color: isActive ? "#fff" : "#5C0A14" }}
+              {/* Botón — contra-rota para mantener el texto vertical */}
+              <button
+                type="button"
+                onMouseEnter={() => setActive(idx)}
+                onMouseLeave={() => setActive(null)}
+                onFocus={() => setActive(idx)}
+                onBlur={() => setActive(null)}
+                className="flex h-full w-full flex-col items-center justify-center rounded-full transition-colors duration-300"
+                style={{
+                  pointerEvents: "auto",
+                  animationName: "spin-ccw",
+                  animationDuration: `${ORBIT_DURATION}s`,
+                  animationTimingFunction: "linear",
+                  animationIterationCount: "infinite",
+                  animationDelay: `${delay}s`,
+                  animationPlayState: paused ? "paused" : "running",
+                  backgroundColor: isActive ? "#5C0A14" : "#faf6ee",
+                  border: `2px solid ${isActive ? "#C9A227" : "#e8dcc8"}`,
+                  boxShadow: isActive
+                    ? "0 12px 32px rgba(60,4,14,0.3)"
+                    : "0 2px 8px rgba(60,4,14,0.08)",
+                  cursor: "pointer",
+                  zIndex: isActive ? 2 : 1,
+                }}
+                aria-label={value.name}
               >
-                {value.name}
-              </span>
-            </button>
+                <value.Icon
+                  className="h-6 w-6 md:h-7 md:w-7"
+                  style={{ color: isActive ? "#C9A227" : "#5C0A14" }}
+                />
+                <span
+                  className="mt-1 px-1 text-[9px] font-bold uppercase leading-tight tracking-wide md:text-[10px]"
+                  style={{ color: isActive ? "#fff" : "#5C0A14" }}
+                >
+                  {value.name}
+                </span>
+              </button>
+            </div>
           </div>
         );
       })}
@@ -167,12 +176,12 @@ export default function ValuesGrid() {
             transform: rotate(360deg);
           }
         }
-        @keyframes orbit-ccw {
+        @keyframes spin-ccw {
           from {
-            transform: translateY(-200%) rotate(0deg);
+            transform: rotate(0deg);
           }
           to {
-            transform: translateY(-200%) rotate(-360deg);
+            transform: rotate(-360deg);
           }
         }
         @keyframes values-fade-in {
