@@ -9,7 +9,7 @@ export default function InternationalFormation() {
             className="mb-6 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
             style={{ color: "#5C0A14" }}
           >
-            Formación internacional,<br />producción local.
+            Formación internacional,<br />producción nacional.
           </h2>
 
           <p className="mb-4 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
