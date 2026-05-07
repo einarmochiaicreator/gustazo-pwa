@@ -1,6 +1,5 @@
-// Stylized SVG "constellation" map of Europe with the 6 countries Gustazo
-// trained in. Not an accurate cartographic projection — geometry tuned for
-// readability, not realism.
+// Whiteboard-style sketch of Europe + UK, with Italy as its own peninsula.
+// Marker-like outlines, no chart trappings.
 
 interface Country {
   id: string;
@@ -19,8 +18,43 @@ const COUNTRIES: Country[] = [
   { id: "es", label: "España",     cx: 215, cy: 380, align: "right" },
 ];
 
-// Order draws the connecting line as a "journey" — visual storytelling.
 const ROUTE = ["es", "fr", "en", "de", "pl", "it"];
+
+const MAINLAND_PATH =
+  "M 145 400 " +
+  "Q 130 360, 140 310 " +
+  "Q 150 270, 195 250 " +
+  "Q 235 230, 250 200 " +
+  "Q 280 175, 380 160 " +
+  "Q 480 145, 580 140 " +
+  "Q 670 145, 695 200 " +
+  "Q 700 260, 660 295 " +
+  "Q 605 320, 545 325 " +
+  "Q 500 330, 470 320 " +
+  "Q 440 300, 410 290 " +
+  "Q 385 285, 350 295 " +
+  "Q 310 305, 270 325 " +
+  "Q 230 350, 200 380 " +
+  "Q 175 395, 155 405 " +
+  "Q 145 405, 145 400 Z";
+
+const ITALY_PATH =
+  "M 405 295 " +
+  "Q 400 320, 410 360 " +
+  "Q 415 395, 420 415 " +
+  "Q 425 430, 445 425 " +
+  "Q 460 415, 460 395 " +
+  "Q 458 360, 445 320 " +
+  "Q 435 295, 420 290 " +
+  "Q 410 285, 405 295 Z";
+
+const UK_PATH =
+  "M 215 90 " +
+  "Q 195 105, 195 140 " +
+  "Q 200 175, 230 185 " +
+  "Q 255 188, 268 165 " +
+  "Q 275 130, 260 105 " +
+  "Q 240 90, 215 90 Z";
 
 export default function InternationalMap() {
   const byId = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]));
@@ -31,7 +65,7 @@ export default function InternationalMap() {
       className="h-auto w-full"
       style={{ maxHeight: "500px" }}
       role="img"
-      aria-label="Mapa estilizado de Europa con los seis países donde nos formamos"
+      aria-label="Mapa de Europa con los seis países donde nos formamos"
     >
       <defs>
         <radialGradient id="dot-gradient" cx="50%" cy="50%" r="50%">
@@ -41,61 +75,17 @@ export default function InternationalMap() {
         </radialGradient>
       </defs>
 
-      {/* Subtle background fill inside the frame */}
-      <rect x="0" y="0" width="800" height="500" fill="#faf6ee" />
-
-      {/* Stronger grid */}
-      <g stroke="#5C0A14" strokeWidth="1" opacity="0.18">
-        {Array.from({ length: 9 }).map((_, i) => (
-          <line key={`v${i}`} x1={i * 100} y1="0" x2={i * 100} y2="500" />
-        ))}
-        {Array.from({ length: 6 }).map((_, i) => (
-          <line key={`h${i}`} x1="0" y1={i * 100} x2="800" y2={i * 100} />
-        ))}
-      </g>
-
-      {/* Tick marks at edges — like a map ruler */}
-      <g stroke="#5C0A14" strokeWidth="1.5" opacity="0.55">
-        {/* top */}
-        {Array.from({ length: 17 }).map((_, i) => (
-          <line key={`tt${i}`} x1={i * 50} y1="0" x2={i * 50} y2={i % 2 === 0 ? 10 : 5} />
-        ))}
-        {/* bottom */}
-        {Array.from({ length: 17 }).map((_, i) => (
-          <line key={`tb${i}`} x1={i * 50} y1="500" x2={i * 50} y2={500 - (i % 2 === 0 ? 10 : 5)} />
-        ))}
-        {/* left */}
-        {Array.from({ length: 11 }).map((_, i) => (
-          <line key={`tl${i}`} x1="0" y1={i * 50} x2={i % 2 === 0 ? 10 : 5} y2={i * 50} />
-        ))}
-        {/* right */}
-        {Array.from({ length: 11 }).map((_, i) => (
-          <line key={`tr${i}`} x1="800" y1={i * 50} x2={800 - (i % 2 === 0 ? 10 : 5)} y2={i * 50} />
-        ))}
-      </g>
-
-      {/* Strong frame */}
-      <rect
-        x="0"
-        y="0"
-        width="800"
-        height="500"
-        fill="none"
-        stroke="#5C0A14"
-        strokeWidth="2.5"
-      />
-
-      {/* Cardinal direction markers */}
+      {/* Continent + UK + Italy — whiteboard marker outlines */}
       <g
-        fill="#5C0A14"
-        fontSize="16"
-        fontWeight="700"
-        style={{ letterSpacing: "0.15em" }}
+        fill="rgba(201,162,39,0.07)"
+        stroke="#5C0A14"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        <text x="400" y="36" textAnchor="middle">N</text>
-        <text x="770" y="258" textAnchor="end">E</text>
-        <text x="400" y="478" textAnchor="middle">S</text>
-        <text x="30" y="258" textAnchor="start">O</text>
+        <path d={MAINLAND_PATH} />
+        <path d={ITALY_PATH} />
+        <path d={UK_PATH} />
       </g>
 
       {/* Connection lines — the "journey" */}
@@ -104,7 +94,7 @@ export default function InternationalMap() {
         strokeWidth="2"
         strokeDasharray="7 6"
         fill="none"
-        opacity="0.75"
+        opacity="0.7"
         strokeLinecap="round"
       >
         {ROUTE.slice(0, -1).map((id, idx) => {
@@ -117,26 +107,22 @@ export default function InternationalMap() {
       {/* Country dots */}
       {COUNTRIES.map((country) => (
         <g key={country.id}>
-          {/* Glow */}
-          <circle cx={country.cx} cy={country.cy} r="26" fill="url(#dot-gradient)" />
-          {/* White ring */}
+          <circle cx={country.cx} cy={country.cy} r="24" fill="url(#dot-gradient)" />
           <circle
             cx={country.cx}
             cy={country.cy}
-            r="11"
+            r="10"
             fill="#fff"
             stroke="#C9A227"
             strokeWidth="2.5"
           />
-          {/* Solid dot */}
           <circle cx={country.cx} cy={country.cy} r="5" fill="#5C0A14" />
 
-          {/* Label */}
           <text
-            x={country.align === "left" ? country.cx - 20 : country.cx + 20}
+            x={country.align === "left" ? country.cx - 18 : country.cx + 18}
             y={country.cy + 5}
             textAnchor={country.align === "left" ? "end" : "start"}
-            fontSize="15"
+            fontSize="14"
             fontWeight="700"
             fill="#5C0A14"
             style={{ letterSpacing: "0.05em", textTransform: "uppercase" }}
