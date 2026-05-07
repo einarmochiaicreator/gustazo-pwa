@@ -78,8 +78,8 @@ export default function SafetyProof() {
               Buscanos en ANMAT
             </h3>
             <p className="mb-5 flex-1 text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-              Estamos en el listado oficial de ANMAT. Buscanos — y de paso fijate
-              qué otras marcas están y cuáles no.
+              Estamos en el listado oficial de ANMAT. Buscanos — y de paso ya
+              tenés para chequear otras marcas cuando tengas dudas.
             </p>
             <a
               href={ANMAT_ALG_URL}
