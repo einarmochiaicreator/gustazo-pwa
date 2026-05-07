@@ -38,14 +38,14 @@ export default function HomeHero() {
               <Link
                 href="/tienda"
                 className="px-7 py-3 text-sm font-bold uppercase tracking-wide transition active:scale-95"
-                style={{ backgroundColor: "#C9A227", color: "#5C0A14", borderRadius: "3px" }}
+                style={{ backgroundColor: "#C9A227", color: "#5C0A14", borderRadius: "8px" }}
               >
                 Ver productos →
               </Link>
               <Link
                 href="/quienes-somos"
                 className="px-7 py-3 text-sm font-semibold uppercase tracking-wide border transition active:scale-95"
-                style={{ borderColor: "rgba(255,255,255,0.7)", color: "#fff", borderRadius: "3px" }}
+                style={{ borderColor: "rgba(255,255,255,0.7)", color: "#fff", borderRadius: "8px" }}
               >
                 Conocernos
               </Link>

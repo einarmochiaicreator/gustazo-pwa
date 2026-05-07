@@ -48,7 +48,7 @@ export default function TopProducts() {
           <Link
             href="/tienda"
             className="inline-block px-10 py-4 text-sm font-bold uppercase tracking-wide transition active:scale-95"
-            style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+            style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
           >
             Ver tienda completa →
           </Link>

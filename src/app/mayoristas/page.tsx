@@ -52,7 +52,7 @@ export default function MayoristasPage() {
           <Link
             href="/contacto"
             className="inline-block px-7 py-3 text-sm font-bold uppercase tracking-wide transition active:scale-95"
-            style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+            style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
           >
             Quiero ser mayorista →
           </Link>

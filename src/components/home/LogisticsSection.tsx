@@ -25,7 +25,7 @@ export default function LogisticsSection() {
               <div
                 key={item.title}
                 className="p-5"
-                style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "3px" }}
+                style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "8px" }}
               >
                 <item.Icon className="mb-3 h-7 w-7" style={{ color: "#C9A227" }} />
                 <p className="mb-1 text-sm font-semibold uppercase tracking-wide" style={{ color: "#fff" }}>
@@ -45,7 +45,7 @@ export default function LogisticsSection() {
             Otras provincias
           </p>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="p-6" style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "3px" }}>
+            <div className="p-6" style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "8px" }}>
               <p className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color: "#C9A227" }}>
                 Productos dulces
               </p>
@@ -58,7 +58,7 @@ export default function LogisticsSection() {
               </p>
             </div>
 
-            <div className="p-6" style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "3px" }}>
+            <div className="p-6" style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "8px" }}>
               <p className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color: "#C9A227" }}>
                 Pan y panificados
               </p>
@@ -111,7 +111,7 @@ function PayBadge({ label, Icon }: { label: string; Icon: React.ComponentType<{ 
   return (
     <div
       className="flex items-center gap-3 px-4 py-2.5"
-      style={{ backgroundColor: "rgba(255,255,255,0.08)", borderRadius: "3px" }}
+      style={{ backgroundColor: "rgba(255,255,255,0.08)", borderRadius: "8px" }}
     >
       <Icon className="h-7 w-7" />
       <span className="text-sm font-semibold" style={{ color: "#fff" }}>{label}</span>

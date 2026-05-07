@@ -12,7 +12,7 @@ export default function HowToReactivate() {
         className="w-full px-6 py-5 text-left transition flex items-center justify-between gap-4"
         style={{
           backgroundColor: "#fff",
-          borderRadius: "3px",
+          borderRadius: "8px",
           boxShadow: "0 2px 8px rgba(60,4,14,0.06)",
         }}
         aria-expanded={open}
@@ -42,7 +42,7 @@ export default function HowToReactivate() {
       {open && (
         <div
           className="mt-2 grid grid-cols-1 gap-12 p-8 md:grid-cols-2"
-          style={{ backgroundColor: "#fff", borderRadius: "3px" }}
+          style={{ backgroundColor: "#fff", borderRadius: "8px" }}
         >
           <div>
             <h4 className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color: "#5C0A14" }}>

@@ -283,7 +283,7 @@ export default function CapacitacionesPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full py-3 text-center text-sm font-bold uppercase tracking-wide transition active:scale-[0.98]"
-                        style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+                        style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
                       >
                         Me interesa — consultar
                       </a>
@@ -333,7 +333,7 @@ export default function CapacitacionesPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full py-2.5 text-center text-xs font-bold uppercase tracking-wide transition active:scale-[0.98]"
-                        style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+                        style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
                       >
                         Consultar fecha
                       </a>
@@ -358,7 +358,7 @@ export default function CapacitacionesPage() {
             <Link
               href="/contacto"
               className="inline-block px-8 py-3 text-sm font-bold uppercase tracking-wide transition active:scale-95"
-              style={{ backgroundColor: "#C9A227", color: "#5C0A14", borderRadius: "3px" }}
+              style={{ backgroundColor: "#C9A227", color: "#5C0A14", borderRadius: "8px" }}
             >
               Contactarnos →
             </Link>

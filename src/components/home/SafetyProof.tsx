@@ -86,7 +86,7 @@ export default function SafetyProof() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block self-start px-4 py-2 text-xs font-bold uppercase tracking-wide transition active:scale-95"
-              style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "3px" }}
+              style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
             >
               Ir al Listado ALG →
             </a>

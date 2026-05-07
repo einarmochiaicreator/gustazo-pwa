@@ -66,7 +66,7 @@ export default function ValuesGrid() {
             style={{
               backgroundColor: isOpen ? "#5C0A14" : "#faf6ee",
               minHeight: "180px",
-              borderRadius: "3px",
+              borderRadius: "8px",
             }}
             aria-expanded={isOpen}
           >
