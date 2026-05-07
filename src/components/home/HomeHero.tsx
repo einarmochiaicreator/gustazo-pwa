@@ -19,11 +19,19 @@ export default function HomeHero() {
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           {/* Izquierda — texto + CTAs */}
           <div>
-            <h1
-              className="mb-8 text-4xl font-semibold uppercase leading-tight tracking-wide md:text-5xl lg:text-6xl"
-              style={{ color: "#fff" }}
-            >
-              Especialistas en productos sin gluten.
+            <h1 className="mb-8 leading-tight">
+              <span
+                className="block text-5xl font-bold uppercase tracking-wide md:text-6xl lg:text-7xl"
+                style={{ color: "#fff" }}
+              >
+                Especialistas
+              </span>
+              <span
+                className="block mt-3 text-xl font-light tracking-wide md:text-2xl lg:text-3xl"
+                style={{ color: "rgba(255,255,255,0.88)" }}
+              >
+                en productos sin gluten.
+              </span>
             </h1>
 
             <div className="flex flex-wrap gap-3">
@@ -50,7 +58,13 @@ export default function HomeHero() {
 
           {/* Derecha — logo Gustazo en mostaza */}
           <div className="hidden md:flex items-center justify-center">
-            <div className="relative aspect-square w-full max-w-sm">
+            <div
+              className="relative aspect-square w-full max-w-sm"
+              style={{
+                filter:
+                  "drop-shadow(0 0 60px rgba(201,162,39,0.35)) brightness(1.2) saturate(1.2)",
+              }}
+            >
               <Image
                 src="/logo-gustazo.png"
                 alt="Gustazo"
