@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const COUNTRIES = ["Inglaterra", "Francia", "España", "Italia", "Alemania", "Polonia"];
+const COUNTRIES = ["UK", "Francia", "España", "Italia", "Alemania", "Polonia"];
 
 export default function InternationalMap() {
   return (
@@ -8,7 +8,7 @@ export default function InternationalMap() {
       <div className="relative aspect-[4/3] w-full">
         <Image
           src="/assets/mapa-europa-recorrido.png"
-          alt="Mapa de Europa con los seis países donde nos formamos: Inglaterra, Francia, España, Italia, Alemania y Polonia"
+          alt="Mapa de Europa con los seis países donde nos formamos: UK, Francia, España, Italia, Alemania y Polonia"
           fill
           className="object-contain"
           sizes="(max-width: 768px) 100vw, 50vw"

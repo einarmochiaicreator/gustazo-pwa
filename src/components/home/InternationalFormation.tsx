@@ -13,16 +13,16 @@ export default function InternationalFormation() {
           </h2>
 
           <p className="mb-4 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-            Nos formamos con los mejores panaderos del mundo.
-          </p>
-
-          <p className="mb-4 text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-            Viajamos a Francia, Italia, España, Inglaterra, Polonia y Alemania.
-            Estudiamos, probamos, ajustamos hasta encontrar el punto.
+            Nos asesoramos, invertimos mucho para formarnos con los mejores
+            panaderos del mundo. En ese contexto nos relacionamos con otros
+            emprendedores y empresarios, aprendiendo de los que ya la hicieron
+            bien — de panaderos como nosotros hasta dueños de las cadenas sin
+            gluten más reconocidas de Europa.
           </p>
 
           <p className="text-base leading-relaxed" style={{ color: "#1a0a0c" }}>
-            Después volvimos a Córdoba a hacerlo acá, con nuestras manos.
+            Volvimos a Córdoba. Estudiamos, probamos, ajustamos hasta encontrar
+            el punto para hacerlo acá, con nuestras manos.
           </p>
         </div>
 
