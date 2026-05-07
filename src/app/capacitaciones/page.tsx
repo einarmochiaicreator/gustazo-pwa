@@ -28,11 +28,24 @@ export const metadata: Metadata = {
 
 const WA_NUMBER = "5493516632462";
 
-const CURSOS = [
+type Curso = {
+  id: string;
+  modalidad: string;
+  titulo: string;
+  descripcion: string;
+  duracion: string;
+  nivel: string;
+  incluye: string[];
+  proximaFecha: string;
+  programa?: string;
+};
+
+const CURSOS: Curso[] = [
   {
     id: "formulacion-presencial",
     modalidad: "Presencial",
     titulo: "Formulación sin gluten",
+    programa: "CREAR sin gluten",
     descripcion:
       "Aprendé a crear tus propias recetas de panadería y pastelería sin gluten desde cero. Entendemos los ingredientes funcionales, sus roles y cómo combinarlos para lograr productos de calidad profesional.",
     duracion: "8 hs (2 encuentros)",
@@ -44,6 +57,7 @@ const CURSOS = [
     id: "formulacion-online",
     modalidad: "Online",
     titulo: "Formulación sin gluten",
+    programa: "CREAR sin gluten",
     descripcion:
       "La misma formación de nuestro curso presencial, adaptada al formato virtual con clases en vivo, material descargable y acceso a grabaciones. Aprendés a tu ritmo con soporte del equipo.",
     duracion: "6 hs (3 clases de 2 hs)",
@@ -243,6 +257,14 @@ export default function CapacitacionesPage() {
               return (
                 <div key={curso.id} className="flex flex-col" style={{ border: "1px solid #e8dcc8" }}>
                   <div className="px-6 py-5" style={{ backgroundColor: "#faf6ee", borderBottom: "1px solid #e8dcc8" }}>
+                    {curso.programa && (
+                      <p
+                        className="mb-2 text-xs font-bold uppercase tracking-widest"
+                        style={{ color: "#C9A227" }}
+                      >
+                        Programa {curso.programa}
+                      </p>
+                    )}
                     <div className="flex items-center justify-between gap-3">
                       <h3 className="text-lg font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
                         {curso.titulo}

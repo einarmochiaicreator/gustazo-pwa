@@ -19,14 +19,14 @@ export default function HomeHero() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-stretch">
           {/* Izquierda — sello SIN GLUTEN arriba (3x), texto + CTAs juntos abajo */}
           <div className="flex flex-col items-center text-center">
-            {/* Sello oficial SIN GLUTEN — grande, centrado */}
-            <div className="relative h-60 w-60 md:h-72 md:w-72">
+            {/* Sello oficial SIN GLUTEN — centrado */}
+            <div className="relative h-44 w-44 md:h-52 md:w-52">
               <Image
                 src="/assets/logos/sin-gluten-logo.png"
                 alt="Apto sin gluten"
                 fill
                 priority
-                sizes="(max-width: 768px) 240px, 288px"
+                sizes="(max-width: 768px) 176px, 208px"
                 className="object-contain"
               />
             </div>
