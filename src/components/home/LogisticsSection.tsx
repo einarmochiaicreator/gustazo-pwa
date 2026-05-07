@@ -94,10 +94,11 @@ export default function LogisticsSection() {
 
           <div>
             <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-              <CheckIcon className="h-4 w-4" /> Garantía
+              <CheckIcon className="h-4 w-4" /> Compralo tranquilo
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
-              Si no te gusta, te devolvemos el 100%.
+              Estamos seguros de que te va a encantar. Y si por algo no,
+              te devolvemos el 100%.
             </p>
           </div>
         </div>

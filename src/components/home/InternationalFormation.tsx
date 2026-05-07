@@ -1,3 +1,5 @@
+import InternationalMap from "./InternationalMap";
+
 export default function InternationalFormation() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-20">
@@ -24,16 +26,8 @@ export default function InternationalFormation() {
           </p>
         </div>
 
-        <div
-          className="relative aspect-[4/3] w-full overflow-hidden"
-          style={{ backgroundColor: "#faf6ee" }}
-        >
-          {/* TODO: foto de formación en /assets/formacion/ */}
-          <div className="flex h-full w-full items-center justify-center">
-            <span className="text-xs font-medium uppercase tracking-widest" style={{ color: "#5C0A14", opacity: 0.4 }}>
-              Foto de formación
-            </span>
-          </div>
+        <div className="w-full">
+          <InternationalMap />
         </div>
       </div>
     </section>
