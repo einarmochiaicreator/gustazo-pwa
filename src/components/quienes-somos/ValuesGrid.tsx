@@ -8,7 +8,7 @@ import {
   LeafIcon,
   ChefHatIcon,
   GearIcon,
-  CameraIcon,
+  StarsIcon,
 } from "@/components/Icons";
 
 const VALUES = [
@@ -43,7 +43,7 @@ const VALUES = [
     text: "En un mundo en constante cambio, adaptamos nuestras soluciones a medida que las necesidades de las personas evolucionan, asegurando siempre poder ofrecer productos y servicios relevantes y útiles.",
   },
   {
-    Icon: CameraIcon,
+    Icon: StarsIcon,
     name: "Imagen",
     text: "Cuidamos cada aspecto de nuestra imagen como reflejo de nuestra filosofía. Desde la presentación hasta la manera en que nos comunicamos, proyectamos confianza.",
   },
@@ -103,6 +103,7 @@ export default function ValuesGrid() {
             style={{
               position: "absolute",
               inset: 0,
+              pointerEvents: "none",
               animationName: "orbit-cw",
               animationDuration: `${ORBIT_DURATION}s`,
               animationTimingFunction: "linear",
@@ -125,6 +126,7 @@ export default function ValuesGrid() {
                 left: "50%",
                 marginTop: "-10%",
                 marginLeft: "-10%",
+                pointerEvents: "auto",
                 animationName: "orbit-ccw",
                 animationDuration: `${ORBIT_DURATION}s`,
                 animationTimingFunction: "linear",
