@@ -71,9 +71,13 @@ export default function Header() {
         </Link>
 
         {/* Links desktop */}
-        <ul className="hidden items-center gap-3 xl:gap-5 lg:flex">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href} className="relative">
+        <ul className="hidden items-center lg:flex">
+          {NAV_ITEMS.map((item, idx) => (
+            <li
+              key={item.href}
+              className="relative px-3 xl:px-4"
+              style={idx > 0 ? { borderLeft: "1px solid rgba(201,162,39,0.28)" } : {}}
+            >
               <Link
                 href={item.soon ? "#" : item.href}
                 className="flex items-center gap-1 text-sm transition"

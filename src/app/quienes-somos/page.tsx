@@ -41,7 +41,7 @@ export default function QuienesSomosPage() {
         </section>
 
         {/* HISTORIA */}
-        <section className="mx-auto max-w-3xl px-6 py-20">
+        <section className="mx-auto max-w-5xl px-6 py-20">
           <h2
             className="mb-8 text-2xl font-semibold uppercase tracking-widest"
             style={{ color: "#5C0A14", borderBottom: "2px solid #C9A227", paddingBottom: "0.5rem" }}
@@ -118,15 +118,9 @@ export default function QuienesSomosPage() {
 
         {/* VALORES */}
         <section className="mx-auto max-w-6xl px-6 py-20">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
+          <p className="mb-12 text-center text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
             Lo que nos guía
           </p>
-          <h2
-            className="mb-12 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
-            style={{ color: "#5C0A14" }}
-          >
-            Nuestros valores
-          </h2>
 
           <ValuesGrid />
         </section>

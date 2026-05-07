@@ -49,64 +49,147 @@ const VALUES = [
   },
 ];
 
+const N = VALUES.length;
+const ORBIT_DURATION = 90; // seconds — slow
+
 export default function ValuesGrid() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [active, setActive] = useState<number | null>(null);
+  const [paused, setPaused] = useState(false);
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {VALUES.map((value, idx) => {
-        const isOpen = openIndex === idx;
-        return (
-          <button
-            key={value.name}
-            onClick={() => setOpenIndex(isOpen ? null : idx)}
-            onMouseEnter={() => setOpenIndex(idx)}
-            onMouseLeave={() => setOpenIndex(null)}
-            className="group relative overflow-hidden p-6 text-left transition"
-            style={{
-              backgroundColor: isOpen ? "#5C0A14" : "#faf6ee",
-              minHeight: "180px",
-              borderRadius: "8px",
-            }}
-            aria-expanded={isOpen}
-          >
-            <div
-              className="transition-opacity duration-300"
-              style={{ opacity: isOpen ? 0 : 1 }}
-            >
-              <value.Icon
-                className="mb-4 h-10 w-10"
-                style={{ color: "#5C0A14" }}
-              />
-              <h3
-                className="text-lg font-semibold uppercase tracking-wide"
-                style={{ color: "#5C0A14" }}
-              >
-                {value.name}
-              </h3>
-            </div>
-
-            <div
-              className="absolute inset-0 flex flex-col justify-center px-6 py-5 transition-opacity duration-300"
-              style={{
-                opacity: isOpen ? 1 : 0,
-                pointerEvents: isOpen ? "auto" : "none",
-                color: "#fff",
-              }}
-            >
-              <h3
-                className="mb-3 text-base font-semibold uppercase tracking-wide"
+    <div
+      className="relative mx-auto"
+      style={{ width: "min(600px, 95vw)", aspectRatio: "1" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => {
+        setPaused(false);
+        setActive(null);
+      }}
+    >
+      {/* Center: title or active value description */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-4">
+        <div className="text-center" style={{ maxWidth: "300px" }}>
+          {active !== null ? (
+            <div key={active} className="values-fade-in">
+              <p
+                className="mb-2 text-xs font-bold uppercase tracking-widest"
                 style={{ color: "#C9A227" }}
               >
-                {value.name}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.92)" }}>
-                {value.text}
+                {VALUES[active].name}
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
+                {VALUES[active].text}
               </p>
             </div>
-          </button>
+          ) : (
+            <h3
+              className="text-2xl font-bold uppercase tracking-wide md:text-3xl"
+              style={{ color: "#5C0A14" }}
+            >
+              Nuestros<br />valores
+            </h3>
+          )}
+        </div>
+      </div>
+
+      {/* Orbiting circles */}
+      {VALUES.map((value, idx) => {
+        const delay = -(idx * ORBIT_DURATION) / N;
+        const isActive = active === idx;
+        return (
+          <div
+            key={value.name}
+            className="orbit-spoke"
+            style={{
+              position: "absolute",
+              inset: 0,
+              animationName: "orbit-cw",
+              animationDuration: `${ORBIT_DURATION}s`,
+              animationTimingFunction: "linear",
+              animationIterationCount: "infinite",
+              animationDelay: `${delay}s`,
+              animationPlayState: paused ? "paused" : "running",
+            }}
+          >
+            <button
+              type="button"
+              onMouseEnter={() => setActive(idx)}
+              onMouseLeave={() => setActive(null)}
+              onFocus={() => setActive(idx)}
+              onBlur={() => setActive(null)}
+              className="absolute flex flex-col items-center justify-center rounded-full transition-all duration-300"
+              style={{
+                width: "20%",
+                height: "20%",
+                top: "50%",
+                left: "50%",
+                marginTop: "-10%",
+                marginLeft: "-10%",
+                animationName: "orbit-ccw",
+                animationDuration: `${ORBIT_DURATION}s`,
+                animationTimingFunction: "linear",
+                animationIterationCount: "infinite",
+                animationDelay: `${delay}s`,
+                animationPlayState: paused ? "paused" : "running",
+                backgroundColor: isActive ? "#5C0A14" : "#faf6ee",
+                border: `2px solid ${isActive ? "#C9A227" : "#e8dcc8"}`,
+                boxShadow: isActive
+                  ? "0 12px 32px rgba(60,4,14,0.3)"
+                  : "0 2px 8px rgba(60,4,14,0.08)",
+                cursor: "pointer",
+                zIndex: isActive ? 2 : 1,
+              }}
+              aria-label={value.name}
+            >
+              <value.Icon
+                className="h-6 w-6 md:h-7 md:w-7"
+                style={{ color: isActive ? "#C9A227" : "#5C0A14" }}
+              />
+              <span
+                className="mt-1 px-1 text-[9px] font-bold uppercase leading-tight tracking-wide md:text-[10px]"
+                style={{ color: isActive ? "#fff" : "#5C0A14" }}
+              >
+                {value.name}
+              </span>
+            </button>
+          </div>
         );
       })}
+
+      <style jsx>{`
+        @keyframes orbit-cw {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes orbit-ccw {
+          from {
+            transform: translateY(-200%) rotate(0deg);
+          }
+          to {
+            transform: translateY(-200%) rotate(-360deg);
+          }
+        }
+        @keyframes values-fade-in {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .values-fade-in {
+          animation: values-fade-in 0.25s ease-out forwards;
+        }
+        .orbit-spoke {
+          will-change: transform;
+        }
+      `}</style>
     </div>
   );
 }
