@@ -84,9 +84,6 @@ export default function ValuesGrid() {
               >
                 {value.name}
               </h3>
-              <p className="mt-1 text-xs uppercase tracking-widest" style={{ color: "#C9A227" }}>
-                Pasá el mouse →
-              </p>
             </div>
 
             <div

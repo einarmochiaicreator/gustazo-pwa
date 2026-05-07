@@ -131,56 +131,6 @@ export default function QuienesSomosPage() {
           <ValuesGrid />
         </section>
 
-        {/* FILOSOFÍA */}
-        <section style={{ backgroundColor: "#5C0A14", color: "#fff" }}>
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-              Filosofía
-            </p>
-            <h2
-              className="mb-4 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
-              style={{ color: "#fff" }}
-            >
-              Tres pilares.
-            </h2>
-            <p className="mb-12 max-w-2xl text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
-              Creemos que la verdadera innovación no está solo en las recetas,
-              sino en la manera en que conectamos con las personas y entendemos
-              sus necesidades.
-            </p>
-
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              {[
-                {
-                  num: "01",
-                  title: "Empatía y conexión humana",
-                  text: "Entendemos lo que significa vivir con restricciones alimentarias porque lo hemos vivido en carne propia. Por eso, escuchamos, aprendemos y adaptamos cada aspecto de nuestro trabajo para estar a la altura de las expectativas de quienes confían en nosotros.",
-                },
-                {
-                  num: "02",
-                  title: "Desarrollo personal y profesional",
-                  text: "Creemos que el crecimiento individual de nuestro equipo es esencial para cumplir nuestra misión. Fomentamos el aprendizaje continuo y el desarrollo personal porque sabemos que un equipo sólido y comprometido es la clave para transformar vidas.",
-                },
-                {
-                  num: "03",
-                  title: "Innovación con propósito",
-                  text: "Nuestro objetivo es ir más allá de lo esperado. Innovamos no solo para crear productos deliciosos, sino para aportar valor nutricional y promover una alimentación inclusiva y consciente. Usamos ingredientes de alta calidad, como super alimentos, para contribuir al bienestar y la salud de quienes nos eligen.",
-                },
-              ].map((p) => (
-                <div key={p.num} className="border-t pt-6" style={{ borderColor: "rgba(201,162,39,0.5)" }}>
-                  <p className="mb-3 text-3xl font-bold" style={{ color: "#C9A227" }}>{p.num}</p>
-                  <h3 className="mb-3 text-base font-semibold uppercase tracking-wide" style={{ color: "#fff" }}>
-                    {p.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
-                    {p.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CIERRE + CTA */}
         <section className="mx-auto max-w-3xl px-6 py-24 text-center">
           <p className="text-xl leading-relaxed md:text-2xl" style={{ color: "#5C0A14" }}>
