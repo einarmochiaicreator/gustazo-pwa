@@ -52,15 +52,37 @@ export default function SafetyProof() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Bloque 1 — Certificado */}
           <article className="p-6" style={{ backgroundColor: "#fff" }}>
-            <div className="mb-4 flex h-40 items-center justify-center" style={{ backgroundColor: "#faf6ee" }}>
-              {/* TODO: reemplazar por <Image> con /assets/certificados/rne.jpg */}
-              <CertificateIcon className="h-14 w-14" style={{ color: "#5C0A14", opacity: 0.4 }} />
-            </div>
+            <a
+              href="/assets/certificados/rne-1.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-4 relative block h-48 overflow-hidden transition hover:opacity-90"
+              style={{ backgroundColor: "#faf6ee", borderRadius: "8px" }}
+              aria-label="Ver certificado R.N.E. 04006318 en tamaño completo"
+            >
+              <Image
+                src="/assets/certificados/rne-1.png"
+                alt="Certificado R.N.E. 04006318"
+                fill
+                className="object-cover object-top"
+                sizes="300px"
+              />
+            </a>
             <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
               R.N.E. 04006318
             </h3>
             <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
               Establecimiento elaborador certificado por ANMAT.
+              <br />
+              <a
+                href="/assets/certificados/rne-1.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold underline-offset-2 hover:underline"
+                style={{ color: "#5C0A14" }}
+              >
+                Ver certificado →
+              </a>
             </p>
           </article>
 
