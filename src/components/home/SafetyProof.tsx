@@ -6,28 +6,34 @@ import Carousel3D, { type Carousel3DSlide } from "@/components/Carousel3D";
 const ANMAT_ALG_URL = "https://listadoalg.anmat.gob.ar/Home";
 const CAPALIGLU_URL = "https://capaliglu.org.ar/";
 
-// TODO: reemplazar por fotos reales de /assets/local/
 const LOCAL_PHOTOS = [
-  { id: 1, alt: "Mesada de acero inoxidable" },
-  { id: 2, alt: "Freezer y conservación" },
-  { id: 3, alt: "Balanza y control de lote" },
-  { id: 4, alt: "Espacio de trabajo" },
+  { id: "sector0", src: "/assets/local/Sector0.PNG", alt: "Sector de trabajo del establecimiento elaborador" },
+  { id: "batidora", src: "/assets/local/Batidora.PNG", alt: "Batidora industrial" },
+  { id: "sector1", src: "/assets/local/Sector1.PNG", alt: "Sector de elaboración" },
+  { id: "sector2", src: "/assets/local/Sector2.PNG", alt: "Sector de producción" },
+  { id: "bacha", src: "/assets/local/Bacha.PNG", alt: "Bacha de lavado" },
+  { id: "sector3", src: "/assets/local/Sector3.png", alt: "Sector de trabajo" },
+  { id: "deposito", src: "/assets/local/Deposito.PNG", alt: "Depósito de materias primas" },
 ];
 
 const localSlides: Carousel3DSlide[] = LOCAL_PHOTOS.map((photo) => ({
   id: photo.id,
   content: (
     <div
-      className="flex h-full w-full items-center justify-center overflow-hidden"
+      className="relative h-full w-full overflow-hidden"
       style={{
         backgroundColor: "#faf6ee",
-        borderRadius: "4px",
+        borderRadius: "8px",
         boxShadow: "0 8px 24px rgba(60,4,14,0.15)",
       }}
     >
-      <span className="text-xs font-medium uppercase tracking-widest text-center px-4" style={{ color: "#5C0A14", opacity: 0.4 }}>
-        {photo.alt}
-      </span>
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        className="object-cover"
+        sizes="320px"
+      />
     </div>
   ),
 }));
