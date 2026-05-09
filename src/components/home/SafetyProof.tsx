@@ -160,7 +160,7 @@ export default function SafetyProof() {
             Acero inoxidable, controles de lote, y trazabilidad desde la materia prima hasta tu casa.
           </p>
 
-          <Carousel3D slides={localSlides} slideWidth={300} slideHeight={300} />
+          <Carousel3D slides={localSlides} slideWidth={300} slideHeight={400} />
         </div>
       </div>
     </section>
