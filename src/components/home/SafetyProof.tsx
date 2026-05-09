@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import { CertificateIcon } from "@/components/Icons";
 import Carousel3D, { type Carousel3DSlide } from "@/components/Carousel3D";
+import CertificatesMarquee from "./CertificatesMarquee";
 
 const ANMAT_ALG_URL = "https://listadoalg.anmat.gob.ar/Home";
 const CAPALIGLU_URL = "https://capaliglu.org.ar/";
@@ -49,8 +48,8 @@ export default function SafetyProof() {
           Lo que hay detrás de cada paquete.
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* Bloque 1 — Certificado */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Bloque 1 — Certificado RNE */}
           <article className="p-6" style={{ backgroundColor: "#fff" }}>
             <a
               href="/assets/certificados/rne-1.png"
@@ -86,20 +85,6 @@ export default function SafetyProof() {
             </p>
           </article>
 
-          {/* Bloque 2 — RNPA */}
-          <article className="p-6" style={{ backgroundColor: "#fff" }}>
-            <div className="mb-4 flex h-40 items-center justify-center" style={{ backgroundColor: "#faf6ee" }}>
-              {/* TODO: galería de R.N.P.A. en /assets/certificados/ */}
-              <CertificateIcon className="h-14 w-14" style={{ color: "#5C0A14", opacity: 0.4 }} />
-            </div>
-            <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-              Cada producto, registrado
-            </h3>
-            <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-              Cada producto con su Registro Nacional de Producto Alimenticio.
-            </p>
-          </article>
-
           {/* Bloque 3 — ANMAT */}
           <article className="p-6 flex flex-col" style={{ backgroundColor: "#fff" }}>
             <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
@@ -120,8 +105,8 @@ export default function SafetyProof() {
             </a>
           </article>
 
-          {/* Bloque 5 — CAPALIGLU */}
-          <article className="p-6 md:col-span-3 flex flex-col items-start sm:flex-row sm:items-center sm:gap-8" style={{ backgroundColor: "#fff" }}>
+          {/* Bloque CAPALIGLU — full width */}
+          <article className="p-6 md:col-span-2 flex flex-col items-start sm:flex-row sm:items-center sm:gap-8" style={{ backgroundColor: "#fff" }}>
             <div className="mb-4 sm:mb-0 relative h-16 w-48 shrink-0">
               <Image
                 src="/logo-capaliglu.png"
@@ -149,6 +134,19 @@ export default function SafetyProof() {
               </p>
             </div>
           </article>
+        </div>
+
+        {/* Cada producto, registrado — marquee de RNPAs */}
+        <div className="mt-20">
+          <h3 className="mb-2 text-2xl font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
+            Cada producto, registrado
+          </h3>
+          <p className="mb-10 text-sm" style={{ color: "#7a5a5e" }}>
+            Cada producto cuenta con su Registro Nacional de Producto Alimenticio (RNPA).
+            Pasá el mouse para detener y hacé click en cualquiera para verlo en tamaño completo.
+          </p>
+
+          <CertificatesMarquee />
         </div>
 
         {/* Cómo es nuestro espacio — carrusel 3D */}
