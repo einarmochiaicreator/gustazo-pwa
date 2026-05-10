@@ -24,23 +24,17 @@
   }
 }
 
-/* Marquee HORIZONTAL para certificados RNPA — un certificado a la vez */
-@keyframes scroll-rnpa-horiz {
+/* Marquee VERTICAL para certificados RNPA — un certificado completo a la vez */
+@keyframes scroll-rnpa-vert {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 }
-.rnpa-marquee-window {
-  container-type: inline-size;
-}
 .rnpa-marquee-track {
-  animation: scroll-rnpa-horiz 54s linear infinite;
-}
-.rnpa-marquee-slide {
-  width: 100cqw;
+  animation: scroll-rnpa-vert 90s linear infinite;
 }
 .rnpa-marquee-window:hover .rnpa-marquee-track {
   animation-play-state: paused;

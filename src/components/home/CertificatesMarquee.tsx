@@ -4,10 +4,11 @@ const CERT_COUNT = 9;
 const CERTS = Array.from({ length: CERT_COUNT }, (_, i) => `/assets/certificados/rnpa-${i + 1}.png`);
 
 /**
- * Marquee horizontal de los certificados RNPA. Cada certificado ocupa el
- * ancho completo de la ventana (vía container queries: 100cqw), de modo que
- * solo se ve UN certificado a la vez deslizándose. Cuando uno sale por la
- * izquierda, el siguiente entra por la derecha. Pausa al hover.
+ * Marquee VERTICAL de los certificados RNPA. La ventana tiene la misma forma
+ * (A4 portrait) que el rectángulo del RNE. Cada certificado se muestra
+ * completo dentro de un slide del tamaño total de la ventana, deslizándose
+ * lentamente de abajo hacia arriba. Pasa al siguiente cuando el actual sale
+ * por arriba. Pausa al hover.
  */
 export default function CertificatesMarquee() {
   return (
@@ -19,8 +20,8 @@ export default function CertificatesMarquee() {
       }}
     >
       <div
-        className="rnpa-marquee-track flex h-full"
-        style={{ width: "max-content" }}
+        className="rnpa-marquee-track flex flex-col"
+        style={{ width: "100%" }}
       >
         {[...CERTS, ...CERTS].map((src, i) => (
           <a
@@ -28,16 +29,22 @@ export default function CertificatesMarquee() {
             href={src}
             target="_blank"
             rel="noopener noreferrer"
-            className="rnpa-marquee-slide relative block h-full shrink-0 transition hover:opacity-95"
+            className="relative block w-full shrink-0 transition hover:opacity-95"
+            style={{
+              aspectRatio: "1 / 1.414",
+              padding: "16px",
+            }}
             aria-label={`Ver certificado RNPA ${(i % CERT_COUNT) + 1} en tamaño completo`}
           >
-            <Image
-              src={src}
-              alt={`Certificado RNPA ${(i % CERT_COUNT) + 1}`}
-              fill
-              className="object-cover"
-              sizes="500px"
-            />
+            <div className="relative h-full w-full">
+              <Image
+                src={src}
+                alt={`Certificado RNPA ${(i % CERT_COUNT) + 1}`}
+                fill
+                className="object-contain"
+                sizes="280px"
+              />
+            </div>
           </a>
         ))}
       </div>

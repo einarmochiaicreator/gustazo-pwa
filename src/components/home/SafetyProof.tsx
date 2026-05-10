@@ -48,10 +48,11 @@ export default function SafetyProof() {
           Lo que hay detrás de cada paquete.
         </h2>
 
-        {/* Trío principal — RNE A4 portrait · RNPA marquee A4 landscape · ANMAT A4 portrait
-            Ratio de columnas 1:2:1 para que las alturas de los rectángulos visuales coincidan. */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[1fr_2fr_1fr] lg:items-stretch">
-          {/* Col 1 — RNE en formato A4 (define la altura del trío) */}
+        {/* Trío principal — los 3 rectángulos del MISMO tamaño (A4 portrait).
+            RNE: imagen del certificado · RNPA: marquee VERTICAL one-at-a-time
+            · ANMAT: imagen oficial con texto y CTA. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
+          {/* Col 1 — RNE A4 portrait */}
           <article
             className="flex flex-col p-5"
             style={{ backgroundColor: "#fff", borderRadius: "8px" }}
@@ -73,26 +74,29 @@ export default function SafetyProof() {
               href="/assets/certificados/rne-1.png"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative block w-full flex-1 overflow-hidden transition hover:opacity-95"
+              className="relative block w-full overflow-hidden transition hover:opacity-95"
               style={{
                 backgroundColor: "#faf6ee",
                 borderRadius: "8px",
                 aspectRatio: "1 / 1.414",
                 boxShadow: "0 4px 16px rgba(60,4,14,0.12)",
+                padding: "8px",
               }}
               aria-label="Ver certificado R.N.E. 04006318 en tamaño completo"
             >
-              <Image
-                src="/assets/certificados/rne-1.png"
-                alt="Certificado R.N.E. 04006318"
-                fill
-                className="object-cover object-top"
-                sizes="320px"
-              />
+              <div className="relative h-full w-full">
+                <Image
+                  src="/assets/certificados/rne-1.png"
+                  alt="Certificado R.N.E. 04006318"
+                  fill
+                  className="object-contain"
+                  sizes="320px"
+                />
+              </div>
             </a>
           </article>
 
-          {/* Col 2 — RNPA marquee A4 LANDSCAPE — un certificado a la vez */}
+          {/* Col 2 — RNPA marquee VERTICAL, mismo tamaño que el RNE */}
           <article
             className="flex flex-col p-5"
             style={{ backgroundColor: "#fff", borderRadius: "8px" }}
@@ -112,13 +116,18 @@ export default function SafetyProof() {
 
             <div
               className="w-full"
-              style={{ aspectRatio: "1.414 / 1" }}
+              style={{
+                aspectRatio: "1 / 1.414",
+                boxShadow: "0 4px 16px rgba(60,4,14,0.12)",
+                borderRadius: "8px",
+                overflow: "hidden",
+              }}
             >
               <CertificatesMarquee />
             </div>
           </article>
 
-          {/* Col 3 — ANMAT animado (mismo alto vía items-stretch) */}
+          {/* Col 3 — ANMAT con imagen oficial */}
           <div className="flex flex-col">
             <AnmatCard />
           </div>

@@ -21,7 +21,7 @@ export default function AnmatCard() {
         ANMAT
       </h3>
 
-      {/* Imagen oficial de ANMAT */}
+      {/* Imagen oficial — llena el recuadro con un margen mínimo arriba y a los costados */}
       <a
         href={ANMAT_ALG_URL}
         target="_blank"
@@ -32,16 +32,20 @@ export default function AnmatCard() {
           borderRadius: "8px",
           aspectRatio: "1 / 1.414",
           boxShadow: "0 4px 16px rgba(60,4,14,0.08)",
+          padding: "8px",
         }}
         aria-label="Ir al listado oficial de ANMAT"
       >
-        <Image
-          src="/assets/certificados/anmat.png"
-          alt="ANMAT — Administración Nacional de Medicamentos, Alimentos y Tecnología Médica"
-          fill
-          className="object-contain"
-          sizes="320px"
-        />
+        <div className="relative h-full w-full">
+          <Image
+            src="/assets/certificados/anmat.png"
+            alt="ANMAT — Administración Nacional de Medicamentos, Alimentos y Tecnología Médica"
+            fill
+            className="object-cover"
+            style={{ objectPosition: "center" }}
+            sizes="320px"
+          />
+        </div>
       </a>
 
       <p
