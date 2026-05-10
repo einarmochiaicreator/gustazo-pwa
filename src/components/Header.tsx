@@ -26,40 +26,15 @@ export default function Header() {
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header>
-      {/* Top bar — redes sociales */}
-      <div
-        className="flex items-center gap-3 px-6 py-2"
-        style={{ backgroundColor: "#3e0009" }}
-      >
-        <a
-          href="https://www.instagram.com/gustazo.glutenfree"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="opacity-70 transition hover:opacity-100"
-        >
-          <InstagramIcon className="h-4 w-4 text-white" />
-        </a>
-        <a
-          href="https://www.facebook.com/gustazoglutenfree"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-          className="opacity-70 transition hover:opacity-100"
-        >
-          <FacebookIcon className="h-4 w-4 text-white" />
-        </a>
-      </div>
-
-      {/* Main nav */}
+    <header className="sticky top-8 z-40">
+      {/* Nav fija, más compacta */}
       <nav
-        className="sticky top-0 z-40 flex items-center justify-between gap-6 px-6 py-6"
+        className="flex items-center justify-between gap-6 px-6 py-3"
         style={{ backgroundColor: "#5C0A14" }}
       >
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <div className="relative h-12 w-12">
+          <div className="relative h-10 w-10">
             <Image
               src="/assets/logos/gustazo-blanco.png"
               alt="Gustazo"
@@ -108,7 +83,6 @@ export default function Header() {
 
         {/* Carrito + cuenta + hamburguesa */}
         <div className="flex items-center gap-3">
-          {/* Icono usuario */}
           <Link
             href={session ? "/perfil" : "/auth/signin"}
             aria-label={session ? "Mi cuenta" : "Iniciar sesión"}
@@ -121,7 +95,7 @@ export default function Header() {
 
           <button
             onClick={openCart}
-            className="relative flex items-center gap-1.5 rounded px-3 py-2 text-sm font-semibold transition active:scale-95"
+            className="relative flex items-center gap-1.5 rounded px-3 py-1.5 text-sm font-semibold transition active:scale-95"
             style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
             aria-label="Ver carrito"
           >
@@ -136,7 +110,6 @@ export default function Header() {
             )}
           </button>
 
-          {/* Hamburguesa mobile */}
           <button
             className="md:hidden rounded p-1 text-white"
             onClick={() => setMenuOpen((v) => !v)}
@@ -195,24 +168,6 @@ function CartIcon({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
       <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
       <path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6" />
-    </svg>
-  );
-}
-
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-    </svg>
-  );
-}
-
-function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
     </svg>
   );
 }

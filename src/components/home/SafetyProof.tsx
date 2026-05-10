@@ -54,9 +54,9 @@ export default function SafetyProof() {
           Estamos habilitados a vender en todo el país.
         </p>
 
-        {/* Trío principal — items-start para que cada card termine en su contenido
-            natural, sin espacio vacío al final. */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-start">
+        {/* Trío principal — los 3 cards tienen el mismo recuadro A4 portrait
+            adentro, así terminan a la misma altura naturalmente. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Col 1 — RNE A4 portrait */}
           <article
             className="flex flex-col p-5"
