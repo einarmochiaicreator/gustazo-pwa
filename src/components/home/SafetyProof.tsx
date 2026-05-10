@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Carousel3D, { type Carousel3DSlide } from "@/components/Carousel3D";
 import CertificatesMarquee from "./CertificatesMarquee";
+import AnmatCard from "./AnmatCard";
 
-const ANMAT_ALG_URL = "https://listadoalg.anmat.gob.ar/Home";
 const CAPALIGLU_URL = "https://capaliglu.org.ar/";
 
 const LOCAL_PHOTOS = [
@@ -48,15 +48,37 @@ export default function SafetyProof() {
           Lo que hay detrás de cada paquete.
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Bloque 1 — Certificado RNE */}
-          <article className="p-6" style={{ backgroundColor: "#fff" }}>
+        {/* Trío principal — RNE (A4) · RNPA marquee · ANMAT animado */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
+          {/* Col 1 — RNE en formato A4 */}
+          <article
+            className="flex flex-col p-5"
+            style={{ backgroundColor: "#fff", borderRadius: "8px" }}
+          >
+            <p
+              className="mb-1 text-xs font-bold uppercase tracking-widest"
+              style={{ color: "#C9A227" }}
+            >
+              Establecimiento
+            </p>
+            <h3
+              className="mb-4 text-lg font-semibold uppercase tracking-wide"
+              style={{ color: "#5C0A14" }}
+            >
+              R.N.E. 04006318
+            </h3>
+
             <a
               href="/assets/certificados/rne-1.png"
               target="_blank"
               rel="noopener noreferrer"
-              className="mb-4 relative block h-48 overflow-hidden transition hover:opacity-90"
-              style={{ backgroundColor: "#faf6ee", borderRadius: "8px" }}
+              className="relative block w-full overflow-hidden transition hover:opacity-95"
+              style={{
+                backgroundColor: "#faf6ee",
+                borderRadius: "8px",
+                aspectRatio: "1 / 1.414",
+                boxShadow: "0 4px 16px rgba(60,4,14,0.12)",
+              }}
               aria-label="Ver certificado R.N.E. 04006318 en tamaño completo"
             >
               <Image
@@ -64,94 +86,105 @@ export default function SafetyProof() {
                 alt="Certificado R.N.E. 04006318"
                 fill
                 className="object-cover object-top"
-                sizes="300px"
+                sizes="320px"
               />
             </a>
-            <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-              R.N.E. 04006318
-            </h3>
-            <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-              Establecimiento elaborador certificado por ANMAT.
-              <br />
-              <a
-                href="/assets/certificados/rne-1.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-semibold underline-offset-2 hover:underline"
-                style={{ color: "#5C0A14" }}
-              >
-                Ver certificado →
-              </a>
-            </p>
-          </article>
 
-          {/* Bloque 3 — ANMAT */}
-          <article className="p-6 flex flex-col" style={{ backgroundColor: "#fff" }}>
-            <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-              Buscanos en ANMAT
-            </h3>
-            <p className="mb-5 flex-1 text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-              Estamos en el listado oficial de ANMAT. Buscanos — y de paso ya
-              tenés para chequear otras marcas cuando tengas dudas.
+            <p
+              className="mt-4 text-sm leading-relaxed"
+              style={{ color: "#1a0a0c" }}
+            >
+              Establecimiento elaborador certificado por ANMAT.
             </p>
             <a
-              href={ANMAT_ALG_URL}
+              href="/assets/certificados/rne-1.png"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block self-start px-4 py-2 text-xs font-bold uppercase tracking-wide transition active:scale-95"
-              style={{ backgroundColor: "#5C0A14", color: "#C9A227", borderRadius: "8px" }}
+              className="mt-2 text-xs font-semibold underline-offset-2 hover:underline"
+              style={{ color: "#5C0A14" }}
             >
-              Ir al Listado ALG →
+              Ver certificado completo →
             </a>
           </article>
 
-          {/* Bloque CAPALIGLU — full width */}
-          <article className="p-6 md:col-span-2 flex flex-col items-start sm:flex-row sm:items-center sm:gap-8" style={{ backgroundColor: "#fff" }}>
-            <div className="mb-4 sm:mb-0 relative h-16 w-48 shrink-0">
-              <Image
-                src="/logo-capaliglu.png"
-                alt="CAPALIGLU — Cámara Argentina de Productores de Alimentos Libres de Gluten"
-                fill
-                className="object-contain object-left"
-                sizes="192px"
-              />
+          {/* Col 2 — RNPA Marquee vertical (ventana fija) */}
+          <article
+            className="flex flex-col p-5"
+            style={{ backgroundColor: "#fff", borderRadius: "8px" }}
+          >
+            <p
+              className="mb-1 text-xs font-bold uppercase tracking-widest"
+              style={{ color: "#C9A227" }}
+            >
+              Cada producto
+            </p>
+            <h3
+              className="mb-4 text-lg font-semibold uppercase tracking-wide"
+              style={{ color: "#5C0A14" }}
+            >
+              Registrado en RNPA
+            </h3>
+
+            <div className="flex-1 min-h-[420px]">
+              <CertificatesMarquee />
             </div>
-            <div className="flex-1">
-              <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-                Socios activos
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-                Somos socios activos de la Cámara Argentina de Productores de Alimentos Libres de Gluten.{" "}
-                <a
-                  href={CAPALIGLU_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-2 transition hover:opacity-80"
-                  style={{ color: "#5C0A14", textDecorationColor: "#C9A227" }}
-                >
-                  capaliglu.org.ar →
-                </a>
-              </p>
-            </div>
+
+            <p
+              className="mt-4 text-xs leading-relaxed"
+              style={{ color: "#7a5a5e" }}
+            >
+              Pasá el mouse para detener · click en cualquiera para verlo entero.
+            </p>
           </article>
+
+          {/* Col 3 — ANMAT animado */}
+          <div className="flex flex-col">
+            <AnmatCard />
+          </div>
         </div>
 
-        {/* Cada producto, registrado — marquee de RNPAs */}
-        <div className="mt-20">
-          <h3 className="mb-2 text-2xl font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
-            Cada producto, registrado
-          </h3>
-          <p className="mb-10 text-sm" style={{ color: "#7a5a5e" }}>
-            Cada producto cuenta con su Registro Nacional de Producto Alimenticio (RNPA).
-            Pasá el mouse para detener y hacé click en cualquiera para verlo en tamaño completo.
-          </p>
-
-          <CertificatesMarquee />
-        </div>
+        {/* CAPALIGLU full-width abajo */}
+        <article
+          className="mt-6 flex flex-col items-start p-6 sm:flex-row sm:items-center sm:gap-8"
+          style={{ backgroundColor: "#fff", borderRadius: "8px" }}
+        >
+          <div className="mb-4 sm:mb-0 relative h-16 w-48 shrink-0">
+            <Image
+              src="/logo-capaliglu.png"
+              alt="CAPALIGLU — Cámara Argentina de Productores de Alimentos Libres de Gluten"
+              fill
+              className="object-contain object-left"
+              sizes="192px"
+            />
+          </div>
+          <div className="flex-1">
+            <h3
+              className="mb-2 text-sm font-semibold uppercase tracking-wide"
+              style={{ color: "#5C0A14" }}
+            >
+              Socios activos
+            </h3>
+            <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
+              Somos socios activos de la Cámara Argentina de Productores de Alimentos Libres de Gluten.{" "}
+              <a
+                href={CAPALIGLU_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition hover:opacity-80"
+                style={{ color: "#5C0A14", textDecorationColor: "#C9A227" }}
+              >
+                capaliglu.org.ar →
+              </a>
+            </p>
+          </div>
+        </article>
 
         {/* Cómo es nuestro espacio — carrusel 3D */}
         <div className="mt-20">
-          <h3 className="mb-2 text-2xl font-semibold uppercase tracking-wide" style={{ color: "#5C0A14" }}>
+          <h3
+            className="mb-2 text-2xl font-semibold uppercase tracking-wide"
+            style={{ color: "#5C0A14" }}
+          >
             Cómo es nuestro espacio
           </h3>
           <p className="mb-10 text-sm" style={{ color: "#7a5a5e" }}>

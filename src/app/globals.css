@@ -24,18 +24,61 @@
   }
 }
 
-/* Marquee infinito para certificados — pausa al hover */
-@keyframes scroll-rnpa {
+/* Marquee VERTICAL infinito para certificados RNPA — pausa al hover */
+@keyframes scroll-rnpa-vert {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 }
 .rnpa-marquee-track {
-  animation: scroll-rnpa 60s linear infinite;
+  animation: scroll-rnpa-vert 50s linear infinite;
 }
 .rnpa-marquee-window:hover .rnpa-marquee-track {
   animation-play-state: paused;
+}
+
+/* ANMAT — efecto typewriter del search bar */
+@keyframes anmat-typing {
+  0%, 10% {
+    width: 0;
+  }
+  45%, 60% {
+    width: 100%;
+  }
+  95%, 100% {
+    width: 0;
+  }
+}
+@keyframes anmat-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+.anmat-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: anmat-typing 6s steps(20, end) infinite;
+}
+.anmat-cursor {
+  animation: anmat-cursor-blink 0.8s step-end infinite;
+}
+
+/* ANMAT — pulso suave del icono de lupa */
+@keyframes anmat-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+.anmat-pulse {
+  animation: anmat-pulse 2.4s ease-in-out infinite;
 }
