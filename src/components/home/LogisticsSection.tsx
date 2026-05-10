@@ -148,15 +148,15 @@ function MercadoPagoBadge() {
   return (
     <div
       className="flex items-center px-4 py-2.5"
-      style={{ backgroundColor: "#fff", borderRadius: "8px" }}
+      style={{ backgroundColor: "rgba(255,255,255,0.08)", borderRadius: "8px" }}
     >
-      <div className="relative h-6 w-[78px]">
+      <div className="relative h-10 w-[120px]">
         <Image
           src="/assets/Mercado_Pago.png"
           alt="Mercado Pago"
           fill
           className="object-contain"
-          sizes="78px"
+          sizes="120px"
         />
       </div>
     </div>
