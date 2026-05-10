@@ -3,12 +3,14 @@ import Image from "next/image";
 const CERT_COUNT = 9;
 const CERTS = Array.from({ length: CERT_COUNT }, (_, i) => `/assets/certificados/rnpa-${i + 1}.png`);
 
+// Las imágenes de RNPA son landscape ~1.67:1.
+const SLIDE_ASPECT = "1.669 / 1";
+
 /**
- * Marquee VERTICAL de los certificados RNPA. La ventana tiene la misma forma
- * (A4 portrait) que el rectángulo del RNE. Cada certificado se muestra
- * completo dentro de un slide del tamaño total de la ventana, deslizándose
- * lentamente de abajo hacia arriba. Pasa al siguiente cuando el actual sale
- * por arriba. Pausa al hover.
+ * Marquee VERTICAL de certificados RNPA. Cada slide tiene la misma forma que
+ * la imagen del certificado (landscape ~1.67:1), apilados verticalmente con
+ * un margen mínimo entre uno y otro. La ventana es A4 portrait, así que se
+ * ven varias imágenes a la vez (~2-3) deslizándose lentamente. Pausa al hover.
  */
 export default function CertificatesMarquee() {
   return (
@@ -21,7 +23,7 @@ export default function CertificatesMarquee() {
     >
       <div
         className="rnpa-marquee-track flex flex-col"
-        style={{ width: "100%" }}
+        style={{ width: "100%", padding: "6px" }}
       >
         {[...CERTS, ...CERTS].map((src, i) => (
           <a
@@ -31,20 +33,22 @@ export default function CertificatesMarquee() {
             rel="noopener noreferrer"
             className="relative block w-full shrink-0 transition hover:opacity-95"
             style={{
-              aspectRatio: "1 / 1.414",
-              padding: "16px",
+              aspectRatio: SLIDE_ASPECT,
+              marginBottom: "6px",
+              borderRadius: "4px",
+              overflow: "hidden",
+              boxShadow: "0 2px 8px rgba(60,4,14,0.08)",
+              backgroundColor: "#fff",
             }}
             aria-label={`Ver certificado RNPA ${(i % CERT_COUNT) + 1} en tamaño completo`}
           >
-            <div className="relative h-full w-full">
-              <Image
-                src={src}
-                alt={`Certificado RNPA ${(i % CERT_COUNT) + 1}`}
-                fill
-                className="object-contain"
-                sizes="280px"
-              />
-            </div>
+            <Image
+              src={src}
+              alt={`Certificado RNPA ${(i % CERT_COUNT) + 1}`}
+              fill
+              className="object-cover"
+              sizes="280px"
+            />
           </a>
         ))}
       </div>

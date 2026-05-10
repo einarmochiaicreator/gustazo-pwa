@@ -48,10 +48,9 @@ export default function SafetyProof() {
           Lo que hay detrás de cada paquete.
         </h2>
 
-        {/* Trío principal — los 3 rectángulos del MISMO tamaño (A4 portrait).
-            RNE: imagen del certificado · RNPA: marquee VERTICAL one-at-a-time
-            · ANMAT: imagen oficial con texto y CTA. */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
+        {/* Trío principal — items-start para que cada card termine en su contenido
+            natural, sin espacio vacío al final. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-start">
           {/* Col 1 — RNE A4 portrait */}
           <article
             className="flex flex-col p-5"
