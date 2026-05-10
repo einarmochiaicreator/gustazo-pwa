@@ -187,8 +187,11 @@ export default function SafetyProof() {
           >
             Cómo es nuestro espacio
           </h3>
-          <p className="mb-10 text-sm" style={{ color: "#7a5a5e" }}>
-            Acero inoxidable, controles de lote, y trazabilidad desde la materia prima hasta tu casa.
+          <p className="mb-10 max-w-2xl text-sm leading-relaxed" style={{ color: "#7a5a5e" }}>
+            Cuidar a quien confía en nosotros nos importa de verdad. Por eso
+            armamos este espacio con amor, siguiendo las recomendaciones de
+            Anahí, nuestra bromatóloga. Algunos clientes nos dijeron que
+            parece un quirófano.
           </p>
 
           <Carousel3D slides={localSlides} slideWidth={300} slideHeight={400} />
