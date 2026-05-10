@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Alianzas Comerciales | Gustazo",
   description:
-    "Sumá productos sin gluten a la carta de tu bar, restaurante o café. Modelo simple, productos congelados que duran, capacitación al equipo y compra directa de fábrica.",
+    "Sumá clientes y ampliá el ticket promedio incorporando productos sin gluten a la carta de tu bar, restaurante o café. Modelo simple, congelados que duran, capacitación incluida y compra directa de fábrica.",
 };
 
 const WA_NUMBER = "5493516632462";
@@ -65,12 +65,12 @@ export default function AlianzasPage() {
               className="text-4xl font-semibold uppercase leading-tight tracking-wide md:text-6xl"
               style={{ color: "#fff" }}
             >
-              Sumá sin gluten a tu carta.<br />Sin reniegos. Con más ventas.
+              Más clientes.<br />Ticket más alto.<br />Sin complicar la operación.
             </h1>
             <p className="mt-4 max-w-2xl text-base md:text-lg" style={{ color: "rgba(255,255,255,0.85)" }}>
-              Para bares, restaurantes, cafés y hoteles que quieren incluir a
-              todas las personas en la mesa — sin resignar sabor ni complicar
-              la operación.
+              Para bares, restaurantes, cafés y hoteles que quieren incluir
+              a todas las personas en la mesa — sin resignar sabor ni
+              rentabilidad.
             </p>
           </div>
           <div
@@ -79,24 +79,25 @@ export default function AlianzasPage() {
           />
         </section>
 
-        {/* DOLOR — lo que pasa hoy */}
+        {/* DOLOR — lo que pasa hoy (más profesional) */}
         <section className="mx-auto max-w-5xl px-6 py-20">
           <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-            Lo que pasa hoy
+            El contexto
           </p>
           <h2
             className="mb-10 text-3xl font-semibold leading-tight md:text-4xl"
             style={{ color: "#5C0A14" }}
           >
-            Sabemos cómo es la cocina de un bar.
+            Conocemos los desafíos del rubro.
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {[
-              "Tu equipo está al palo, y cualquier cosa “extra” se reniega.",
-              "Sumás opciones SG con buena onda… y a las dos semanas se vencen, se ponen duros, terminan en la basura.",
-              "Los celíacos llegan, no encuentran nada que se vea rico, y se van a otro lado.",
-              "Pierden ese cliente — y a las 4, 5 o 20 personas que iban a venir con él.",
+              "Tu equipo trabaja al límite. Cualquier proceso adicional genera fricción y errores operativos.",
+              "Las opciones sin gluten convencionales tienen baja rotación: se vencen, se secan o se descartan. El resultado es merma y pérdida directa de margen.",
+              "El cliente celíaco que no encuentra una propuesta atractiva no vuelve. Con él se pierde, además, el grupo que lo acompañaba.",
+              "Una sola persona con restricción alimentaria define dónde se reúnen 4, 5 o hasta 20 personas. Cada decisión perdida representa un grupo completo.",
+              "Cumplir con la Ley 27.196 sin una propuesta diferenciada termina siendo un costo, no una ventaja competitiva.",
             ].map((line) => (
               <p
                 key={line}
@@ -114,7 +115,7 @@ export default function AlianzasPage() {
           </div>
 
           <p className="mt-10 text-lg leading-relaxed" style={{ color: "#5C0A14", fontWeight: 600 }}>
-            Hay una forma de cambiar esto sin reinventar tu cocina.
+            Hay un modelo que resuelve todo esto sin reinventar tu cocina.
           </p>
         </section>
 
@@ -128,7 +129,7 @@ export default function AlianzasPage() {
               className="mb-12 text-3xl font-semibold leading-tight md:text-4xl"
               style={{ color: "#5C0A14" }}
             >
-              El mercado está, y casi nadie lo está atendiendo bien.
+              El mercado está. Casi nadie lo está atendiendo bien.
             </h2>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -141,12 +142,12 @@ export default function AlianzasPage() {
                 {
                   big: "14,5 M",
                   unit: "en Argentina",
-                  text: "tomando el mismo 30% de población que reduce o evita el gluten a nivel país.",
+                  text: "tomando el mismo 30% de la población a nivel país. Un mercado en crecimiento sostenido.",
                 },
                 {
                   big: "1 → 20",
                   unit: "personas",
-                  text: "Una sola persona celíaca define dónde se reúnen 4, 5 o hasta 20 personas en un festejo.",
+                  text: "Una persona celíaca puede definir dónde se reúnen 4, 5 o hasta 20 personas en un festejo.",
                 },
               ].map((stat) => (
                 <div
@@ -196,7 +197,7 @@ export default function AlianzasPage() {
             className="mb-12 text-3xl font-semibold leading-tight md:text-4xl"
             style={{ color: "#5C0A14" }}
           >
-            Simple, validado por bares con +2 años trabajando con nosotros.
+            Simple, validado por bares con +3 años trabajando con nosotros.
           </h2>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -208,8 +209,8 @@ export default function AlianzasPage() {
               },
               {
                 Icon: ChefHatIcon,
-                title: "Capacitación al equipo, incluida",
-                text: "Una bromatóloga especializada va a tu cocina. Adaptamos los procesos al espacio que ya tenés. Dejamos carteles autoadhesivos con los pasos y un video con QR para los nuevos ingresos. Capacitación automatizada.",
+                title: "Te enseñamos a tu equipo. Te lo dejamos funcionando.",
+                text: "Capacitación básica incluida: vamos a tu cocina, ajustamos los procesos al espacio que ya tenés, dejamos carteles con los pasos clave y un video con QR para los nuevos ingresos. Si necesitás algo más profundo, tenés disponible el servicio profesional con bromatóloga especializada — certificación firmada incluida.",
               },
               {
                 Icon: HeartIcon,
@@ -271,8 +272,8 @@ export default function AlianzasPage() {
                 },
                 {
                   Icon: HeartIcon,
-                  title: "Validación real de bares",
-                  text: "La prueba más honesta no la damos nosotros: la dan las reseñas de Google Maps y los bares que llevan más de dos años eligiéndonos. Podemos pasarte referencias para que hables directo con ellos.",
+                  title: "+3 años trabajando con bares y cadenas",
+                  text: "Cadenas como Bonafide y muchos otros bares y cafeterías llevan más de 3 años eligiéndonos. La prueba más honesta no la damos nosotros: la dan las reseñas de Google Maps y los clientes que vuelven. Te pasamos referencias para que hables directo con ellos.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4">
@@ -297,60 +298,7 @@ export default function AlianzasPage() {
           </div>
         </section>
 
-        {/* PROPUESTA DE PRODUCTOS */}
-        <section className="mx-auto max-w-6xl px-6 py-20">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
-            Línea básica
-          </p>
-          <h2
-            className="mb-4 text-3xl font-semibold leading-tight md:text-4xl"
-            style={{ color: "#5C0A14" }}
-          >
-            Para empezar sin complicar la operación.
-          </h2>
-          <p className="mb-12 max-w-3xl text-base leading-relaxed" style={{ color: "#7a5a5e" }}>
-            Una selección estratégica para sumar a tu carta — productos
-            seguros, sabrosos y con buena rotación. Después podés ampliar con
-            el resto del catálogo según tu público.
-          </p>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { name: "Pan de Campo", text: "Corteza crujiente, miga aireada. Tostadas, sándwiches gourmet, sopas." },
-              { name: "Prepizza", text: "Estilo americano, alvéolos grandes y bordes crocantes. Lista para hornear." },
-              { name: "Pan de Hamburguesa", text: "Miga suave que no se rompe, con semillas de lino. Ideal para burgers premium." },
-              { name: "Pan de Lomo", text: "Más grande, miga firme y corteza artesanal. Perfecto para lomitos cordobeses." },
-              { name: "Pan Árabe", text: "Fino, esponjoso y versátil. Wraps, sándwiches fríos o calientes." },
-              { name: "Pan de Mesa (bollito)", text: "Toque dulce y corteza rústica. Ideal para acompañar entradas." },
-              { name: "Budines variados", text: "Textura súper húmeda. Vainilla, chocolate, mandarina, coco, limón." },
-              { name: "Alfajores de maicena", text: "Masa suave, dulce de leche cremoso, coco. Balance justo." },
-              { name: "Cookies estilo NY", text: "Crocantes por fuera, húmedas por dentro. Vainilla con chips, red velvet, naranja-choco." },
-            ].map((p) => (
-              <div
-                key={p.name}
-                className="p-5"
-                style={{ backgroundColor: "#faf6ee", borderRadius: "8px" }}
-              >
-                <p
-                  className="mb-2 text-sm font-semibold uppercase tracking-wide"
-                  style={{ color: "#5C0A14" }}
-                >
-                  {p.name}
-                </p>
-                <p className="text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>
-                  {p.text}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-8 text-sm italic" style={{ color: "#7a5a5e" }}>
-            La lista de precios mayorista la pasamos en la primera llamada,
-            según tu volumen estimado.
-          </p>
-        </section>
-
-        {/* CRECIMIENTO CONJUNTO — redes */}
+        {/* CRECIMIENTO CONJUNTO — redes con stats reales actualizados */}
         <section style={{ backgroundColor: "#5C0A14", color: "#fff" }}>
           <div className="mx-auto max-w-6xl px-6 py-20">
             <p
@@ -360,25 +308,32 @@ export default function AlianzasPage() {
               Crecimiento conjunto
             </p>
             <h2
-              className="mb-10 text-3xl font-semibold leading-tight md:text-4xl"
+              className="mb-4 text-3xl font-semibold leading-tight md:text-4xl"
               style={{ color: "#fff" }}
             >
               Te potenciamos en redes — comunidad real, no seguidores comprados.
             </h2>
+            <p
+              className="mb-12 max-w-3xl text-base leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.8)" }}
+            >
+              Estos son nuestros números de los últimos 90 días. No vendemos
+              alcance: lo demostramos.
+            </p>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {[
                 {
-                  big: "22.400",
+                  big: "+26 K",
                   text: "seguidores orgánicos en @gustazo.glutenfree",
                 },
                 {
-                  big: "+107 K",
-                  text: "visualizaciones en los últimos 30 días",
+                  big: "~1 M",
+                  text: "visualizaciones en los últimos 90 días",
                 },
                 {
-                  big: "2.300",
-                  text: "interacciones mensuales con comunidad fiel",
+                  big: "+8.900",
+                  text: "cuentas únicas que interactúan con nuestro contenido",
                 },
               ].map((stat) => (
                 <div
@@ -397,6 +352,34 @@ export default function AlianzasPage() {
                   </p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
                     {stat.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4"
+              style={{ color: "rgba(255,255,255,0.85)" }}
+            >
+              {[
+                { n: "9.212", l: "Alcance promedio/post" },
+                { n: "6.800", l: "Compartidos en 90 días" },
+                { n: "2.877", l: "Veces guardado" },
+                { n: "270", l: "Likes promedio/post" },
+              ].map((s) => (
+                <div
+                  key={s.l}
+                  className="px-3 py-3 text-center"
+                  style={{
+                    backgroundColor: "rgba(201,162,39,0.10)",
+                    borderRadius: "6px",
+                  }}
+                >
+                  <p className="text-lg font-bold leading-none" style={{ color: "#C9A227" }}>
+                    {s.n}
+                  </p>
+                  <p className="mt-1 text-[11px] uppercase tracking-wide" style={{ color: "rgba(255,255,255,0.7)" }}>
+                    {s.l}
                   </p>
                 </div>
               ))}
