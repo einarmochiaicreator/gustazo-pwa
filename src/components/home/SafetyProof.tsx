@@ -50,7 +50,7 @@ export default function SafetyProof() {
 
         {/* Trío principal — RNE (A4) · RNPA marquee · ANMAT animado */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
-          {/* Col 1 — RNE en formato A4 */}
+          {/* Col 1 — RNE en formato A4 (define la altura del trío) */}
           <article
             className="flex flex-col p-5"
             style={{ backgroundColor: "#fff", borderRadius: "8px" }}
@@ -72,7 +72,7 @@ export default function SafetyProof() {
               href="/assets/certificados/rne-1.png"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative block w-full overflow-hidden transition hover:opacity-95"
+              className="relative block w-full flex-1 overflow-hidden transition hover:opacity-95"
               style={{
                 backgroundColor: "#faf6ee",
                 borderRadius: "8px",
@@ -89,25 +89,9 @@ export default function SafetyProof() {
                 sizes="320px"
               />
             </a>
-
-            <p
-              className="mt-4 text-sm leading-relaxed"
-              style={{ color: "#1a0a0c" }}
-            >
-              Establecimiento elaborador certificado por ANMAT.
-            </p>
-            <a
-              href="/assets/certificados/rne-1.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 text-xs font-semibold underline-offset-2 hover:underline"
-              style={{ color: "#5C0A14" }}
-            >
-              Ver certificado completo →
-            </a>
           </article>
 
-          {/* Col 2 — RNPA Marquee vertical (ventana fija) */}
+          {/* Col 2 — RNPA Marquee vertical (ventana fija, mismo alto que RNE) */}
           <article
             className="flex flex-col p-5"
             style={{ backgroundColor: "#fff", borderRadius: "8px" }}
@@ -116,28 +100,21 @@ export default function SafetyProof() {
               className="mb-1 text-xs font-bold uppercase tracking-widest"
               style={{ color: "#C9A227" }}
             >
-              Cada producto
+              Registros oficiales
             </p>
             <h3
               className="mb-4 text-lg font-semibold uppercase tracking-wide"
               style={{ color: "#5C0A14" }}
             >
-              Registrado en RNPA
+              Productos con RNPA
             </h3>
 
-            <div className="flex-1 min-h-[420px]">
+            <div className="flex-1">
               <CertificatesMarquee />
             </div>
-
-            <p
-              className="mt-4 text-xs leading-relaxed"
-              style={{ color: "#7a5a5e" }}
-            >
-              Pasá el mouse para detener · click en cualquiera para verlo entero.
-            </p>
           </article>
 
-          {/* Col 3 — ANMAT animado */}
+          {/* Col 3 — ANMAT animado (mismo alto vía items-stretch) */}
           <div className="flex flex-col">
             <AnmatCard />
           </div>
