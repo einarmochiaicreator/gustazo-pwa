@@ -48,8 +48,9 @@ export default function SafetyProof() {
           Lo que hay detrás de cada paquete.
         </h2>
 
-        {/* Trío principal — RNE (A4) · RNPA marquee · ANMAT animado */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
+        {/* Trío principal — RNE A4 portrait · RNPA marquee A4 landscape · ANMAT A4 portrait
+            Ratio de columnas 1:2:1 para que las alturas de los rectángulos visuales coincidan. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[1fr_2fr_1fr] lg:items-stretch">
           {/* Col 1 — RNE en formato A4 (define la altura del trío) */}
           <article
             className="flex flex-col p-5"
@@ -91,7 +92,7 @@ export default function SafetyProof() {
             </a>
           </article>
 
-          {/* Col 2 — RNPA Marquee vertical (ventana fija, mismo alto que RNE) */}
+          {/* Col 2 — RNPA marquee A4 LANDSCAPE — un certificado a la vez */}
           <article
             className="flex flex-col p-5"
             style={{ backgroundColor: "#fff", borderRadius: "8px" }}
@@ -109,7 +110,10 @@ export default function SafetyProof() {
               Productos con RNPA
             </h3>
 
-            <div className="flex-1">
+            <div
+              className="w-full"
+              style={{ aspectRatio: "1.414 / 1" }}
+            >
               <CertificatesMarquee />
             </div>
           </article>
