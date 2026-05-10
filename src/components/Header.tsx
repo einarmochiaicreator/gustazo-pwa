@@ -59,7 +59,7 @@ export default function Header() {
               <li className="relative shrink-0">
                 <Link
                   href={item.soon ? "#" : item.href}
-                  className="flex items-center gap-1 text-sm transition"
+                  className="flex items-center gap-1 text-base transition"
                   style={{
                     color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)",
                     fontWeight: isActive(item.href) ? 600 : 400,
@@ -131,7 +131,7 @@ export default function Header() {
               <li key={item.href}>
                 <Link
                   href={item.soon ? "#" : item.href}
-                  className="flex items-center justify-between px-6 py-3 text-sm"
+                  className="flex items-center justify-between px-6 py-3 text-base"
                   style={{ color: isActive(item.href) ? "#C9A227" : "rgba(250,246,238,0.85)" }}
                   onClick={() => setMenuOpen(false)}
                 >
