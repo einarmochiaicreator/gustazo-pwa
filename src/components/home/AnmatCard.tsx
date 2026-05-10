@@ -1,10 +1,8 @@
 import Image from "next/image";
 
 const ANMAT_ALG_URL = "https://listadoalg.anmat.gob.ar/Home";
-
-// La imagen oficial de ANMAT es landscape ~1.55:1; usamos esa misma proporción
-// en el rectángulo para que la imagen entre nítida sin recorte ni pixelado.
-const IMG_ASPECT = "1.554 / 1";
+// Aproximación al azul de la tipografía ANMAT
+const ANMAT_BLUE = "#1B7DBB";
 
 export default function AnmatCard() {
   return (
@@ -25,8 +23,9 @@ export default function AnmatCard() {
         ANMAT
       </h3>
 
-      {/* Imagen oficial — el rectángulo matchea la proporción de la imagen,
-          así no hay zoom ni recorte: la imagen entra completa y nítida. */}
+      {/* Recuadro A4 portrait — mismo tamaño que RNE/RNPA. Imagen con
+          object-contain: entra completa, sin recorte ni pixelado.
+          El espacio crema arriba y abajo funciona como marco. */}
       <a
         href={ANMAT_ALG_URL}
         target="_blank"
@@ -35,9 +34,9 @@ export default function AnmatCard() {
         style={{
           backgroundColor: "#faf6ee",
           borderRadius: "8px",
-          aspectRatio: IMG_ASPECT,
+          aspectRatio: "1 / 1.414",
           boxShadow: "0 4px 16px rgba(60,4,14,0.08)",
-          padding: "6px",
+          padding: "12px",
         }}
         aria-label="Ir al listado oficial de ANMAT"
       >
@@ -66,8 +65,8 @@ export default function AnmatCard() {
         rel="noopener noreferrer"
         className="mt-4 inline-flex items-center justify-center self-start px-4 py-2.5 text-xs font-bold uppercase tracking-wide transition active:scale-95 hover:opacity-90"
         style={{
-          backgroundColor: "#5C0A14",
-          color: "#C9A227",
+          backgroundColor: ANMAT_BLUE,
+          color: "#fff",
           borderRadius: "8px",
         }}
       >

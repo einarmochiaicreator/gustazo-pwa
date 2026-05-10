@@ -34,7 +34,7 @@
   }
 }
 .rnpa-marquee-track {
-  animation: scroll-rnpa-vert 90s linear infinite;
+  animation: scroll-rnpa-vert 45s linear infinite;
 }
 .rnpa-marquee-window:hover .rnpa-marquee-track {
   animation-play-state: paused;

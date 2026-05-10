@@ -42,11 +42,17 @@ export default function SafetyProof() {
     <section style={{ backgroundColor: "#faf6ee" }}>
       <div className="mx-auto max-w-6xl px-6 py-20">
         <h2
-          className="mb-12 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
+          className="mb-3 text-3xl font-semibold uppercase tracking-wide md:text-4xl"
           style={{ color: "#5C0A14" }}
         >
           Lo que hay detrás de cada paquete.
         </h2>
+        <p
+          className="mb-12 text-base"
+          style={{ color: "#7a5a5e" }}
+        >
+          Estamos habilitados a vender en todo el país.
+        </p>
 
         {/* Trío principal — items-start para que cada card termine en su contenido
             natural, sin espacio vacío al final. */}
