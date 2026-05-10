@@ -357,34 +357,6 @@ export default function AlianzasPage() {
               ))}
             </div>
 
-            <div
-              className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4"
-              style={{ color: "rgba(255,255,255,0.85)" }}
-            >
-              {[
-                { n: "9.212", l: "Alcance promedio/post" },
-                { n: "6.800", l: "Compartidos en 90 días" },
-                { n: "2.877", l: "Veces guardado" },
-                { n: "270", l: "Likes promedio/post" },
-              ].map((s) => (
-                <div
-                  key={s.l}
-                  className="px-3 py-3 text-center"
-                  style={{
-                    backgroundColor: "rgba(201,162,39,0.10)",
-                    borderRadius: "6px",
-                  }}
-                >
-                  <p className="text-lg font-bold leading-none" style={{ color: "#C9A227" }}>
-                    {s.n}
-                  </p>
-                  <p className="mt-1 text-[11px] uppercase tracking-wide" style={{ color: "rgba(255,255,255,0.7)" }}>
-                    {s.l}
-                  </p>
-                </div>
-              ))}
-            </div>
-
             <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
               {[
                 {
