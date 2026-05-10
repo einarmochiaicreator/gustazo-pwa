@@ -42,7 +42,9 @@ export default function Carousel3D({
 
     const translateX = offset * slideWidth * spacingFactor;
     const opacity = isCenter ? 1 : distance === 1 ? 0.5 : 0.18;
-    const zIndex = 100 - distance;
+    // z-index bajo (3 - distance → 1, 2, 3) para que el header sticky
+    // (z-50) y el banner de construcción (z-50) queden siempre por encima.
+    const zIndex = 3 - distance;
 
     return {
       position: "absolute",

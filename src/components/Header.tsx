@@ -26,7 +26,7 @@ export default function Header() {
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-8 z-40">
+    <header className="sticky top-8 z-50">
       {/* Nav fija, más compacta */}
       <nav
         className="flex items-center justify-between gap-6 px-6 py-3"
