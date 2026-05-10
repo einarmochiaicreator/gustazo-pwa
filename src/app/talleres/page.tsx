@@ -92,8 +92,8 @@ export default function TalleresPage() {
               Formaciones específicas y prácticas para profundizar en cada aspecto de la producción y el negocio sin gluten.
             </p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-12"
-            style={{ background: "#fff", clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }} />
+          <div className="absolute -bottom-px left-0 right-0 h-12"
+            style={{ background: "#fff", clipPath: "polygon(0 calc(100% + 1px), 100% 0, 100% calc(100% + 1px))" }} />
         </section>
 
         {/* Grid de talleres */}

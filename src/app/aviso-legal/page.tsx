@@ -18,8 +18,8 @@ export default function AvisoLegalPage() {
           <div className="relative z-10 mx-auto max-w-5xl px-6 py-14 pb-20">
             <h1 className="text-4xl font-semibold uppercase tracking-wide" style={{ color: "#fff" }}>Aviso legal</h1>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-10"
-            style={{ background: "#fff", clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }} />
+          <div className="absolute -bottom-px left-0 right-0 h-10"
+            style={{ background: "#fff", clipPath: "polygon(0 calc(100% + 1px), 100% 0, 100% calc(100% + 1px))" }} />
         </section>
 
         <section className="mx-auto max-w-3xl px-6 py-14 space-y-6 text-sm leading-relaxed" style={{ color: "#1a0a0c" }}>

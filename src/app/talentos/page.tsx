@@ -69,8 +69,8 @@ export default function TalentosPage() {
             </p>
           </div>
           <div
-            className="absolute bottom-0 left-0 right-0 h-12"
-            style={{ background: "#fff", clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }}
+            className="absolute -bottom-px left-0 right-0 h-12"
+            style={{ background: "#fff", clipPath: "polygon(0 calc(100% + 1px), 100% 0, 100% calc(100% + 1px))" }}
           />
         </section>
 

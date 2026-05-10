@@ -50,8 +50,8 @@ export default function ContactoPage() {
               Completá el formulario y te respondemos a la brevedad.
             </p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-12"
-            style={{ background: "#fff", clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }} />
+          <div className="absolute -bottom-px left-0 right-0 h-12"
+            style={{ background: "#fff", clipPath: "polygon(0 calc(100% + 1px), 100% 0, 100% calc(100% + 1px))" }} />
         </section>
 
         {/* CONTENIDO — 2 columnas */}
