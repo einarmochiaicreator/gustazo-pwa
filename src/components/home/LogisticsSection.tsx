@@ -111,7 +111,7 @@ export default function LogisticsSection() {
               Cómo pagás
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <PayBadge label="Mercado Pago" Icon={MercadoPagoLogo} />
+              <MercadoPagoBadge />
               <PayBadge label="Transferencia" Icon={BankLogo} />
               <PayBadge label="Efectivo" Icon={CashLogo} />
             </div>
@@ -144,15 +144,22 @@ function PayBadge({ label, Icon }: { label: string; Icon: React.ComponentType<{ 
   );
 }
 
-function MercadoPagoLogo({ className }: { className?: string }) {
+function MercadoPagoBadge() {
   return (
-    <svg className={className} viewBox="0 0 64 64" aria-hidden>
-      <circle cx="32" cy="32" r="30" fill="#00B1EA" />
-      <path
-        d="M18 32c0-7 6-13 14-13s14 6 14 13c0 1.5-1.2 2.5-2.5 2.2-2-.5-3.7-1.5-5.5-1.5-1.7 0-3 .8-3 2 0 1.4 1.5 2 3 2.2 4 .5 8-.8 8 2.5 0 2.5-3 5-7 5-3.5 0-6-1.5-7-3-1 1.5-3.5 3-7 3-4 0-7-2.5-7-5 0-3.3 4-2 8-2.5 1.5-.2 3-.8 3-2.2 0-1.2-1.3-2-3-2-1.8 0-3.5 1-5.5 1.5-1.3.3-2.5-.7-2.5-2.2z"
-        fill="#fff"
-      />
-    </svg>
+    <div
+      className="flex items-center px-4 py-2.5"
+      style={{ backgroundColor: "#fff", borderRadius: "8px" }}
+    >
+      <div className="relative h-6 w-[78px]">
+        <Image
+          src="/assets/Mercado_Pago.png"
+          alt="Mercado Pago"
+          fill
+          className="object-contain"
+          sizes="78px"
+        />
+      </div>
+    </div>
   );
 }
 
