@@ -1,16 +1,25 @@
 import Image from "next/image";
 
-const CERT_COUNT = 9;
-const CERTS = Array.from({ length: CERT_COUNT }, (_, i) => `/assets/certificados/rnpa-${i + 1}.png`);
-
-// Las imágenes de RNPA son landscape ~1.67:1.
-const SLIDE_ASPECT = "1.669 / 1";
+// Cada certificado RNPA tiene su propio aspect ratio (las imágenes fuente
+// tienen dimensiones distintas). Cada slide se renderiza con el aspect
+// exacto de su imagen para que entre perfecta, sin recorte ni whitespace.
+const CERTS = [
+  { src: "/assets/certificados/rnpa-1.png", w: 1552, h: 930 },
+  { src: "/assets/certificados/rnpa-2.png", w: 1534, h: 782 },
+  { src: "/assets/certificados/rnpa-3.png", w: 1568, h: 786 },
+  { src: "/assets/certificados/rnpa-4.png", w: 1576, h: 770 },
+  { src: "/assets/certificados/rnpa-5.png", w: 1526, h: 766 },
+  { src: "/assets/certificados/rnpa-6.png", w: 1560, h: 906 },
+  { src: "/assets/certificados/rnpa-7.png", w: 1586, h: 902 },
+  { src: "/assets/certificados/rnpa-8.png", w: 1574, h: 912 },
+  { src: "/assets/certificados/rnpa-9.png", w: 1558, h: 908 },
+];
 
 /**
- * Marquee VERTICAL de certificados RNPA. Cada slide tiene la misma forma que
- * la imagen del certificado (landscape ~1.67:1), apilados verticalmente con
- * un margen mínimo entre uno y otro. La ventana es A4 portrait, así que se
- * ven varias imágenes a la vez (~2-3) deslizándose lentamente. Pausa al hover.
+ * Marquee VERTICAL de certificados RNPA. Cada slide tiene el aspect ratio
+ * exacto de su imagen fuente, así que entra completa sin recorte. Stack
+ * apretado, varios visibles a la vez, deslizándose continuamente. Pausa al
+ * hover.
  */
 export default function CertificatesMarquee() {
   return (
@@ -25,26 +34,26 @@ export default function CertificatesMarquee() {
         className="rnpa-marquee-track flex flex-col"
         style={{ width: "100%", padding: "6px" }}
       >
-        {[...CERTS, ...CERTS].map((src, i) => (
+        {[...CERTS, ...CERTS].map((cert, i) => (
           <a
             key={i}
-            href={src}
+            href={cert.src}
             target="_blank"
             rel="noopener noreferrer"
             className="relative block w-full shrink-0 transition hover:opacity-95"
             style={{
-              aspectRatio: SLIDE_ASPECT,
+              aspectRatio: `${cert.w} / ${cert.h}`,
               marginBottom: "6px",
               borderRadius: "4px",
               overflow: "hidden",
               boxShadow: "0 2px 8px rgba(60,4,14,0.08)",
               backgroundColor: "#fff",
             }}
-            aria-label={`Ver certificado RNPA ${(i % CERT_COUNT) + 1} en tamaño completo`}
+            aria-label={`Ver certificado RNPA ${(i % CERTS.length) + 1} en tamaño completo`}
           >
             <Image
-              src={src}
-              alt={`Certificado RNPA ${(i % CERT_COUNT) + 1}`}
+              src={cert.src}
+              alt={`Certificado RNPA ${(i % CERTS.length) + 1}`}
               fill
               className="object-cover"
               sizes="280px"
