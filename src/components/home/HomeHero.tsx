@@ -17,7 +17,21 @@ export default function HomeHero() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 pb-24">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-stretch">
-          {/* Izquierda — sello SIN GLUTEN arriba (3x), texto + CTAs juntos abajo */}
+          {/* Izquierda — logo Gustazo (primer impacto) */}
+          <div className="hidden md:flex items-center justify-center">
+            <div className="relative aspect-square w-full max-w-sm">
+              <Image
+                src="/assets/logos/gustazo-mostaza.png"
+                alt="Gustazo"
+                fill
+                priority
+                sizes="(max-width: 768px) 0px, 384px"
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Derecha — sello SIN GLUTEN arriba, texto + CTAs juntos abajo */}
           <div className="flex flex-col items-center text-center">
             {/* Sello oficial SIN GLUTEN — centrado */}
             <div className="relative h-44 w-44 md:h-52 md:w-52">
@@ -66,20 +80,6 @@ export default function HomeHero() {
               >
                 Conocernos
               </Link>
-            </div>
-          </div>
-
-          {/* Derecha — logo Gustazo en mostaza, centrado */}
-          <div className="hidden md:flex items-center justify-center">
-            <div className="relative aspect-square w-full max-w-sm">
-              <Image
-                src="/assets/logos/gustazo-mostaza.png"
-                alt="Gustazo"
-                fill
-                priority
-                sizes="(max-width: 768px) 0px, 384px"
-                className="object-contain"
-              />
             </div>
           </div>
         </div>
