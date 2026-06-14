@@ -59,6 +59,42 @@ const GOOGLE_REVIEWS: GoogleReview[] = [
     when: "Hace 2 años",
     text: "La primera vez que como una pizza sin gluten que no tiene nada que envidiar a una con gluten, ya sea en sabor y cocción. Super recomendable y voy a seguir comprando desde Buenos Aires.",
   },
+  {
+    id: "mario",
+    name: "Mario Paredes (Marito)",
+    initial: "M",
+    avatarColor: "#3B7AF7",
+    meta: "Local Guide · 33 opiniones · 1.082 fotos",
+    when: "Hace un año",
+    text: "Principalmente, excelente atención. Variedad de productos, ricos sin lugar a duda. Muy buenos precios. Pulcritud y salubridad al 100%.",
+  },
+  {
+    id: "anabel",
+    name: "Anabel Mealla",
+    initial: "A",
+    avatarColor: "#5C8C3F",
+    meta: "Local Guide · 72 opiniones · 195 fotos",
+    when: "Hace un año",
+    text: "Conocí el lugar por Instagram, me comunique le conté mi situación q recién estoy incursionando en los alimentos sin gluten y tuve una muy buena asesoría y luego de probar quede encantada. Super recomendable.",
+  },
+  {
+    id: "meel",
+    name: "Meel Cort.",
+    initial: "M",
+    avatarColor: "#8E6B47",
+    meta: "Local Guide · 19 opiniones · 2 fotos",
+    when: "Hace un año",
+    text: "Tremenda combinación de sabores, realmente exquisito el producto, algo muy bien terminado, sabor, humedad, es casi un postre. Realmente sorprendido al probar este producto.",
+  },
+  {
+    id: "rodrigo",
+    name: "Rodrigo Acosta",
+    initial: "R",
+    avatarColor: "#4F7DC2",
+    meta: "Local Guide · 101 opiniones · 53 fotos",
+    when: "Hace 2 años",
+    text: "Los mejores productos de panificación apto celíacos por lejos! Las pizzas un 10, el pan de campo no puede más, los panes para hamburguesas, panchos y árabes no se pueden creer! Los budines, ricazos! Son unos genios! Todo súper cuidado y la presentación impecable! A seguir creciendo Gustazo!!! 🤛🏼🤛🏼🤛🏼",
+  },
 ];
 
 const whatsappSlides: Carousel3DSlide[] = WHATSAPP_PLACEHOLDERS.map((i) => ({
