@@ -31,16 +31,27 @@ export default function HomeHero() {
             </div>
           </div>
 
-          {/* Derecha — sello SIN GLUTEN arriba, texto + CTAs juntos abajo */}
+          {/* Derecha — en mobile: logo Gustazo arriba. En desktop+: sello SIN GLUTEN arriba */}
           <div className="flex flex-col items-center text-center">
-            {/* Sello oficial SIN GLUTEN — centrado */}
-            <div className="relative h-44 w-44 md:h-52 md:w-52">
+            {/* Logo Gustazo — solo mobile */}
+            <div className="relative h-44 w-44 md:hidden">
+              <Image
+                src="/assets/logos/gustazo-mostaza.png"
+                alt="Gustazo"
+                fill
+                priority
+                sizes="176px"
+                className="object-contain"
+              />
+            </div>
+            {/* Sello SIN GLUTEN — solo desktop+ */}
+            <div className="relative hidden h-44 w-44 md:block md:h-52 md:w-52">
               <Image
                 src="/assets/logos/sin-gluten-logo.png"
                 alt="Apto sin gluten"
                 fill
                 priority
-                sizes="(max-width: 768px) 176px, 208px"
+                sizes="208px"
                 className="object-contain"
               />
             </div>
