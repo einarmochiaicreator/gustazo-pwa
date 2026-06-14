@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import Providers from "@/components/Providers";
 import { ConstructionIcon } from "@/components/Icons";
+import ChatBot from "@/components/ChatBot";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <CartProvider>
             {children}
+            <ChatBot />
           </CartProvider>
         </Providers>
       </body>
