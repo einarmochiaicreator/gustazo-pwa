@@ -3,8 +3,63 @@ import Carousel3D, { type Carousel3DSlide } from "@/components/Carousel3D";
 // TODO: capturas reales en /assets/whatsapp/
 const WHATSAPP_PLACEHOLDERS = [1, 2, 3, 4, 5];
 
-// TODO: capturas reales en /assets/google-reviews/
-const GOOGLE_PLACEHOLDERS = [1, 2, 3, 4, 5];
+interface GoogleReview {
+  id: string;
+  name: string;
+  initial: string;
+  avatarColor: string;
+  meta: string;
+  when: string;
+  text: string;
+}
+
+const GOOGLE_REVIEWS: GoogleReview[] = [
+  {
+    id: "elida",
+    name: "Elida Agüero",
+    initial: "E",
+    avatarColor: "#3B7AF7",
+    meta: "Local Guide · 11 opiniones · 3 fotos",
+    when: "Hace un año",
+    text: "Exquisito todo lo que elaboran, logran muy buenos sabores desde el pan rústico hasta los budines. Rico, saludable y muy buena atención es lo que se recibe al probar la experiencia Gustazo Gluten Free.",
+  },
+  {
+    id: "maria-pia",
+    name: "Maria Pia Peralta Salles",
+    initial: "M",
+    avatarColor: "#D946C9",
+    meta: "5 opiniones · 1 foto",
+    when: "Hace 6 meses",
+    text: "Uno de mis lugares favoritos sin gluten! El pan de lomo es lo más rico !! Y ni te digo el pan rallado, se siente como si fuera uno de panadería con gluten! Amooo comer, y me brindaron productos riquísimos para ni extrañar la comida con gluten! La atención es genial también! Súper buena onda! Gracias chicos 💖💖💖💖",
+  },
+  {
+    id: "paula",
+    name: "Paula Catrambone",
+    initial: "P",
+    avatarColor: "#7C7C8E",
+    meta: "9 opiniones",
+    when: "Editado hace un año",
+    text: "Lo más rico que he probado !!! Y sobre todo la calidad humana de los chicos que ponen todo cada día!! Lo recomiendo no se va arrepentir 🤗...",
+  },
+  {
+    id: "carina",
+    name: "Carina Bracamonte",
+    initial: "C",
+    avatarColor: "#3F4754",
+    meta: "5 opiniones",
+    when: "Hace 2 años",
+    text: "Los productos gustazo son la EXCELENCIA ...seguramente NO encontrarán algo ni parecido....las pizas ..los panes árabes....el pan de campo lo mejor de lo mejor...ni hablar de los budines....siempre con uds Gustazo.",
+  },
+  {
+    id: "gaston",
+    name: "gaston sejas",
+    initial: "g",
+    avatarColor: "#7C5CC4",
+    meta: "2 opiniones",
+    when: "Hace 2 años",
+    text: "La primera vez que como una pizza sin gluten que no tiene nada que envidiar a una con gluten, ya sea en sabor y cocción. Super recomendable y voy a seguir comprando desde Buenos Aires.",
+  },
+];
 
 const whatsappSlides: Carousel3DSlide[] = WHATSAPP_PLACEHOLDERS.map((i) => ({
   id: `wa-${i}`,
@@ -24,8 +79,8 @@ const whatsappSlides: Carousel3DSlide[] = WHATSAPP_PLACEHOLDERS.map((i) => ({
   ),
 }));
 
-const googleSlides: Carousel3DSlide[] = GOOGLE_PLACEHOLDERS.map((i) => ({
-  id: `g-${i}`,
+const googleSlides: Carousel3DSlide[] = GOOGLE_REVIEWS.map((r) => ({
+  id: r.id,
   content: (
     <div
       className="flex h-full w-full flex-col p-6 overflow-hidden"
@@ -35,16 +90,33 @@ const googleSlides: Carousel3DSlide[] = GOOGLE_PLACEHOLDERS.map((i) => ({
         boxShadow: "0 8px 24px rgba(60,4,14,0.12)",
       }}
     >
-      <div className="mb-3 flex gap-1" style={{ color: "#C9A227" }}>
-        {"★★★★★".split("").map((s, idx) => (
-          <span key={idx}>{s}</span>
-        ))}
+      {/* Header: avatar + nombre + meta */}
+      <div className="mb-3 flex items-start gap-3">
+        <div
+          className="flex h-10 w-10 shrink-0 items-center justify-center text-base font-semibold text-white"
+          style={{ backgroundColor: r.avatarColor, borderRadius: "999px" }}
+        >
+          {r.initial}
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-semibold" style={{ color: "#202124" }}>
+            {r.name}
+          </p>
+          <p className="truncate text-xs" style={{ color: "#70757a" }}>
+            {r.meta}
+          </p>
+        </div>
       </div>
-      <p className="flex-1 text-sm italic" style={{ color: "#5C0A14", opacity: 0.4 }}>
-        Reseña Google #{i} — placeholder
-      </p>
-      <p className="mt-4 text-xs font-semibold uppercase tracking-widest" style={{ color: "#7a5a5e" }}>
-        — Cliente Gustazo
+
+      {/* Estrellas + cuándo */}
+      <div className="mb-2 flex items-center gap-2">
+        <span className="text-sm tracking-tight" style={{ color: "#F9AB00" }}>★★★★★</span>
+        <span className="text-xs" style={{ color: "#70757a" }}>{r.when}</span>
+      </div>
+
+      {/* Texto */}
+      <p className="text-sm leading-relaxed" style={{ color: "#202124" }}>
+        {r.text}
       </p>
     </div>
   ),
@@ -74,7 +146,7 @@ export default function SocialProof() {
           <p className="mb-6 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
             Reseñas en Google
           </p>
-          <Carousel3D slides={googleSlides} slideWidth={320} slideHeight={220} />
+          <Carousel3D slides={googleSlides} slideWidth={360} slideHeight={340} />
         </div>
       </div>
     </section>
