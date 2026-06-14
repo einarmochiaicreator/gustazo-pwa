@@ -3,7 +3,6 @@ import { Quicksand } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import Providers from "@/components/Providers";
-import { ConstructionIcon } from "@/components/Icons";
 import ChatBot from "@/components/ChatBot";
 
 const quicksand = Quicksand({
@@ -51,14 +50,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-AR" className={quicksand.variable}>
       <body className={quicksand.className}>
-        <div
-          className="sticky top-0 z-50 flex items-center justify-center gap-2 py-2 text-xs font-bold uppercase tracking-widest"
-          style={{ backgroundColor: "#C9A227", color: "#5C0A14" }}
-        >
-          <ConstructionIcon className="h-3.5 w-3.5" />
-          Sitio web en construcción
-          <ConstructionIcon className="h-3.5 w-3.5" />
-        </div>
         <Providers>
           <CartProvider>
             {children}
