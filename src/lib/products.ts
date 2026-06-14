@@ -59,16 +59,6 @@ export const PRODUCTS: Product[] = [
     badge: "x2 unidades",
   },
   {
-    id: "fajitas-xl",
-    name: "Fajitas XL",
-    category: "panaderia",
-    price: 3800,
-    description: "Grandes y flexibles para armar tus fajitas favoritas.",
-    image: null,
-    available: false,
-    badge: "No disponible",
-  },
-  {
     id: "fajitas-xs",
     name: "Fajitas XS",
     category: "panaderia",
@@ -87,16 +77,6 @@ export const PRODUCTS: Product[] = [
     image: null,
     available: true,
     badge: "x6 unidades",
-  },
-  {
-    id: "pan-tarro",
-    name: "Pan de Tarro",
-    category: "panaderia",
-    price: 5200,
-    description: "Pan de molde esponjoso, cortado en fetas.",
-    image: null,
-    available: false,
-    badge: "No disponible",
   },
   {
     id: "prepizza",
@@ -228,16 +208,6 @@ export const PRODUCTS: Product[] = [
     description: "Masa enrollada con azúcar y canela.",
     image: null,
     available: true,
-  },
-  {
-    id: "panettone",
-    name: "Panettone",
-    category: "dulces",
-    price: 9800,
-    description: "Pan dulce navideño con frutos secos y chips de chocolate.",
-    image: null,
-    available: false,
-    badge: "No disponible",
   },
 
   // PASTAS — actualmente no disponibles

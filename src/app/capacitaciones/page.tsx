@@ -48,7 +48,7 @@ const CURSOS: Curso[] = [
     programa: "CREAR sin gluten",
     descripcion:
       "Aprendé a crear tus propias recetas de panadería y pastelería sin gluten desde cero. Entendemos los ingredientes funcionales, sus roles y cómo combinarlos para lograr productos de calidad profesional.",
-    duracion: "8 hs (2 encuentros)",
+    duracion: "16 hs",
     nivel: "Principiante / Intermedio",
     incluye: ["Material teórico impreso", "Práctica en establecimiento", "Degustación", "Certificado de participación"],
     proximaFecha: "Consultá disponibilidad",
