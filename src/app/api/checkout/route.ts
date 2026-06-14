@@ -54,6 +54,8 @@ export async function POST(req: Request) {
           pending: `${baseUrl}/checkout/pending`,
         },
         auto_return: "approved",
+        notification_url: `${baseUrl}/api/mercadopago/webhook`,
+        external_reference: `gustazo-${Date.now()}`,
         statement_descriptor: "Gustazo",
         additional_info: [
           `Modalidad: ${delivery === "retiro" ? "Retiro en local" : `Delivery a: ${address}`}`,
