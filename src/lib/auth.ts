@@ -1,6 +1,10 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { verifyUser } from "./users";
+
+const googleClientId = process.env.GOOGLE_CLIENT_ID;
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
@@ -9,6 +13,9 @@ export const authOptions: NextAuthOptions = {
     newUser: "/auth/signup",
   },
   providers: [
+    ...(googleClientId && googleClientSecret
+      ? [GoogleProvider({ clientId: googleClientId, clientSecret: googleClientSecret })]
+      : []),
     CredentialsProvider({
       name: "credentials",
       credentials: {

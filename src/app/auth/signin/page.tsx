@@ -104,6 +104,27 @@ function SignInForm() {
           </button>
         </form>
 
+        <div className="my-5 flex items-center gap-3">
+          <span className="h-px flex-1" style={{ backgroundColor: "#e8dcc8" }} />
+          <span className="text-xs uppercase tracking-wide" style={{ color: "#7a5a5e" }}>o</span>
+          <span className="h-px flex-1" style={{ backgroundColor: "#e8dcc8" }} />
+        </div>
+
+        <button
+          type="button"
+          onClick={() => signIn("google", { callbackUrl })}
+          className="flex w-full items-center justify-center gap-2 border py-3 text-sm font-semibold transition active:scale-[0.98]"
+          style={{ borderColor: "#d0c4b0", color: "#1a0a0c", backgroundColor: "#fff", borderRadius: "8px" }}
+        >
+          <svg className="h-5 w-5" viewBox="0 0 48 48" aria-hidden>
+            <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6 8-11.3 8a12 12 0 110-24c3 0 5.8 1.1 7.9 3l5.7-5.7A20 20 0 1024 44a20 20 0 0019.6-23.5z"/>
+            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8A12 12 0 0124 16c3 0 5.8 1.1 7.9 3l5.7-5.7A20 20 0 006.3 14.7z"/>
+            <path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.6-5.2l-6.3-5.3a12 12 0 01-7.3 2.5c-5.3 0-9.7-3.3-11.3-7.9l-6.6 5C9 39.6 16 44 24 44z"/>
+            <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3a12 12 0 01-4 5.5l6.3 5.3C39 36.5 44 31 44 24c0-1.2-.1-2.4-.4-3.5z"/>
+          </svg>
+          Continuar con Google
+        </button>
+
         <div className="mt-5 space-y-2 text-center">
           <Link href="/auth/forgot" className="block text-xs hover:underline" style={{ color: "#7a5a5e" }}>
             ¿Olvidaste tu contraseña?
