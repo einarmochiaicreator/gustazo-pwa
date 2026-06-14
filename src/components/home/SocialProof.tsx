@@ -1,23 +1,26 @@
 import Image from "next/image";
 import Carousel3D, { type Carousel3DSlide } from "@/components/Carousel3D";
 
-// TODO: capturas reales en /assets/whatsapp/
-const WHATSAPP_PLACEHOLDERS = [1, 2, 3, 4, 5];
+const WHATSAPP_NUMBERS = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
-const whatsappSlides: Carousel3DSlide[] = WHATSAPP_PLACEHOLDERS.map((i) => ({
-  id: `wa-${i}`,
+const whatsappSlides: Carousel3DSlide[] = WHATSAPP_NUMBERS.map((n) => ({
+  id: `wa-${n}`,
   content: (
     <div
-      className="flex h-full w-full items-center justify-center overflow-hidden"
+      className="relative h-full w-full overflow-hidden"
       style={{
         backgroundColor: "#faf6ee",
         borderRadius: "8px",
         boxShadow: "0 8px 24px rgba(60,4,14,0.15)",
       }}
     >
-      <span className="text-xs font-medium uppercase tracking-widest" style={{ color: "#5C0A14", opacity: 0.4 }}>
-        WhatsApp #{i}
-      </span>
+      <Image
+        src={`/assets/mensajes-whatsapp/mensaje${n}.jpeg`}
+        alt={`Mensaje WhatsApp ${n}`}
+        fill
+        className="object-cover"
+        sizes="240px"
+      />
     </div>
   ),
 }));
@@ -60,7 +63,7 @@ export default function SocialProof() {
           <p className="mb-6 text-xs font-bold uppercase tracking-widest" style={{ color: "#C9A227" }}>
             Mensajes que recibimos
           </p>
-          <Carousel3D slides={whatsappSlides} slideWidth={260} slideHeight={420} />
+          <Carousel3D slides={whatsappSlides} slideWidth={240} slideHeight={480} />
         </div>
 
         {/* Carrusel 2 — Google Maps reviews */}
