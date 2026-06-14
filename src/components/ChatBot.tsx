@@ -106,20 +106,20 @@ export default function ChatBot() {
 
   return (
     <>
-      {/* Botón flotante */}
+      {/* Botón flotante — estilo WhatsApp */}
       <button
         type="button"
         aria-label={open ? "Cerrar asistente" : "Abrir asistente"}
         onClick={() => setOpen((v) => !v)}
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center shadow-lg transition active:scale-95"
         style={{
-          backgroundColor: "#5C0A14",
-          color: "#C9A227",
+          backgroundColor: "#25D366",
+          color: "#fff",
           borderRadius: "999px",
-          boxShadow: "0 8px 24px rgba(60,4,14,0.35)",
+          boxShadow: "0 8px 24px rgba(37,211,102,0.45)",
         }}
       >
-        {open ? <CloseIcon /> : <ChatIcon />}
+        {open ? <CloseIcon /> : <WhatsAppIcon className="h-7 w-7" />}
         {!open && (
           <span
             className="absolute -top-0.5 -right-0.5 flex h-3 w-3"
@@ -127,11 +127,11 @@ export default function ChatBot() {
           >
             <span
               className="absolute inline-flex h-full w-full animate-ping"
-              style={{ backgroundColor: "#C9A227", borderRadius: "999px", opacity: 0.6 }}
+              style={{ backgroundColor: "#25D366", borderRadius: "999px", opacity: 0.6 }}
             />
             <span
               className="relative inline-flex h-3 w-3"
-              style={{ backgroundColor: "#C9A227", borderRadius: "999px" }}
+              style={{ backgroundColor: "#25D366", borderRadius: "999px" }}
             />
           </span>
         )}
@@ -302,9 +302,9 @@ function CloseIcon() {
   );
 }
 
-function WhatsAppIcon() {
+function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
       <path d="M17.5 14c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.3-.6-.5-.5-.7-.5-.2 0-.4 0-.6 0-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2z" />
     </svg>
   );
